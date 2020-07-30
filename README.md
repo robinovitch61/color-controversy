@@ -39,6 +39,15 @@ sudo systemctl start docker-compose-color
 As such, if you encounter "too many certificates already issued for exact set of domains" in your nginx letsencrypt proxy companion logs, change the HOSTNAME in the .env file. To avoid this happening, don't restart containers repeatedly if you can avoid it.
 
 >A certificate is considered a renewal (or a duplicate) of an earlier certificate if it contains the exact same set of hostnames, ignoring capitalization and ordering of hostnames. For instance, if you requested a certificate for the names [www.example.com, example.com], you could request four more certificates for [www.example.com, example.com] during the week. If you changed the set of hostnames by adding [blog.example.com], you would be able to request additional certificates.
+* Restart single docker-compose service
+E.g.:
+```sh
+docker-compose stop db
+docker-compose build db # unnecessary if no Dockerfile
+docker-compose create db 
+docker-compose start db 
+```
+
 ## Sources
 * https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
 * https://www.youtube.com/watch?v=z525kfneC6E
