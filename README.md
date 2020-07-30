@@ -32,6 +32,6 @@ sudo systemctl start docker-compose-color
 ```
 
 ## Sources
-https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
-https://www.youtube.com/watch?v=z525kfneC6E
-https://aws.amazon.com/blogs/compute/building-a-pocket-platform-as-a-service-with-amazon-lightsail/
+* https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
+* https://www.youtube.com/watch?v=z525kfneC6E
+* https://aws.amazon.com/blogs/compute/building-a-pocket-platform-as-a-service-with-amazon-lightsail/
