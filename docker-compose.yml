@@ -40,6 +40,7 @@ services:
       - nginx-proxy
     environment:
       - DEFAULT_EMAIL=${DEFAULT_EMAIL}
+      - ACME_CA_URI=${ACME_CA_URI}
 
   nginx:
     container_name: nginx
@@ -51,7 +52,7 @@ services:
       - nginx-letsencrypt
     environment:
       - VIRTUAL_HOST=${HOSTNAME}
-#      - LETSENCRYPT_HOST=${HOSTNAME}
+      - LETSENCRYPT_HOST=${HOSTNAME}
 
 
 volumes:
