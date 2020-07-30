@@ -1,0 +1,50 @@
+version: "2"
+services:
+
+  db:
+    image: postgres:12.3 
+    networks:
+      - color-nw
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:latest
+    networks:
+      - color-nw
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  letsencrypt-nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.13
+    networks:
+      - color-nw
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - DEFAULT_EMAIL=${DEFAULT_EMAIL}
+
+  nginx:
+    image: nginx:1.19.1
+    networks:
+      - color-nw
+    environment:
+      - VIRTUAL_HOST=${HOSTNAME}
+      - LETSENCRYPT_HOST=${HOSTNAME}
+
+
+volumes:
+  db-data:
+
+networks:
+  color-nw:
