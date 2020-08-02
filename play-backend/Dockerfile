@@ -1,8 +1,8 @@
 FROM anapsix/alpine-java:jdk8
 MAINTAINER Tianhao Li <ysihaoy@gmail.com>
 
-ENV SBT_VERSION 1.3.4
-ENV CHECKSUM 04d49d6e535b3586e40910ccd7396034ca7a7bab7d31bfd265fddca7cccc95eb
+ENV SBT_VERSION 1.3.13
+ENV CHECKSUM edebbafa8d0541ad307600cd3f12b1a41bd688b8035aca24489d4a13638dfe05
 
 # Install sbt
 RUN apk add --update bash curl openssl ca-certificates && \
@@ -27,4 +27,18 @@ RUN cd /tmp/build && \
   (sbt test:compile || sbt test:compile || sbt test:compile) && \
   rm -rf /tmp/build
 
-CMD ["sbt"]
+# caching dependencies
+COPY ["build.sbt", "/tmp/build/"]
+COPY ["project/plugins.sbt", "project/build.properties", "/tmp/build/project/"]
+RUN cd /tmp/build && \
+ sbt compile && \
+ sbt test:compile && \
+ rm -rf /tmp/build
+
+# copy code
+COPY . /root/app/
+WORKDIR /root/app
+RUN sbt compile && sbt test:compile
+
+EXPOSE 9000
+CMD ["sbt", "~run"]

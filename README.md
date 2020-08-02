@@ -12,13 +12,6 @@ curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker ubuntu
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-# installed haveged for entropy
-sudo apt-get install haveged
-sudo update-rc.d haveged defaults
-
-# added the following entry to /etc/hosts for docker-compose
-# 127.0.0.1 localunixsocket
 ```
 
 I then cloned this directory in to `/home/ubuntu/color` and created a `.env` file with the following values:
@@ -72,6 +65,12 @@ git config --global user.email "youremail@gmail.com"
 git config --global credential.helper store
 git config --global core.editor "vim"
 ```
+* See app locally
+e.g. app running in container on 9000 with port exposed to host machine
+```
+ssh -L 9000:localhost:9000 -i <path-to-key> <my-user>@<my-ip>`
+```
+Now you can visit localhost:9000 on your local machine and see your app.
 
 ## Sources
 * https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion

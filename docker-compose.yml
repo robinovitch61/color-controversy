@@ -46,7 +46,7 @@ services:
       - DEFAULT_EMAIL=${DEFAULT_EMAIL}
       - ACME_CA_URI=${ACME_CA_URI}
 
-  db:
+  postgres:
     container_name: postgres
     image: postgres:12.3
     networks:
@@ -56,26 +56,43 @@ services:
       - nginx-proxy-gen
       - nginx-letsencrypt
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
-  nginx:
-    container_name: nginx-sample-app
-    image: nginx:1.19.1
+#  nginx:
+#    container_name: nginx-sample-app
+#    image: nginx:1.19.1
+#    networks:
+#      - color-nw
+#    depends_on:
+#      - nginx-proxy
+#      - nginx-proxy-gen
+#      - nginx-letsencrypt
+#      - postgres 
+#    environment:
+#      - VIRTUAL_HOST=${HOSTNAME}
+#      - LETSENCRYPT_HOST=${HOSTNAME}
+
+  play-app-dev:
+    container_name: play-app-dev
+    build: ./play-backend
     networks:
       - color-nw
     depends_on:
       - nginx-proxy
       - nginx-proxy-gen
       - nginx-letsencrypt
-      - db
+      - postgres
+    volumes:
+      - ./play-backend:/root/app
     environment:
+      - VIRTUAL_PORT=9000
       - VIRTUAL_HOST=${HOSTNAME}
       - LETSENCRYPT_HOST=${HOSTNAME}
 
 volumes:
-  db-data:
+  postgres-data:
 
 networks:
   color-nw:
