@@ -3,15 +3,22 @@
 ## Setup
 First, I purchased the domain name colorcontroversy.com from [Namecheap](namecheap.com).
 
-Then, I created a static IP address in AWS Lightsail in a specific region. I also created a DNS Zone and created A Records mapping `@.colorcontroversy.com` and `*.colorcontroversy.com` to the static IP. I also added the name servers provided by the Lightsail DNS zone to my Namecheap site's configuration. Nameservers are the part of DNS that map domain names to IP addresses, so adding Lightsail's nameservers tell Namecheap to map my purchased domain to the static IP assigned by Lightsail.
+Then, I created a static IP address in AWS Lightsail in a specific region. I also created a DNS Zone and created A Records mapping `@.colorcontroversy.com` and `*.colorcontroversy.com` to the static IP. I also added the name servers provided by the Lightsail DNS zone to my Namecheap site's configuration. Nameservers are the part of DNS that map domain names to IP addresses, so adding Lightsail's nameservers tell Namecheap to map my purchased domain to the static IP assigned by Lightsail. `ping`ing the domain name returned the static IP after this configuration change was propograted (a couple of minutes).
 
-I then created a Lightsail instance with Ubuntu 18.04 in the same region as my static IP. I attached the static IP and added HTTPS on port 443. Then I ran the following setup:
+I then created a Lightsail instance with Ubuntu 18.04 in the same region as my static IP. I attached the static IP and added HTTPS on port 443. Then I ran the following one time setup:
 ```sh
-# one time server setup
+# install docker and docker-compose and allow sudo-less usage
 curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker ubuntu
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# installed haveged for entropy
+sudo apt-get install haveged
+sudo update-rc.d haveged defaults
+
+# added the following entry to /etc/hosts for docker-compose
+# 127.0.0.1 localunixsocket
 ```
 
 I then cloned this directory in to `/home/ubuntu/color` and created a `.env` file with the following values:
