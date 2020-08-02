@@ -54,6 +54,17 @@ docker-compose build db # unnecessary if no Dockerfile
 docker-compose create db 
 docker-compose start db 
 ```
+* Deal with following ssh error:
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+...
+```
+Remove the cached key for the static IP:
+`ssh-keygen -R <static-ip-here>`
 
 ## Sources
 * https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
