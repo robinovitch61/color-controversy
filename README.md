@@ -65,6 +65,13 @@ Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 ```
 Remove the cached key for the static IP:
 `ssh-keygen -R <static-ip-here>`
+* Configure git on new lightsail:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "youremail@gmail.com"
+git config --global credential.helper store
+git config --global core.editor "vim"
+```
 
 ## Sources
 * https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
