@@ -12,6 +12,10 @@ curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker ubuntu
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# installed nvm, npm, node, npx for create-react-app
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install 14.7.0
 ```
 
 I then cloned this directory in to `/home/ubuntu/color` and created a `.env` file with the following values:
@@ -20,6 +24,7 @@ DEFAULT_EMAIL=<my-email>
 HOSTNAME=test.colorcontroversy.com
 POSTGRES_PASSWORD=<a-password>
 ACME_CA_URI=https://acme-v02.api.letsencrypt.org/directory
+#ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
 ```
 Note that `docker-compose` will pick up the values in the `.env` file when running `docker-compose up -d`. See [here](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion/blob/9806ba25871d26a3eadeecf3771afd3378f0b01a/docs/Container-configuration.md) for notes on ACME_CA_URI (example shows prod URI).
 
@@ -76,4 +81,6 @@ Now you can visit localhost:9000 on your local machine and see your app.
 * https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
 * https://www.youtube.com/watch?v=z525kfneC6E
 * https://aws.amazon.com/blogs/compute/building-a-pocket-platform-as-a-service-with-amazon-lightsail/
-* https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
+* https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion/blob/master/docs/Advanced-usage.md
+* https://hub.docker.com/r/ysihaoy/scala-play/
+* https://mherman.org/blog/dockerizing-a-react-app/

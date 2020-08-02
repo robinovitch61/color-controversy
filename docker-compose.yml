@@ -60,22 +60,8 @@ services:
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
-#  nginx:
-#    container_name: nginx-sample-app
-#    image: nginx:1.19.1
-#    networks:
-#      - color-nw
-#    depends_on:
-#      - nginx-proxy
-#      - nginx-proxy-gen
-#      - nginx-letsencrypt
-#      - postgres 
-#    environment:
-#      - VIRTUAL_HOST=${HOSTNAME}
-#      - LETSENCRYPT_HOST=${HOSTNAME}
-
-  play-app-dev:
-    container_name: play-app-dev
+  play-backend:
+    container_name: play-backend
     build: ./play-backend
     networks:
       - color-nw
@@ -86,10 +72,32 @@ services:
       - postgres
     volumes:
       - ./play-backend:/root/app
+
+  react-frontend:
+    container_name: react-frontend
+    build:
+      context: ./react-frontend
+      dockerfile: Dockerfile.dev
+    networks:
+      - color-nw
+    stdin_open: true
+    tty: true
+    depends_on:
+      - nginx-proxy
+      - nginx-proxy-gen
+      - nginx-letsencrypt
+      - postgres
+      - play-backend
+    volumes:
+      - ./react-frontend:/app
+      - ./react-frontend/app/node_modules
     environment:
-      - VIRTUAL_PORT=9000
+      - CHOKIDAR_USEPOLLING=true
+      - VIRTUAL_PORT=3000
       - VIRTUAL_HOST=${HOSTNAME}
       - LETSENCRYPT_HOST=${HOSTNAME}
+
+    
 
 volumes:
   postgres-data:
