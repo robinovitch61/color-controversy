@@ -1,4 +1,10 @@
-import { DEFAULT_STATE, UPDATE_COLOR, AppState, AppAction } from './types'
+import {
+  DEFAULT_STATE,
+  UPDATE_COLOR,
+  TOGGLE_NAV,
+  AppState,
+  AppAction
+} from './types'
 
 const reducer = (
   state: AppState = DEFAULT_STATE,
@@ -9,6 +15,11 @@ const reducer = (
       return {
         ...state,
         color: action.payload
+      }
+    case TOGGLE_NAV:
+      return {
+        ...state,
+        navOpen: !state.navOpen
       }
     default:
       return state
