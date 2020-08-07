@@ -1,0 +1,42 @@
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    270deg,
+    #ff007f 0%,
+    rgba(255, 170, 29, 0.739583) 80.46%,
+    rgba(255, 240, 0, 0) 98.59%
+  );
+
+  .nav-logo,
+  .nav-hamburger {
+    padding: 10px;
+  }
+
+  .nav-logo {
+    max-width: 15vw;
+    margin-left: 10px;
+    opacity: 0.7;
+  }
+
+  .nav-hamburger {
+    max-width: 12vw;
+    margin-right: 10px;
+  }
+
+  button {
+    background-color: unset;
+    border: unset;
+    opacity: 0.6;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &:visited {
+      outline: none;
+      opacity: 1;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import { AppState } from '../../store/types'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleNav } from '../../store/actions'
-import logo from './logo.png'
+import logo from './logo.svg'
 import hamburger from './hamburger.svg'
 
 export default function Nav () {
@@ -11,10 +11,14 @@ export default function Nav () {
 
   return (
     <nav>
-      <img src={logo}></img>
-      <button onClick={() => dispatch(toggleNav())}>
-        <img src={hamburger}></img>
-      </button>
+      <img className={'nav-logo'} src={logo}></img>
+      <div>
+        {/* if mobile */}
+        <button onClick={() => dispatch(toggleNav())}>
+          <img className={'nav-hamburger'} src={hamburger}></img>
+        </button>
+        {/* else */}
+      </div>
     </nav>
   )
 }

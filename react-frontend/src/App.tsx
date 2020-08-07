@@ -1,6 +1,5 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import './App.scss'
 // import Test from './components/Test'
 import Nav from './components/Nav/Nav'
 
