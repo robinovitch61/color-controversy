@@ -69,6 +69,7 @@ nav {
       display: inline-block;
       text-align: center;
 
+      // allows vertical middle alignment
       &:before {
         content: '';
         display: inline-block;

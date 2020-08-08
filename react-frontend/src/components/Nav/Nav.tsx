@@ -21,7 +21,7 @@ export default function Nav () {
         <a href='/test0'>Judge</a>
         <a href='/test1'>All Colors</a>
         <a href='/test2'>Leaderboard</a>
-        <a href='/test3'>WTF Is This</a>
+        <a href='/test3'>What Is This</a>
       </div>
     </nav>
   )
