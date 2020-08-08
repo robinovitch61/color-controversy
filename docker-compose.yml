@@ -88,9 +88,6 @@ services:
       - nginx-letsencrypt
       - postgres
       - play-backend
-    volumes:
-      - ./react-frontend:/app
-      - ./react-frontend/app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
       - VIRTUAL_PORT=3000

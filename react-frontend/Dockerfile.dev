@@ -14,7 +14,9 @@ RUN npm install
 RUN npm install react-scripts@3.4.1 -g
 
 # add app
-COPY . ./
+COPY ./public ./public
+COPY ./src ./src
+COPY ./tsconfig.json ./tsconfig.json
 
 # port
 EXPOSE 3000
