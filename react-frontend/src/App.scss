@@ -1,14 +1,30 @@
+$transition-width-mobile: 900px;
+$navbar-height: 100px;
+$navbar-height-mobile: 60px;
+$red: #ff007f 0%;
+$orange: rgba(255, 170, 29, 0.739583) 80.46%;
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 nav {
   width: 100%;
+  height: $navbar-height;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(
     270deg,
-    #ff007f 0%,
-    rgba(255, 170, 29, 0.739583) 80.46%,
+    $red,
+    $orange,
     rgba(255, 240, 0, 0) 98.59%
   );
+
+  @media screen and (max-width: $transition-width-mobile) {
+    height: $navbar-height-mobile;
+  }
 
   .nav-logo,
   .nav-hamburger {
@@ -16,14 +32,54 @@ nav {
   }
 
   .nav-logo {
-    max-width: 15vw;
+    width: $navbar-height - 20px;
+    max-width: 100px;
     margin-left: 10px;
     opacity: 0.7;
+
+    @media screen and (max-width: $transition-width-mobile) {
+      width: $navbar-height-mobile - 10px;
+      margin-left: 0;
+    }
   }
 
   .nav-hamburger {
-    max-width: 12vw;
+    width: 8vh;
+    max-width: 60px;
     margin-right: 10px;
+    display: none;
+
+    @media screen and (max-width: $transition-width-mobile) {
+      display: inline;
+    }
+  }
+
+  .nav-links {
+    height: 100%;
+    margin-right: 2vw;
+
+    @media screen and (max-width: $transition-width-mobile) {
+      display: none;
+    }
+
+    a {
+      width: 150px;
+      margin: 0;
+      height: 100%;
+      display: inline-block;
+      text-align: center;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+
+      &:hover {
+        background-color: orange;
+      }
+    }
   }
 
   button {

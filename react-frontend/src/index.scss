@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: roboto_monoregular;
+  font-style: normal;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,3 +11,83 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+// @font-face {
+//   font-family: 'roboto_monobold';
+//   src: url('/fonts/robotomono-bold-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-bold-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monobold_italic';
+//   src: url('/fonts/robotomono-bolditalic-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-bolditalic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monoitalic';
+//   src: url('/fonts/robotomono-italic-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-italic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monolight';
+//   src: url('/fonts/robotomono-light-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-light-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monolight_italic';
+//   src: url('/fonts/robotomono-lightitalic-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-lightitalic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monomedium';
+//   src: url('/fonts/robotomono-medium-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-medium-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monomedium_italic';
+//   src: url('/fonts/robotomono-mediumitalic-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-mediumitalic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'roboto_monoregular';
+  src: url('/fonts/robotomono-regular-webfont.woff2') format('woff2'),
+    url('/fonts/robotomono-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'roboto_monothin';
+//   src: url('/fonts/robotomono-thin-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-thin-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'roboto_monothin_italic';
+//   src: url('/fonts/robotomono-thinitalic-webfont.woff2') format('woff2'),
+//     url('/fonts/robotomono-thinitalic-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }

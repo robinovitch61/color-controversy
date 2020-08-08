@@ -12,12 +12,16 @@ export default function Nav () {
   return (
     <nav>
       <img className={'nav-logo'} src={logo}></img>
-      <div>
-        {/* if mobile */}
+      <div className={'nav-hamburger'}>
         <button onClick={() => dispatch(toggleNav())}>
-          <img className={'nav-hamburger'} src={hamburger}></img>
+          <img src={hamburger}></img>
         </button>
-        {/* else */}
+      </div>
+      <div className={'nav-links'}>
+        <a href='/test0'>Judge</a>
+        <a href='/test1'>All Colors</a>
+        <a href='/test2'>Leaderboard</a>
+        <a href='/test3'>WTF Is This</a>
       </div>
     </nav>
   )
