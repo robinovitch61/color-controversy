@@ -13,7 +13,9 @@ export default function Nav () {
   return (
     <nav>
       {/* logo */}
-      <img className={'nav-logo'} src={logo}></img>
+      <a href='/'>
+        <img className={'nav-logo'} src={logo}></img>
+      </a>
 
       {/* desktop */}
       <div className={'nav-links'}>
@@ -24,20 +26,26 @@ export default function Nav () {
       </div>
 
       {/* mobile */}
-      <div
+      <button
         className={'nav-hamburger'}
+        onClick={() => dispatch(toggleNav())}
         style={{ display: navOpen ? 'none' : '' }}
       >
-        <button onClick={() => dispatch(toggleNav())}>
-          <img src={hamburger}></img>
-        </button>
-      </div>
+        <img src={hamburger}></img>
+      </button>
 
-      <div className={'nav-exit'} style={{ display: navOpen ? '' : 'none' }}>
-        <button onClick={() => dispatch(toggleNav())}>
-          <img src={exit}></img>
-        </button>
-      </div>
+      <button
+        className={'nav-exit'}
+        onClick={() => dispatch(toggleNav())}
+        style={{ display: navOpen ? '' : 'none' }}
+      >
+        <img src={exit}></img>
+      </button>
+
+      <div
+        className={'nav-links-mobile'}
+        style={{ display: navOpen ? '' : 'none' }}
+      ></div>
     </nav>
   )
 }

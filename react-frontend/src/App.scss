@@ -9,12 +9,25 @@ a {
   color: black;
 }
 
+button {
+  background-color: unset;
+  border: unset;
+  padding: 0;
+
+  &:focus,
+  &:active,
+  &:hover,
+  &:visited {
+    outline: none;
+    opacity: 1;
+  }
+}
+
 nav {
   width: 100%;
   height: $navbar-height;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background: linear-gradient(
     270deg,
     $red,
@@ -26,21 +39,23 @@ nav {
     height: $navbar-height-mobile;
   }
 
+  button {
+    opacity: 0.6;
+  }
+
   .nav-logo,
   .nav-hamburger,
   .nav-exit {
-    padding: 10px;
+    touch-action: manipulation;
   }
 
   .nav-logo {
     width: $navbar-height - 20px;
     max-width: 100px;
-    margin-left: 10px;
     opacity: 0.7;
 
     @media screen and (max-width: $transition-width-mobile) {
       width: $navbar-height-mobile - 10px;
-      margin-left: 0;
     }
   }
 
@@ -48,12 +63,15 @@ nav {
   .nav-exit {
     width: 8vh;
     max-width: 60px;
-    margin-right: 10px;
     display: none;
 
     @media screen and (max-width: $transition-width-mobile) {
       display: inline;
     }
+  }
+
+  .nav-exit {
+    z-index: 1;
   }
 
   .nav-links {
@@ -85,17 +103,12 @@ nav {
     }
   }
 
-  button {
-    background-color: unset;
-    border: unset;
-    opacity: 0.6;
-
-    &:focus,
-    &:active,
-    &:hover,
-    &:visited {
-      outline: none;
-      opacity: 1;
-    }
+  .nav-links-mobile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 30%;
+    background-color: #ffe4bb;
   }
 }
