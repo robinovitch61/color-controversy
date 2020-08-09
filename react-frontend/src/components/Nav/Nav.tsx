@@ -13,16 +13,18 @@ export default function Nav () {
   return (
     <nav>
       {/* logo */}
-      <a href='/'>
-        <img className={'nav-logo'} src={logo}></img>
-      </a>
+      <div className={'nav-logo-container'}>
+        <a href='/'>
+          <img className={'nav-logo'} src={logo}></img>
+        </a>
+      </div>
 
       {/* desktop */}
       <div className={'nav-links'}>
-        <a href='/test0'>Judge</a>
-        <a href='/test1'>All Colors</a>
-        <a href='/test2'>Leaderboard</a>
-        <a href='/test3'>What Is This</a>
+        <a href='/'>Judge</a>
+        <a href='/colors'>All Colors</a>
+        <a href='/leaderboard'>Leaderboard</a>
+        <a href='/what'>What Is This?</a>
       </div>
 
       {/* mobile */}
@@ -45,7 +47,20 @@ export default function Nav () {
       <div
         className={'nav-links-mobile'}
         style={{ display: navOpen ? '' : 'none' }}
-      ></div>
+      >
+        <a href='/'>
+          <span>Judge</span>
+        </a>
+        <a href='/colors'>
+          <span>All Colors</span>
+        </a>
+        <a href='/leaderboard'>
+          <span>Leaderboard</span>
+        </a>
+        <a href='/what'>
+          <span>What Is This?</span>
+        </a>
+      </div>
     </nav>
   )
 }
