@@ -11,13 +11,27 @@ export default function Nav () {
   const navOpen = useSelector((state: AppState) => state.navOpen)
   const dispatch = useDispatch()
 
+  const hideNav = () => {
+    if (navOpen) {
+      dispatch(toggleNav())
+    }
+  }
+
+  const showNav = () => {
+    if (!navOpen) {
+      dispatch(toggleNav())
+    }
+  }
+
   return (
     <nav>
       {/* logo */}
       <div className={'nav-logo-container'}>
-        <a href='/'>
-          <img className={'nav-logo'} src={logo}></img>
-        </a>
+        <Link to='/' onClick={() => hideNav()}>
+          <span>
+            <img className={'nav-logo'} src={logo}></img>
+          </span>
+        </Link>
       </div>
 
       {/* desktop */}
@@ -39,7 +53,7 @@ export default function Nav () {
       {/* mobile */}
       <button
         className={'nav-hamburger'}
-        onClick={() => dispatch(toggleNav())}
+        onClick={() => showNav()}
         style={{ display: navOpen ? 'none' : '' }}
       >
         <img src={hamburger}></img>
@@ -47,7 +61,7 @@ export default function Nav () {
 
       <button
         className={'nav-exit'}
-        onClick={() => dispatch(toggleNav())}
+        onClick={() => hideNav()}
         style={{ display: navOpen ? '' : 'none' }}
       >
         <img src={exit}></img>
@@ -57,16 +71,16 @@ export default function Nav () {
         className={'nav-links-mobile'}
         style={{ display: navOpen ? '' : 'none' }}
       >
-        <Link to='/' onClick={() => dispatch(toggleNav())}>
+        <Link to='/' onClick={() => hideNav()}>
           <span>Judge</span>
         </Link>
-        <Link to='/colors' onClick={() => dispatch(toggleNav())}>
+        <Link to='/colors' onClick={() => hideNav()}>
           <span>All Colors</span>
         </Link>
-        <Link to='/leaderboard' onClick={() => dispatch(toggleNav())}>
+        <Link to='/leaderboard' onClick={() => hideNav()}>
           <span>Leaderboard</span>
         </Link>
-        <Link to='/what' onClick={() => dispatch(toggleNav())}>
+        <Link to='/what' onClick={() => hideNav()}>
           <span>What Is This?</span>
         </Link>
       </div>
