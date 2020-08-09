@@ -188,3 +188,14 @@ nav {
     width: 80%;
   }
 }
+
+.judge-color {
+  margin: 0 auto;
+  width: 80%;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 97%;
+  }
+}

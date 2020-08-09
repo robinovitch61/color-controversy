@@ -81,7 +81,7 @@ export default function Nav () {
           <span>Leaderboard</span>
         </Link>
         <Link to='/what' onClick={() => hideNav()}>
-          <span>What Is This?</span>
+          <span>What?</span>
         </Link>
       </div>
     </nav>
