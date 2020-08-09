@@ -27,7 +27,8 @@ nav {
   }
 
   .nav-logo,
-  .nav-hamburger {
+  .nav-hamburger,
+  .nav-exit {
     padding: 10px;
   }
 
@@ -43,7 +44,8 @@ nav {
     }
   }
 
-  .nav-hamburger {
+  .nav-hamburger,
+  .nav-exit {
     width: 8vh;
     max-width: 60px;
     margin-right: 10px;
@@ -69,7 +71,7 @@ nav {
       display: inline-block;
       text-align: center;
 
-      // allows vertical middle alignment
+      // allows vertical middle  alignment
       &:before {
         content: '';
         display: inline-block;
