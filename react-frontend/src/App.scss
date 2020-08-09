@@ -87,7 +87,6 @@ nav {
   .nav-hamburger,
   .nav-exit {
     height: 100%;
-    max-width: 60px;
     display: none;
 
     @media screen and (max-width: $transition-width-mobile) {
