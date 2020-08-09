@@ -169,4 +169,22 @@ nav {
 .title {
   width: 100%;
   text-align: center;
+
+  @media screen and (max-width: $transition-width-mobile) {
+    h1 {
+      margin: 0.5rem 0;
+    }
+    h2 {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+
+  @media screen and (max-width: $transition-width-mobile) {
+    width: 80%;
+  }
 }
