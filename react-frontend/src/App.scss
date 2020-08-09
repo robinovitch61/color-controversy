@@ -1,4 +1,4 @@
-$transition-width-mobile: 900px;
+$transition-width-mobile: 768px;
 $navbar-height: 100px;
 $navbar-height-mobile: 60px;
 $red: #ff007f 0%;
@@ -21,6 +21,19 @@ button {
     outline: none;
     opacity: 1;
   }
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1rem;
 }
 
 nav {
@@ -74,6 +87,7 @@ nav {
   .nav-hamburger,
   .nav-exit {
     width: 8vh;
+    height: 100%;
     max-width: 60px;
     display: none;
 
@@ -147,4 +161,9 @@ nav {
       display: flex;
     }
   }
+}
+
+.title {
+  width: 100%;
+  text-align: center;
 }

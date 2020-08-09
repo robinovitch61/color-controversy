@@ -5,6 +5,7 @@ import { toggleNav } from '../../store/actions'
 import logo from './logo.svg'
 import hamburger from './hamburger.svg'
 import exit from './exit.svg'
+import { Link } from 'react-router-dom'
 
 export default function Nav () {
   const navOpen = useSelector((state: AppState) => state.navOpen)
@@ -21,10 +22,18 @@ export default function Nav () {
 
       {/* desktop */}
       <div className={'nav-links'}>
-        <a href='/'>Judge</a>
-        <a href='/colors'>All Colors</a>
-        <a href='/leaderboard'>Leaderboard</a>
-        <a href='/what'>What Is This?</a>
+        <Link to='/'>
+          <span>Judge</span>
+        </Link>
+        <Link to='/colors'>
+          <span>All Colors</span>
+        </Link>
+        <Link to='/leaderboard'>
+          <span>Leaderboard</span>
+        </Link>
+        <Link to='/what'>
+          <span>What Is This?</span>
+        </Link>
       </div>
 
       {/* mobile */}
@@ -48,18 +57,18 @@ export default function Nav () {
         className={'nav-links-mobile'}
         style={{ display: navOpen ? '' : 'none' }}
       >
-        <a href='/'>
+        <Link to='/' onClick={() => dispatch(toggleNav())}>
           <span>Judge</span>
-        </a>
-        <a href='/colors'>
+        </Link>
+        <Link to='/colors' onClick={() => dispatch(toggleNav())}>
           <span>All Colors</span>
-        </a>
-        <a href='/leaderboard'>
+        </Link>
+        <Link to='/leaderboard' onClick={() => dispatch(toggleNav())}>
           <span>Leaderboard</span>
-        </a>
-        <a href='/what'>
+        </Link>
+        <Link to='/what' onClick={() => dispatch(toggleNav())}>
           <span>What Is This?</span>
-        </a>
+        </Link>
       </div>
     </nav>
   )
