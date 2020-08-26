@@ -3,9 +3,67 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                           controllers.ColorController.index
-GET     /version                    controllers.ColorController.version
+###
+#  summary: Get Scala Play Version.
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: '#/definitions/models.Version'
+###
+GET    /version    controllers.ColorController.version
+
+###
+#  summary: Get a random color.
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: '#/definitions/models.Color'
+###
+GET    /color    controllers.ColorController.randomColor
+
+###
+#  summary: Get a specific color.
+#  parameters:
+#    - in: path
+#      name: color
+#      required: true
+#      type: string
+#      description: Hex color to query.
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: '#/definitions/models.Color'
+###
+GET    /color/:color    controllers.ColorController.getColor(color: String)
+
+###
+#  summary: Get the color rankings.
+#  parameters:
+#    - in: path
+#      name: limit
+#      required: true
+#      type: integer
+#      description: Top N to show in ranking.
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        $ref: '#/definitions/models.Color'
+###
+GET    /ranking/:limit    controllers.ColorController.ranking(limit: Int)
+
+###
+#  summary: Get all colors.
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        type: string
+###
+GET    /allColors    controllers.ColorController.allColors
 
 # Swagger
 ### NoDocs ###
