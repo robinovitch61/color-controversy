@@ -1,0 +1,143 @@
+{
+  "paths": {
+    "/version": {
+      "get": {
+        "operationId": "version",
+        "tags": ["routes"],
+        "summary": "Get Scala Play Version.",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/models.Version"
+            }
+          }
+        }
+      }
+    },
+    "/color": {
+      "get": {
+        "operationId": "randomColor",
+        "tags": ["routes"],
+        "summary": "Get a random color.",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/models.Color"
+            }
+          }
+        }
+      }
+    },
+    "/color/{color}": {
+      "get": {
+        "operationId": "getColor",
+        "tags": ["routes"],
+        "summary": "Get a specific color.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "color",
+            "description": "Hex color to query.",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/models.Color"
+            }
+          }
+        }
+      }
+    },
+    "/ranking/{limit}": {
+      "get": {
+        "operationId": "ranking",
+        "tags": ["routes"],
+        "summary": "Get the color rankings.",
+        "parameters": [
+          {
+            "in": "path",
+            "format": "int32",
+            "name": "limit",
+            "description": "Top N to show in ranking.",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/models.Color"
+            }
+          }
+        }
+      }
+    },
+    "/allColors": {
+      "get": {
+        "operationId": "allColors",
+        "tags": ["routes"],
+        "summary": "Get all colors.",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "produces": ["application/json"],
+  "definitions": {
+    "models.Version": {
+      "properties": {
+        "playVersion": {
+          "type": "string"
+        }
+      },
+      "required": ["playVersion"]
+    },
+    "models.Color": {
+      "properties": {
+        "hexColor": {
+          "type": "string"
+        },
+        "color1": {
+          "type": "string"
+        },
+        "color2": {
+          "type": "string"
+        },
+        "nColor1": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nColor2": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["hexColor", "color1", "color2", "nColor1", "nColor2"]
+    }
+  },
+  "swagger": "2.0",
+  "consumes": ["application/json"],
+  "info": {
+    "description": "Supreme Color Truth",
+    "title": "Color Controversy",
+    "version": "1.0-SNAPSHOT"
+  },
+  "tags": [
+    {
+      "name": "routes"
+    }
+  ]
+}
