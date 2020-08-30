@@ -18,13 +18,13 @@ export type ConfigureRequestHandler = (agent: SuperAgentRequest) => SuperAgentRe
 
 export type CallbackHandler = (err: any, res ? : request.Response) => void;
 
-export type models.Version = {
+export type ModelsVersion = {
     'playVersion': string;
 } & {
     [key: string]: any;
 };
 
-export type models.Color = {
+export type ModelsColor = {
     'hexColor': string;
     'color1': string;
     'color2': string;
@@ -60,10 +60,10 @@ export interface CommonRequestOptions {
 
 /**
  * Supreme Color Truth
- * @class 
+ * @class ColorApi
  * @param {(string)} [domainOrOptions] - The project domain.
  */
-export class {
+export class ColorApi {
 
     private domain: string = "";
     private errorHandlers: CallbackHandler[] = [];
@@ -199,9 +199,9 @@ export class {
     /**
      * Get Scala Play Version.
      * @method
-     * @name #version
+     * @name ColorApi#version
      */
-    version(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, models.Version >> {
+    version(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsVersion >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/version';
         if (parameters.$path) {
@@ -249,9 +249,9 @@ export class {
     /**
      * Get a random color.
      * @method
-     * @name #randomColor
+     * @name ColorApi#randomColor
      */
-    randomColor(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, models.Color >> {
+    randomColor(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/color';
         if (parameters.$path) {
@@ -309,12 +309,12 @@ export class {
     /**
      * Get a specific color.
      * @method
-     * @name #getColor
+     * @name ColorApi#getColor
      * @param {string} color - Hex color to query.
      */
     getColor(parameters: {
         'color': string,
-    } & CommonRequestOptions): Promise < ResponseWithBody < 200, models.Color >> {
+    } & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/color/{color}';
         if (parameters.$path) {
@@ -385,12 +385,12 @@ export class {
     /**
      * Get the color rankings.
      * @method
-     * @name #ranking
+     * @name ColorApi#ranking
      * @param {integer} limit - Top N to show in ranking.
      */
     ranking(parameters: {
         'limit': number,
-    } & CommonRequestOptions): Promise < ResponseWithBody < 200, models.Color >> {
+    } & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/ranking/{limit}';
         if (parameters.$path) {
@@ -451,7 +451,7 @@ export class {
     /**
      * Get all colors.
      * @method
-     * @name #allColors
+     * @name ColorApi#allColors
      */
     allColors(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, Response_allColors_200 >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
@@ -481,4 +481,4 @@ export class {
 
 }
 
-export default;
+export default ColorApi;
