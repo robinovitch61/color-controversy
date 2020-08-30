@@ -3,6 +3,7 @@ import { AppState } from '../store/types'
 import { useSelector, useDispatch } from 'react-redux'
 import { getColor } from '../colors'
 import { updateColor } from '../store/actions'
+import { ccapi } from '../ccapi'
 
 function Judge () {
   const color = useSelector((state: AppState) => state.color)
