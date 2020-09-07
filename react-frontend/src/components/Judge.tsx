@@ -6,7 +6,7 @@ import api from '../connector/connector'
 
 async function getColor (): Promise<string> {
   const result = await api.randomColor({})
-  return result.body.hexColor
+  return result.body.hex
 }
 
 function Judge () {

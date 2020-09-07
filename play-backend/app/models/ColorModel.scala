@@ -10,11 +10,11 @@ object Version {
 }
 
 case class Color(
-  hexColor: String,
-  color1: String,
-  color2: String,
-  nColor1: Int,
-  nColor2: Int
+  hex: String,
+  firstOption: String,
+  secondOption: String,
+  nFirst: Int,
+  nSecond: Int
 )
 object Color {
   val example = Color("#ffffff", "blue", "green", 102, 97)
