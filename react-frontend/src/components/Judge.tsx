@@ -1,18 +1,26 @@
-import React from 'react'
-import { AppState } from '../store/types'
-import { useSelector, useDispatch } from 'react-redux'
-import { updateColor } from '../store/actions'
-import api from '../connector/connector'
+import React, { useState, useEffect } from 'react';
+import api from '../connector/connector';
+import { ModelsColor } from 'colorapi/dist/ccapi';
+import JudgeButton from './JudgeButton';
 
-async function getColor (): Promise<string> {
-  const result = await api.randomColor({})
-  return result.body.hex
+async function getColor(): Promise<ModelsColor> {
+  const result = await api.randomColor({});
+  return result.body;
 }
 
-function Judge () {
-  const color = useSelector((state: AppState) => state.color)
-  const dispatch = useDispatch()
-  getColor().then(color => dispatch(updateColor(color)))
+function Judge() {
+  const [color, setColor] = useState('');
+  const [firstOption, setfirstOption] = useState('');
+  const [secondOption, setsecondOption] = useState('');
+
+  // set initial color
+  useEffect(() => {
+    getColor().then((color) => {
+      setColor(color.hex);
+      setfirstOption(color.firstOption);
+      setsecondOption(color.secondOption);
+    });
+  }, []);
 
   return (
     <div className={'container judge'}>
@@ -20,8 +28,10 @@ function Judge () {
         className={'judge-color'}
         style={{ backgroundColor: `${color}` }}
       ></div>
+      <JudgeButton text={firstOption}></JudgeButton>
+      <JudgeButton text={secondOption}></JudgeButton>
     </div>
-  )
+  );
 }
 
-export default Judge
+export default Judge;

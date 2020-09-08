@@ -52,7 +52,7 @@ export default function Nav () {
 
       {/* mobile */}
       <button
-        className={'nav-hamburger'}
+        className={'nav-btn nav-hamburger'}
         onClick={() => showNav()}
         style={{ display: navOpen ? 'none' : '' }}
       >
@@ -60,7 +60,7 @@ export default function Nav () {
       </button>
 
       <button
-        className={'nav-exit'}
+        className={'nav-btn nav-exit'}
         onClick={() => hideNav()}
         style={{ display: navOpen ? '' : 'none' }}
       >

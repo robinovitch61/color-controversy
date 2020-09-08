@@ -10,16 +10,24 @@ a {
 }
 
 button {
-  background-color: unset;
-  border: unset;
-  padding: 0;
+  &.judge-btn {
+    color: white;
+    background-color: black;
+    padding: 1em 1.5em;
+  }
 
-  &:focus,
-  &:active,
-  &:hover,
-  &:visited {
-    outline: none;
-    opacity: 1;
+  &.nav-btn {
+    background-color: unset;
+    border: unset;
+    padding: 0;
+  
+    &:focus,
+    &:active,
+    &:hover,
+    &:visited {
+      outline: none;
+      opacity: 1;
+    }
   }
 }
 
