@@ -9,11 +9,13 @@ async function getColor(): Promise<ModelsColor> {
   return result.body;
 }
 
+
 function Judge() {
   const [color, setColor] = useState('');
   const [firstOption, setfirstOption] = useState('');
   const [secondOption, setsecondOption] = useState('');
-
+  const [numJudged, setNumJudged] = useState(0);
+  
   // set initial color
   useEffect(() => {
     getColor().then((color) => {
@@ -21,7 +23,14 @@ function Judge() {
       setfirstOption(color.firstOption);
       setsecondOption(color.secondOption);
     });
-  }, []);
+  }, [numJudged]);
+  
+  function submitChoice(color: string, choice: string): void {
+    // TODO: db id by color, make choice either actual color choice or just "first/second"
+    console.log(color, choice, numJudged)
+    setNumJudged(numJudged + 1)
+    // api.submitChoice({color, choice});
+  }
 
   return (
     <StyledContainerDiv>
@@ -32,9 +41,9 @@ function Judge() {
       <StyledJudgementDiv>
         <p>is this color:</p>
         <StyledJudgeButtonContainer>
-          <JudgeButton text={firstOption}></JudgeButton>
+          <JudgeButton text={firstOption} onClick={() => submitChoice(color, firstOption)}></JudgeButton>
           <p>OR</p>
-          <JudgeButton text={secondOption}></JudgeButton>
+          <JudgeButton text={secondOption} onClick={() => submitChoice(color, secondOption)}></JudgeButton>
         </StyledJudgeButtonContainer>
       </StyledJudgementDiv>
     </StyledContainerDiv>

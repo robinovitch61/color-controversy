@@ -66,7 +66,7 @@ export const StyledJudgeButtonContainer = styled.div`
 
 export const StyledJudgeButton = styled.button`
   color: white;
-  background-color: black;
+  background-color: #2d2a2a;
   font-size: 1.2rem;
   padding: 1em 0;
   width: 45%;
@@ -74,6 +74,14 @@ export const StyledJudgeButton = styled.button`
 
   @media screen and (max-width: ${transitionWidthMobile}px) {
     padding: 0.7em 0;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &:visited {
+      outline: none;
+      opacity: 1;
+    }
   }
 `
 

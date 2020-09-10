@@ -30,7 +30,7 @@ export default function Nav() {
       <div className={'nav-logo-container'}>
         <Link to='/' onClick={() => hideNav()}>
           <span>
-            <img className={'nav-logo'} src={logo}></img>
+            <img className={'nav-logo'} src={logo} alt={'color wheel logo'}></img>
           </span>
         </Link>
       </div>
@@ -57,7 +57,7 @@ export default function Nav() {
         onClick={() => showNav()}
         style={{ display: navOpen ? 'none' : '' }}
       >
-        <img src={hamburger}></img>
+        <img src={hamburger} alt={'hamburger dropdown'}></img>
       </StyledNavButton>
 
       <StyledNavButton
@@ -65,7 +65,7 @@ export default function Nav() {
         onClick={() => hideNav()}
         style={{ display: navOpen ? '' : 'none' }}
       >
-        <img src={exit}></img>
+        <img src={exit} alt={'mobile nav exit'}></img>
       </StyledNavButton>
 
       <div
