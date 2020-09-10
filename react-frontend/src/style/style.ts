@@ -8,6 +8,10 @@ const navLogoWidth = navHeight - 20
 const navHeightMobile = 60
 const navLogoWidthMobile = navHeightMobile - 10
 
+////////////////////////////
+// GENERIC
+////////////////////////////
+
 export const StyledContainerDiv = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -16,6 +20,10 @@ export const StyledContainerDiv = styled.div`
     width: 80%;
   }
 `
+
+////////////////////////////
+// JUDGE
+////////////////////////////
 
 export const StyledJudgeColorDiv = styled.div`
   margin: 0 auto;
@@ -27,6 +35,52 @@ export const StyledJudgeColorDiv = styled.div`
     padding-bottom: 97%;
   }
 `
+
+export const StyledJudgementDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin: 1em;
+    padding: 0;
+  }
+  
+  @media screen and (max-width: ${transitionWidthMobile}px) {
+    font-size: 0.9em;
+
+    p {
+      margin: 0.5em;
+    }
+  }
+`
+
+export const StyledJudgeButtonContainer = styled.div`
+  display: flex;
+  margin: 0em auto;
+  margin-bottom: 1em;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const StyledJudgeButton = styled.button`
+  color: white;
+  background-color: black;
+  font-size: 1.2rem;
+  padding: 1em 0;
+  width: 45%;
+  border: unset;
+
+  @media screen and (max-width: ${transitionWidthMobile}px) {
+    padding: 0.7em 0;
+  }
+`
+
+
+////////////////////////////
+// NAV AND TITLES
+////////////////////////////
 
 export const StyledTitleDiv = styled.div`
   width: 100%;
@@ -40,12 +94,6 @@ export const StyledTitleDiv = styled.div`
       margin-top: 0.2rem;
     }
   }
-`
-
-export const StyledJudgeButton = styled.button`
-  color: white;
-  background-color: black;
-  padding: 1em 1.5em;
 `
 
 export const StyledNavButton = styled.button`

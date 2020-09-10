@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
 import JudgeButton from './JudgeButton';
-import { StyledContainerDiv, StyledJudgeColorDiv } from '../../style/style';
+import { StyledContainerDiv, StyledJudgeColorDiv, StyledJudgementDiv, StyledJudgeButtonContainer } from '../../style/style';
 
 async function getColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
@@ -29,8 +29,14 @@ function Judge() {
         style={{ backgroundColor: `${color}` }}
       ></StyledJudgeColorDiv>
 
-      <JudgeButton text={firstOption}></JudgeButton>
-      <JudgeButton text={secondOption}></JudgeButton>
+      <StyledJudgementDiv>
+        <p>is this color:</p>
+        <StyledJudgeButtonContainer>
+          <JudgeButton text={firstOption}></JudgeButton>
+          <p>OR</p>
+          <JudgeButton text={secondOption}></JudgeButton>
+        </StyledJudgeButtonContainer>
+      </StyledJudgementDiv>
     </StyledContainerDiv>
   );
 }
