@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { StyledTitleDiv } from '../style/style';
 
-function Header () {
+function Header() {
   return (
-    <div className='title'>
+    <StyledTitleDiv>
       <h1>Color Controversy</h1>
       <h2>collective optical disagreement</h2>
-    </div>
-  )
+    </StyledTitleDiv>
+  );
 }
 
-export default Header
+export default Header;

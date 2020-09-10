@@ -1,30 +1,31 @@
-import React from 'react'
-import { AppState } from '../../store/types'
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleNav } from '../../store/actions'
-import logo from './logo.svg'
-import hamburger from './hamburger.svg'
-import exit from './exit.svg'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { AppState } from '../../store/types';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleNav } from '../../store/actions';
+import logo from './logo.svg';
+import hamburger from './hamburger.svg';
+import exit from './exit.svg';
+import { Link } from 'react-router-dom';
+import { StyledNav, StyledNavButton } from '../../style/style';
 
-export default function Nav () {
-  const navOpen = useSelector((state: AppState) => state.navOpen)
-  const dispatch = useDispatch()
+export default function Nav() {
+  const navOpen = useSelector((state: AppState) => state.navOpen);
+  const dispatch = useDispatch();
 
   const hideNav = () => {
     if (navOpen) {
-      dispatch(toggleNav())
+      dispatch(toggleNav());
     }
-  }
+  };
 
   const showNav = () => {
     if (!navOpen) {
-      dispatch(toggleNav())
+      dispatch(toggleNav());
     }
-  }
+  };
 
   return (
-    <nav>
+    <StyledNav>
       {/* logo */}
       <div className={'nav-logo-container'}>
         <Link to='/' onClick={() => hideNav()}>
@@ -51,21 +52,21 @@ export default function Nav () {
       </div>
 
       {/* mobile */}
-      <button
-        className={'nav-btn nav-hamburger'}
+      <StyledNavButton
+        className={'nav-hamburger'}
         onClick={() => showNav()}
         style={{ display: navOpen ? 'none' : '' }}
       >
         <img src={hamburger}></img>
-      </button>
+      </StyledNavButton>
 
-      <button
-        className={'nav-btn nav-exit'}
+      <StyledNavButton
+        className={'nav-exit'}
         onClick={() => hideNav()}
         style={{ display: navOpen ? '' : 'none' }}
       >
         <img src={exit}></img>
-      </button>
+      </StyledNavButton>
 
       <div
         className={'nav-links-mobile'}
@@ -84,6 +85,6 @@ export default function Nav () {
           <span>What?</span>
         </Link>
       </div>
-    </nav>
-  )
+    </StyledNav>
+  );
 }
