@@ -5,6 +5,9 @@ services:
     image: nginx:1.19.1
     networks:
       - color-nw
+    depends_on:
+      - react-frontend
+      - play-backend
     ports:
       - 80:80
       # - 443:443
@@ -94,6 +97,8 @@ services:
       dockerfile: Dockerfile.dev
     networks:
       - color-nw
+    depends_on:
+      - play-backend
     stdin_open: true
     tty: true
     # depends_on:
