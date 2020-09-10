@@ -42,6 +42,12 @@ export const StyledTitleDiv = styled.div`
   }
 `
 
+export const StyledJudgeButton = styled.button`
+  color: white;
+  background-color: black;
+  padding: 1em 1.5em;
+`
+
 export const StyledNavButton = styled.button`
   background-color: unset;
   border: unset;
