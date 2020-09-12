@@ -21,43 +21,58 @@ export const StyledContainerDiv = styled.div`
   }
 `
 
+export const StyledCenteredP = styled.p`
+  width: 100%;
+  textalign: center;
+`
+
+export const StyledFlexDiv = styled.div`
+  width: 100%;
+  display: flex;
+`
+
 ////////////////////////////
 // JUDGE
 ////////////////////////////
 
-export const StyledJudgeColorP = styled.div`
+interface StyledColorSquareToJudgeDivProps {
+  inputColor: string
+}
+export const StyledColorSquareToJudgeDiv = styled.div`
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  position: relative;
+  background-color: ${(p: StyledColorSquareToJudgeDivProps) => p.inputColor};
 
   &:before {
     content: '';
     display: block;
-    padding-bottom: 41%;
+    padding-bottom: 46%;
   }
 
   &:after {
     content: '';
     display: block;
-    padding-bottom: 41%;
+    padding-bottom: 46%;
   }
 
   @media screen and (max-width: ${transitionWidthMobile}px) {
     &:before {
       content: '';
       display: block;
-      padding-bottom: 35%;
+      padding-bottom: 46%;
     }
-  
+
     &:after {
       content: '';
       display: block;
-      padding-bottom: 35%;
+      padding-bottom: 46%;
     }
   }
 `
 
-export const StyledJudgementDiv = styled.div`
+export const StyledChoicesDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +91,7 @@ export const StyledJudgementDiv = styled.div`
   }
 `
 
-export const StyledJudgeButtonContainer = styled.div`
+export const StyledChoiceButtonsDiv = styled.div`
   display: flex;
   margin: 0em auto;
   margin-bottom: 1em;
@@ -105,6 +120,41 @@ export const StyledJudgeButton = styled.button`
     }
   }
 `
+
+export const StyledColorResultsDiv = styled.div`
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  right: 5%;
+  margin: 0 auto;
+`;
+
+interface StyledColorResultDivProps {
+  width: number
+}
+export const StyledColorResultDiv = styled.div`
+  width: ${(p: StyledColorResultDivProps) => p.width}%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
+interface StyledColorBarPProps {
+  color: string
+}
+export const StyledColorBarP = styled.p`
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em 0;
+  background-color: ${(p: StyledColorBarPProps) => p.color};
+  text-align: center;
+`
+
+export const StyledNextButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+`;
 
 ////////////////////////////
 // NAV AND TITLES
