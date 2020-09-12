@@ -8,6 +8,7 @@ import {
   StyledJudgementDiv,
   StyledJudgeButtonContainer,
 } from '../../style/style';
+import styled from 'styled-components'; // temp
 
 async function getColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
@@ -66,22 +67,107 @@ function Judge() {
     </StyledJudgementDiv>
   );
 
+  const StyledBarChartDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  `;
+
+  interface StyledVerticalColorBarDivProps {
+    inputColor: string;
+    barHeight: string;
+  }
+  const StyledVerticalColorBarDiv = styled.div`
+    width: 20%;
+    background-color: ${(p: StyledVerticalColorBarDivProps) =>
+      p.inputColor || 'white'};
+    height: ${(p: StyledVerticalColorBarDivProps) => p.barHeight || '0'}px;
+  `;
+
   const ResultComp = (
-    <StyledJudgementDiv>
-      <JudgeButton
-        text={'next'}
-        onClick={() => {
-          setIsJudging(true);
-          updateColor();
+    <div style={{ width: '100%', margin: '0 auto' }}>
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'space-between',
         }}
-      ></JudgeButton>
-    </StyledJudgementDiv>
+      >
+        <p
+          style={{
+            width: '100%',
+            textAlign: 'center',
+          }}
+        >
+          you've been 100% controversial
+        </p>
+        <JudgeButton
+          text={'next'}
+          onClick={() => {
+            setIsJudging(true);
+            updateColor();
+          }}
+        ></JudgeButton>
+      </div>
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+        }}
+      >
+        <div
+          style={{
+            width: '62%',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <p>62%</p>
+          <p
+            style={{
+              width: '100%',
+              margin: '0 auto',
+              padding: '1em 0',
+              backgroundColor: 'green',
+              textAlign: 'center',
+            }}
+          >
+            green
+          </p>
+          <p>132</p>
+        </div>
+        <div
+          style={{
+            width: '38%',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <p>38%</p>
+          <p
+            style={{
+              width: '100%',
+              margin: '0 auto',
+              padding: '1em 0',
+              backgroundColor: 'blue',
+              textAlign: 'center',
+            }}
+          >
+            blue
+          </p>
+          <p>59</p>
+        </div>
+      </div>
+    </div>
   );
 
   return (
     <StyledContainerDiv>
       <StyledJudgeColorP style={{ backgroundColor: `${color}` }}>
-        <p style={{opacity: isJudging ? 0 : 100}}>{`you said: ${choice}`}</p>
+        <p style={{ opacity: isJudging ? 0 : 100 }}>{`you said: ${choice}`}</p>
       </StyledJudgeColorP>
       {isJudging ? JudgementComp : ResultComp}
     </StyledContainerDiv>

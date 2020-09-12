@@ -13,11 +13,11 @@ const navLogoWidthMobile = navHeightMobile - 10
 ////////////////////////////
 
 export const StyledContainerDiv = styled.div`
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
 
   @media screen and (max-width: ${transitionWidthMobile}px) {
-    width: 80%;
+    width: 65%;
   }
 `
 
@@ -27,7 +27,7 @@ export const StyledContainerDiv = styled.div`
 
 export const StyledJudgeColorP = styled.div`
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   text-align: center;
 
   &:before {
