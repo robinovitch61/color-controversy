@@ -13,7 +13,7 @@ interface ColorResultProps {
 function ColorResult(props: ColorResultProps) {
     return (
       <StyledColorResultDiv width={props.percent}>
-        <p>{props.percent}</p>
+        <p>{props.percent}%</p>
         <StyledColorBarP color={props.color}>{props.color}</StyledColorBarP>
         <p>{props.count}</p>
       </StyledColorResultDiv>

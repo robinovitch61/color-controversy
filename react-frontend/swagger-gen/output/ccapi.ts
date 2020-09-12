@@ -41,8 +41,6 @@ export type ModelsColor = {
     [key: string]: any;
 };
 
-export type Response_allColors_200 = string;
-
 export type Response_submitChoice_200 = string;
 
 export type Logger = {
@@ -462,7 +460,7 @@ export class ColorApi {
      * @method
      * @name ColorApi#allColors
      */
-    allColors(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, Response_allColors_200 >> {
+    allColors(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, Array < string >>> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/allColors';
         if (parameters.$path) {

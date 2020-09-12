@@ -7,13 +7,23 @@ const navHeight = 100
 const navLogoWidth = navHeight - 20
 const navHeightMobile = 60
 const navLogoWidthMobile = navHeightMobile - 10
+const containerWidth = 550
 
 ////////////////////////////
 // GENERIC
 ////////////////////////////
 
 export const StyledContainerDiv = styled.div`
-  max-width: 550px;
+  max-width: ${containerWidth}px;
+  margin: 0 auto;
+
+  @media screen and (max-width: ${transitionWidthMobile}px) {
+    width: 90%;
+  }
+`
+
+export const StyledJudgeContainerDiv = styled.div`
+  max-width: ${containerWidth}px;
   margin: 0 auto;
 
   @media screen and (max-width: ${transitionWidthMobile}px) {
@@ -317,3 +327,28 @@ export const StyledNav = styled.nav`
     }
   }
 `
+
+////////////////////////////
+// ALL COLORS
+////////////////////////////
+
+interface StyledColorDivProps {
+  color: string
+}
+// width = 100 / 4 - (1 * 2) %
+export const StyledColorDiv = styled.div`
+  background-color: ${(p: StyledColorDivProps) => p.color};
+  width: 23%;
+  margin: 1%;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+`;
+
+export const StyledColorGridDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;

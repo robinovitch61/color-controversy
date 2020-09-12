@@ -83,7 +83,8 @@
         "responses" : {
           "200" : {
             "description" : "success",
-            "schema" : {
+            "type" : "array",
+            "items" : {
               "type" : "string"
             }
           }

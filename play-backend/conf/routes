@@ -56,11 +56,12 @@ GET    /color/:color    controllers.ColorController.getColor(color: String)
 GET    /ranking/:limit    controllers.ColorController.ranking(limit: Int)
 
 ###
-#  summary: Get all colors.
+#  summary: Get all colors (hex values only).
 #  responses:
 #    200:
 #      description: success
-#      schema:
+#      type: array
+#      items:
 #        type: string
 ###
 GET    /allColors    controllers.ColorController.allColors()

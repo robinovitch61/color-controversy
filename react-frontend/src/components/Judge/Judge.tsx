@@ -5,9 +5,8 @@ import Results from './Results';
 import NextButton from './NextButton';
 import ColorChoices from './ColorChoices';
 import {
-  StyledContainerDiv,
+  StyledJudgeContainerDiv,
   StyledColorSquareToJudgeDiv,
-  StyledJudgeButton,
 } from '../../style/style';
 
 async function getColor(): Promise<ModelsColor> {
@@ -41,7 +40,7 @@ function Judge() {
     submitChoice(color.hex, chosenColor);
     setNumJudged((prev) => prev + 1);
     setIsJudging(false);
-  }
+  };
 
   const updateColor = () => {
     getColor().then((color) => {
@@ -62,7 +61,7 @@ function Judge() {
   }, []);
 
   return (
-    <StyledContainerDiv>
+    <StyledJudgeContainerDiv>
       <StyledColorSquareToJudgeDiv inputColor={color.hex}>
         {!isJudging ? (
           <Results
@@ -84,9 +83,9 @@ function Judge() {
           onColorChoice={onColorChoice}
         />
       ) : (
-        <NextButton onClick={nextColor}/>
+        <NextButton onClick={nextColor} />
       )}
-    </StyledContainerDiv>
+    </StyledJudgeContainerDiv>
   );
 }
 

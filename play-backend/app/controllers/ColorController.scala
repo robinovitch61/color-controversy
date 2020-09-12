@@ -44,7 +44,7 @@ class ColorController @Inject() (
   }
 
   def allColors() = Action { implicit request: Request[AnyContent] =>
-    val json = Json.toJson(Seq("#ffffff", "#ffffab", "#101010"))
+    val json = Json.toJson(Seq("#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b"))
     Ok(json)
   }
 
