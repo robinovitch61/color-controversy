@@ -1,6 +1,7 @@
 package controllers
 
 import javax.inject._
+import models.ColorChoice.ColorChoice
 import play.api.mvc._
 import play.api.libs.json._
 import models.{DbModel, _}
@@ -48,8 +49,9 @@ class ColorController @Inject() (
   }
 
   // TODO: make choice enum for frontend
-  def submitChoice(color: String, choice: String) = Action { implicit request: Request[AnyContent] =>
-    println(s"color: $color, choice: $choice")
+  def submitChoice() = Action(parse.json[ColorJudgement]) { implicit request: Request[ColorJudgement] =>
+    val judgement = request.body
+    println(s"judgement: $judgement")
     Ok
   }
 }

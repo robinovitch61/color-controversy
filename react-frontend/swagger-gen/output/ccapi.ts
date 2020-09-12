@@ -18,6 +18,13 @@ export type ConfigureRequestHandler = (agent: SuperAgentRequest) => SuperAgentRe
 
 export type CallbackHandler = (err: any, res ? : request.Response) => void;
 
+export type ModelsColorJudgement = {
+    'color': string;
+    'choice': string;
+} & {
+    [key: string]: any;
+};
+
 export type ModelsVersion = {
     'playVersion': string;
 } & {
@@ -482,28 +489,13 @@ export class ColorApi {
     }
 
     submitChoiceURL(parameters: {
-        'color': string,
-        'choice': string,
+        'body': ModelsColorJudgement,
     } & CommonRequestOptions): string {
         let queryParameters: QueryParameters = {};
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/submitChoice';
         if (parameters.$path) {
             path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        if (parameters['color'] !== undefined) {
-            queryParameters['color'] = this.convertParameterCollectionFormat(
-                parameters['color'],
-                ''
-            );
-        }
-
-        if (parameters['choice'] !== undefined) {
-            queryParameters['choice'] = this.convertParameterCollectionFormat(
-                parameters['choice'],
-                ''
-            );
         }
 
         if (parameters.$queryParameters) {
@@ -523,12 +515,10 @@ export class ColorApi {
      * Submit color judgement.
      * @method
      * @name ColorApi#submitChoice
-     * @param {string} color - Judged color.
-     * @param {string} choice - Color choice for judged color.
+     * @param {} body - Judged color.
      */
     submitChoice(parameters: {
-        'color': string,
-        'choice': string,
+        'body': ModelsColorJudgement,
     } & CommonRequestOptions): Promise < ResponseWithBody < 200, Response_submitChoice_200 >> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/submitChoice';
@@ -544,27 +534,12 @@ export class ColorApi {
             headers['accept'] = 'application/json';
             headers['content-type'] = 'application/json';
 
-            if (parameters['color'] !== undefined) {
-                queryParameters['color'] = this.convertParameterCollectionFormat(
-                    parameters['color'],
-                    ''
-                );
+            if (parameters['body'] !== undefined) {
+                body = parameters['body'];
             }
 
-            if (parameters['color'] === undefined) {
-                reject(new Error('Missing required  parameter: color'));
-                return;
-            }
-
-            if (parameters['choice'] !== undefined) {
-                queryParameters['choice'] = this.convertParameterCollectionFormat(
-                    parameters['choice'],
-                    ''
-                );
-            }
-
-            if (parameters['choice'] === undefined) {
-                reject(new Error('Missing required  parameter: choice'));
+            if (parameters['body'] === undefined) {
+                reject(new Error('Missing required  parameter: body'));
                 return;
             }
 

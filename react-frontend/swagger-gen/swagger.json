@@ -96,17 +96,13 @@
         "tags" : [ "routes" ],
         "summary" : "Submit color judgement.",
         "parameters" : [ {
-          "in" : "query",
-          "name" : "color",
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
           "description" : "Judged color.",
-          "type" : "string",
-          "required" : true
-        }, {
-          "in" : "query",
-          "name" : "choice",
-          "description" : "Color choice for judged color.",
-          "type" : "string",
-          "required" : true
+          "schema" : {
+            "$ref" : "#/definitions/models.ColorJudgement"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -115,12 +111,24 @@
               "type" : "string"
             }
           }
-        }
+        },
+        "consumes" : [ "application/json" ]
       }
     }
   },
   "produces" : [ "application/json" ],
   "definitions" : {
+    "models.ColorJudgement" : {
+      "properties" : {
+        "color" : {
+          "type" : "string"
+        },
+        "choice" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "color", "choice" ]
+    },
     "models.Version" : {
       "properties" : {
         "playVersion" : {

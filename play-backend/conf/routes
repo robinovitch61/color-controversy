@@ -80,7 +80,7 @@ GET    /allColors    controllers.ColorController.allColors()
 #      schema:
 #        type: string
 ###
-POST    /submitChoice    controllers.ColorController.submitChoice(color: String, choice: String)
+POST    /submitChoice    controllers.ColorController.submitChoice()
 
 # Swagger
 ### NoDocs ###
