@@ -11,7 +11,7 @@
 #      schema:
 #        $ref: '#/definitions/models.Version'
 ###
-GET    /version    controllers.ColorController.version
+GET    /version    controllers.ColorController.version()
 
 ###
 #  summary: Get a random color.
@@ -21,7 +21,7 @@ GET    /version    controllers.ColorController.version
 #      schema:
 #        $ref: '#/definitions/models.Color'
 ###
-GET    /color    controllers.ColorController.randomColor
+GET    /color    controllers.ColorController.randomColor()
 
 ###
 #  summary: Get a specific color.
@@ -63,7 +63,24 @@ GET    /ranking/:limit    controllers.ColorController.ranking(limit: Int)
 #      schema:
 #        type: string
 ###
-GET    /allColors    controllers.ColorController.allColors
+GET    /allColors    controllers.ColorController.allColors()
+
+###
+#  summary: Submit color judgement.
+#  parameters:
+#    - in: body
+#      name: body
+#      required: true
+#      description: Judged color.
+#      schema:
+#        $ref: '#/definitions/models.ColorJudgement'
+#  responses:
+#    200:
+#      description: success
+#      schema:
+#        type: string
+###
+POST    /submitChoice    controllers.ColorController.submitChoice(color: String, choice: String)
 
 # Swagger
 ### NoDocs ###

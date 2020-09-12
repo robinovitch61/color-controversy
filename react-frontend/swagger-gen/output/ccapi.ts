@@ -25,16 +25,18 @@ export type ModelsVersion = {
 };
 
 export type ModelsColor = {
-    'hexColor': string;
-    'color1': string;
-    'color2': string;
-    'nColor1': number;
-    'nColor2': number;
+    'hex': string;
+    'firstOption': string;
+    'secondOption': string;
+    'nFirst': number;
+    'nSecond': number;
 } & {
     [key: string]: any;
 };
 
 export type Response_allColors_200 = string;
+
+export type Response_submitChoice_200 = string;
 
 export type Logger = {
     log: (line: string) => any
@@ -476,6 +478,107 @@ export class ColorApi {
             }
 
             this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
+        });
+    }
+
+    submitChoiceURL(parameters: {
+        'color': string,
+        'choice': string,
+    } & CommonRequestOptions): string {
+        let queryParameters: QueryParameters = {};
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/submitChoice';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        if (parameters['color'] !== undefined) {
+            queryParameters['color'] = this.convertParameterCollectionFormat(
+                parameters['color'],
+                ''
+            );
+        }
+
+        if (parameters['choice'] !== undefined) {
+            queryParameters['choice'] = this.convertParameterCollectionFormat(
+                parameters['choice'],
+                ''
+            );
+        }
+
+        if (parameters.$queryParameters) {
+            queryParameters = {
+                ...queryParameters,
+                ...parameters.$queryParameters
+            };
+        }
+
+        queryParameters = {};
+
+        let keys = Object.keys(queryParameters);
+        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
+    }
+
+    /**
+     * Submit color judgement.
+     * @method
+     * @name ColorApi#submitChoice
+     * @param {string} color - Judged color.
+     * @param {string} choice - Color choice for judged color.
+     */
+    submitChoice(parameters: {
+        'color': string,
+        'choice': string,
+    } & CommonRequestOptions): Promise < ResponseWithBody < 200, Response_submitChoice_200 >> {
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/submitChoice';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        let body: any;
+        let queryParameters: QueryParameters = {};
+        let headers: RequestHeaders = {};
+        let form: any = {};
+        return new Promise((resolve, reject) => {
+            headers['accept'] = 'application/json';
+            headers['content-type'] = 'application/json';
+
+            if (parameters['color'] !== undefined) {
+                queryParameters['color'] = this.convertParameterCollectionFormat(
+                    parameters['color'],
+                    ''
+                );
+            }
+
+            if (parameters['color'] === undefined) {
+                reject(new Error('Missing required  parameter: color'));
+                return;
+            }
+
+            if (parameters['choice'] !== undefined) {
+                queryParameters['choice'] = this.convertParameterCollectionFormat(
+                    parameters['choice'],
+                    ''
+                );
+            }
+
+            if (parameters['choice'] === undefined) {
+                reject(new Error('Missing required  parameter: choice'));
+                return;
+            }
+
+            if (parameters.$queryParameters) {
+                queryParameters = {
+                    ...queryParameters,
+                    ...parameters.$queryParameters
+                };
+            }
+
+            form = queryParameters;
+            queryParameters = {};
+
+            this.request('POST', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
         });
     }
 

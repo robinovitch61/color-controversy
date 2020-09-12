@@ -89,6 +89,34 @@
           }
         }
       }
+    },
+    "/submitChoice" : {
+      "post" : {
+        "operationId" : "submitChoice",
+        "tags" : [ "routes" ],
+        "summary" : "Submit color judgement.",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "color",
+          "description" : "Judged color.",
+          "type" : "string",
+          "required" : true
+        }, {
+          "in" : "query",
+          "name" : "choice",
+          "description" : "Color choice for judged color.",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
     }
   },
   "produces" : [ "application/json" ],

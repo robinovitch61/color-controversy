@@ -6,6 +6,11 @@
 
 Backend is a REST api built with Scala Play, found in `play-backend`.
 
+Rebuild swagger without restarting play-backend container:
+```
+docker exec play-backend sbt swagger
+```
+
 ### Frontend
 
 Frontend is a React app found in `react-frontend`. Swagger spec is found at <url-to-backend>/assets/swagger.json. After updating the `react-frontend/swagger-gen/swagger.json` file, you can run this to rebuild and reinstall the typescript API:

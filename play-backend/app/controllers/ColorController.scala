@@ -46,4 +46,10 @@ class ColorController @Inject() (
     val json = Json.toJson(Seq("#ffffff", "#ffffab", "#101010"))
     Ok(json)
   }
+
+  // TODO: make choice enum for frontend
+  def submitChoice(color: String, choice: String) = Action { implicit request: Request[AnyContent] =>
+    println(s"color: $color, choice: $choice")
+    Ok
+  }
 }
