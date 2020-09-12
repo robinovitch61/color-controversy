@@ -25,14 +25,35 @@ export const StyledContainerDiv = styled.div`
 // JUDGE
 ////////////////////////////
 
-export const StyledJudgeColorDiv = styled.div`
+export const StyledJudgeColorP = styled.div`
   margin: 0 auto;
   width: 90%;
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-bottom: 41%;
+  }
 
   &:after {
     content: '';
     display: block;
-    padding-bottom: 97%;
+    padding-bottom: 41%;
+  }
+
+  @media screen and (max-width: ${transitionWidthMobile}px) {
+    &:before {
+      content: '';
+      display: block;
+      padding-bottom: 35%;
+    }
+  
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 35%;
+    }
   }
 `
 
@@ -45,7 +66,7 @@ export const StyledJudgementDiv = styled.div`
     margin: 1em;
     padding: 0;
   }
-  
+
   @media screen and (max-width: ${transitionWidthMobile}px) {
     font-size: 0.9em;
 
@@ -84,7 +105,6 @@ export const StyledJudgeButton = styled.button`
     }
   }
 `
-
 
 ////////////////////////////
 // NAV AND TITLES

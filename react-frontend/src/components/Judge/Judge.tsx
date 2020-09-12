@@ -4,7 +4,7 @@ import { ModelsColor } from 'colorapi/dist/ccapi';
 import JudgeButton from './JudgeButton';
 import {
   StyledContainerDiv,
-  StyledJudgeColorDiv,
+  StyledJudgeColorP,
   StyledJudgementDiv,
   StyledJudgeButtonContainer,
 } from '../../style/style';
@@ -18,48 +18,72 @@ function Judge() {
   const [color, setColor] = useState('');
   const [firstOption, setfirstOption] = useState('');
   const [secondOption, setsecondOption] = useState('');
+  const [choice, setChoice] = useState('');
   const [numJudged, setNumJudged] = useState(0);
-  const [isJudging, setIsJudging] = useState(false);
+  const [isJudging, setIsJudging] = useState(true);
 
-  function submitChoice(color: string, choice: string): void {
+  function submitChoice(): void {
     // TODO: db id by color, make choice either actual color choice or just "first/second"
     console.log(color, choice, numJudged);
-    api.submitChoice({body: { color, choice }});
-    // setNumJudged((prev) => prev + 1);
-    toggleIsJudging();
+    api.submitChoice({ body: { color, choice } });
+    setNumJudged((prev) => prev + 1);
+    setIsJudging(false);
   }
 
-  const toggleIsJudging = () => setIsJudging((prev) => !prev);
-
-  // set initial color
-  useEffect(() => {
+  const updateColor = () => {
     getColor().then((color) => {
       setColor(color.hex);
       setfirstOption(color.firstOption);
       setsecondOption(color.secondOption);
     });
-  }, [numJudged]);
+  };
+
+  // set initial color
+  useEffect(() => {
+    updateColor();
+  }, []);
+
+  const JudgementComp = (
+    <StyledJudgementDiv>
+      <p>is this color:</p>
+      <StyledJudgeButtonContainer>
+        <JudgeButton
+          text={firstOption}
+          onClick={() => {
+            setChoice(firstOption);
+            submitChoice();
+          }}
+        ></JudgeButton>
+        <p>or</p>
+        <JudgeButton
+          text={secondOption}
+          onClick={() => {
+            setChoice(secondOption);
+            submitChoice();
+          }}
+        ></JudgeButton>
+      </StyledJudgeButtonContainer>
+    </StyledJudgementDiv>
+  );
+
+  const ResultComp = (
+    <StyledJudgementDiv>
+      <JudgeButton
+        text={'next'}
+        onClick={() => {
+          setIsJudging(true);
+          updateColor();
+        }}
+      ></JudgeButton>
+    </StyledJudgementDiv>
+  );
 
   return (
     <StyledContainerDiv>
-      <StyledJudgeColorDiv
-        style={{ backgroundColor: `${color}` }}
-      ></StyledJudgeColorDiv>
-
-      <StyledJudgementDiv>
-        <p>is this color:</p>
-        <StyledJudgeButtonContainer>
-          <JudgeButton
-            text={firstOption}
-            onClick={() => submitChoice(color, firstOption)}
-          ></JudgeButton>
-          <p>OR</p>
-          <JudgeButton
-            text={secondOption}
-            onClick={() => submitChoice(color, secondOption)}
-          ></JudgeButton>
-        </StyledJudgeButtonContainer>
-      </StyledJudgementDiv>
+      <StyledJudgeColorP style={{ backgroundColor: `${color}` }}>
+        <p style={{opacity: isJudging ? 0 : 100}}>{`you said: ${choice}`}</p>
+      </StyledJudgeColorP>
+      {isJudging ? JudgementComp : ResultComp}
     </StyledContainerDiv>
   );
 }
