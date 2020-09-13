@@ -42,6 +42,8 @@ class DbModel @Inject() (db: Database) {
       println(s"hexColor: ${hexColor}, choice: $choice")
       stmt.executeUpdate(
         s"""
+          | -- this could maybe be simplified if the frontend just passed something like "choseFirst" boolean
+          | -- instead of the actual choice. Might change if performance degrades.
           |UPDATE color
           |SET    n_first = CASE WHEN (color.hex = '${hexColor}' AND color.first_option = '${choice}') THEN n_first + 1 ELSE n_first END
           |     , n_second = CASE WHEN (color.hex = '${hexColor}' AND color.second_option = '${choice}') THEN n_second + 1 ELSE n_second END
