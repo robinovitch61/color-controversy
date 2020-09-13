@@ -15,10 +15,6 @@ function ColorResult(props: ColorResultProps) {
 
   const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW_TEXT;
 
-  const hideIfUnderThreshold = (text: string) => {
-    return percTooSmall() ? '' : text;
-  };
-
   const opacity = percTooSmall() ? 0 : 100;
 
   return (

@@ -7,15 +7,11 @@ async function getColors() {
   return colors.body;
 }
 
-interface AllColorsProps {
-  colors: string[];
-}
-
-function AllColors(props: AllColorsProps) {
+function AllColors() {
   const [colors, setColors] = useState(['']);
 
   const updateColors = () => {
-    const colors = getColors().then((colors) => setColors(colors));
+    getColors().then((colors) => setColors(colors));
   };
 
   useEffect(() => {

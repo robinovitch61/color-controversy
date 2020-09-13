@@ -7,7 +7,6 @@ import ColorChoices from './ColorChoices';
 import {
   StyledContainerDiv,
   StyledColorSquareToJudgeDiv,
-  StyledJudgeButton,
 } from '../../style/style';
 
 async function getColor(): Promise<ModelsColor> {

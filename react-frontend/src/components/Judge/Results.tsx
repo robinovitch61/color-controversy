@@ -1,10 +1,5 @@
 import React from 'react';
-import ColorResult from './ColorResult';
-import {
-  StyledCenteredP,
-  StyledFlexDiv,
-  StyledColorResultsDiv,
-} from '../../style/style';
+import { StyledCenteredP, StyledColorResultsDiv } from '../../style/style';
 import { ModelsColor } from 'colorapi/dist/ccapi';
 import ColorResults from './ColorResults';
 

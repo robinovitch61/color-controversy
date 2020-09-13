@@ -25,7 +25,7 @@ function Leaderboard(props: LeaderboardProps) {
   const [colors, setColors] = useState([defaultColor]);
 
   const updateColors = () => {
-    const colors = getRankings().then((colors) => setColors(colors));
+    getRankings().then((colors) => setColors(colors));
   };
 
   useEffect(() => {

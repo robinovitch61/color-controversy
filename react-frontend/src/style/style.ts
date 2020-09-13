@@ -1,5 +1,15 @@
 import styled from 'styled-components'
 
+const COLOR_CONVERSIONS = {
+  red: '#FF0000',
+  orange: '#FF7A00',
+  yellow: '#FFFF00',
+  green: '#00DE00',
+  blue: '#3388FF',
+  pink: '#FF00D9',
+  purple: '#AE00FF'
+}
+
 const transitionWidthMobile = 768
 const red = '#ff007f'
 const orange = 'rgba(255, 170, 29, 0.739583) 80.46%'
@@ -137,7 +147,7 @@ export const StyledColorResultsDiv = styled.div`
   left: 5%;
   right: 5%;
   margin: 0 auto;
-`;
+`
 
 interface StyledColorResultDivProps {
   width: number
@@ -156,7 +166,12 @@ export const StyledColorBarP = styled.p`
   width: 100%;
   margin: 0 auto;
   padding: 1em 0;
-  background-color: ${(p: StyledColorBarPProps) => p.color};
+  background-color: ${(p: StyledColorBarPProps) => {
+    // @ts-ignore TODO: export color options as ColorOption enum from backend.
+    // this wasn't explicitly supported by typecript gen, but could
+    // probably figure it out later
+    return COLOR_CONVERSIONS[p.color]
+  }};
   text-align: center;
 `
 
@@ -164,7 +179,7 @@ export const StyledNextButtonDiv = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1em;
-`;
+`
 
 ////////////////////////////
 // NAV AND TITLES
@@ -346,9 +361,9 @@ export const StyledColorDiv = styled.div`
     display: block;
     padding-bottom: 100%;
   }
-`;
+`
 
 export const StyledColorGridDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
+`
