@@ -1,5 +1,7 @@
 package models
 
+import java.sql.ResultSet
+
 import javax.inject._
 import models.ColorChoice.ColorChoice
 import play.api.db._
@@ -30,13 +32,7 @@ class DbModel @Inject() (db: Database) {
           |LIMIT 1;""".stripMargin
       )
       rs.next()
-      Color(
-        hex = rs.getString("hex"),
-        firstOption = rs.getString("first_option"),
-        secondOption = rs.getString("second_option"),
-        nFirst = rs.getInt("n_first"),
-        nSecond = rs.getInt("n_second")
-      )
+      getNextColor(rs)
     }
   }
 
@@ -67,5 +63,35 @@ class DbModel @Inject() (db: Database) {
         def next() = rs.getString("hex")
       }.to(LazyList)
     }
+  }
+
+  def getRankings(limit: Int): Seq[Color] = {
+    db.withConnection { conn =>
+      val stmt = conn.createStatement
+      val rs = stmt.executeQuery(
+        s"""
+          |SELECT *
+          |FROM color
+          |WHERE (n_first > 10) OR (n_second > 10) -- exclude unvoted-on colors
+          |ORDER BY
+          |   ABS(CAST(n_first AS DECIMAL) / (n_first + n_second) - 0.5) ASC,
+          |   hex ASC
+          |LIMIT ${limit};""".stripMargin
+      )
+      new Iterator[Color] {
+        def hasNext = rs.next()
+        def next() = getNextColor(rs)
+      }.to(LazyList)
+    }
+  }
+
+  private def getNextColor(rs: ResultSet): Color = {
+    Color(
+      hex = rs.getString("hex"),
+      firstOption = rs.getString("first_option"),
+      secondOption = rs.getString("second_option"),
+      nFirst = rs.getInt("n_first"),
+      nSecond = rs.getInt("n_second")
+    )
   }
 }

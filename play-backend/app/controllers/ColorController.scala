@@ -39,7 +39,8 @@ class ColorController @Inject() (
   }
 
   def ranking(limit: Int) = Action { implicit request: Request[AnyContent] =>
-    val json = Json.toJson(Color.exampleSet.take(limit))
+    val colorRankings = db.getRankings(limit)
+    val json = Json.toJson(colorRankings)
     Ok(json)
   }
 
