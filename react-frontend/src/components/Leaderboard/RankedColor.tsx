@@ -1,6 +1,7 @@
 import React from 'react';
 import { ModelsColor } from 'colorapi/dist/ccapi';
 import ColorResults from '../Judge/ColorResults';
+import { StyledRankedColorDiv, StyledRankedColorBoxP } from '../../style/style';
 
 interface RankedColorProps {
   rank: number;
@@ -9,24 +10,13 @@ interface RankedColorProps {
 
 function RankedColor(props: RankedColorProps) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
+    <StyledRankedColorDiv>
       <p>#{props.rank < 10 ? '0' + props.rank : props.rank}</p>
-      <p
-        style={{
-          padding: '2em',
-          backgroundColor: props.color.hex,
-          margin: '1em',
-        }}
-      >
+      <StyledRankedColorBoxP hexColor={props.color.hex}>
         {props.color.hex}
-      </p>
+      </StyledRankedColorBoxP>
       <ColorResults color={props.color} />
-    </div>
+    </StyledRankedColorDiv>
   );
 }
 

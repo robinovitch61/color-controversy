@@ -159,14 +159,24 @@ export const StyledColorResultDiv = styled.div`
   flex-direction: column;
 `
 
-interface StyledColorBarPProps {
+interface StyledColorBarTextPProps {
+  opacity: number
+}
+export const StyledColorTextBarP = styled.p`
+  opacity: ${(p: StyledColorBarTextPProps) => p.opacity};
+  margin: 0.3em;
+  padding: 0;
+`
+
+interface StyledColorBarDivProps {
   color: string
 }
-export const StyledColorBarP = styled.p`
+export const StyledColorBarDiv = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 1em 0;
-  background-color: ${(p: StyledColorBarPProps) => {
+  padding: 0.5em 0;
+  border: 0.5px solid black;
+  background-color: ${(p: StyledColorBarDivProps) => {
     // @ts-ignore TODO: export color options as ColorOption enum from backend.
     // this wasn't explicitly supported by typecript gen, but could
     // probably figure it out later
@@ -367,3 +377,21 @@ export const StyledColorGridDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
+
+////////////////////////////
+// RANKINGS
+////////////////////////////
+
+export const StyledRankedColorDiv = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+interface StyledRankedColorBoxPProps {
+  hexColor: string
+}
+export const StyledRankedColorBoxP = styled.p`
+  background-color: ${(p: StyledRankedColorBoxPProps) => p.hexColor};
+  padding: 2em;
+  margin: 1em;
+`;

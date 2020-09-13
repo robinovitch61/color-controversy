@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyledColorResultDiv, StyledColorBarP } from '../../style/style';
+import {
+  StyledColorResultDiv,
+  StyledColorBarDiv,
+  StyledColorTextBarP,
+} from '../../style/style';
 
 // text gets mushed/hidden when colorbar is small
 const MIN_PERCENT_TO_SHOW_TEXT = 10;
@@ -19,31 +23,19 @@ function ColorResult(props: ColorResultProps) {
 
   return (
     <StyledColorResultDiv width={percent}>
-      <p
-        style={{
-          opacity: opacity,
-        }}
-      >
-        {percent}%
-      </p>
-      <StyledColorBarP color={color}>
+      <StyledColorTextBarP opacity={opacity}>{percent}%</StyledColorTextBarP>
+      <StyledColorBarDiv color={color}>
         <p
           style={{
             opacity: opacity,
             margin: 0,
-            padding: 0
+            padding: 0,
           }}
         >
           {color}
         </p>
-      </StyledColorBarP>
-      <p
-        style={{
-          opacity: opacity,
-        }}
-      >
-        {count}
-      </p>
+      </StyledColorBarDiv>
+      <StyledColorTextBarP opacity={opacity}>{count}</StyledColorTextBarP>
     </StyledColorResultDiv>
   );
 }

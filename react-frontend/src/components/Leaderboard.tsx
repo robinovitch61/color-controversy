@@ -33,7 +33,7 @@ function Leaderboard(props: LeaderboardProps) {
   }, []);
 
   const rankedColors = colors.map((color, idx) => (
-    <RankedColor rank={idx + 1} color={color} />
+    <RankedColor key={color.hex} rank={idx + 1} color={color} />
   ));
 
   return <StyledContainerDiv>{rankedColors}</StyledContainerDiv>;
