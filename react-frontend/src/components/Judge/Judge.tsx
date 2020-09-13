@@ -5,8 +5,9 @@ import Results from './Results';
 import NextButton from './NextButton';
 import ColorChoices from './ColorChoices';
 import {
-  StyledJudgeContainerDiv,
+  StyledContainerDiv,
   StyledColorSquareToJudgeDiv,
+  StyledJudgeButton,
 } from '../../style/style';
 
 async function getColor(): Promise<ModelsColor> {
@@ -35,10 +36,27 @@ function Judge() {
     api.submitChoice({ body: { color: colorHex, choice: choice } });
   }
 
+  const includeChoiceInColor = (choice: string) => {
+    setColor((prevColor) => {
+      return {
+        ...prevColor,
+        nFirst:
+          choice === prevColor.firstOption
+            ? prevColor.nFirst + 1
+            : prevColor.nFirst,
+        nSecond:
+          choice === prevColor.secondOption
+            ? prevColor.nSecond + 1
+            : prevColor.nSecond,
+      };
+    });
+  };
+
   const onColorChoice = (chosenColor: string) => {
     setChoice(chosenColor);
     submitChoice(color.hex, chosenColor);
     setNumJudged((prev) => prev + 1);
+    includeChoiceInColor(chosenColor);
     setIsJudging(false);
   };
 
@@ -61,17 +79,12 @@ function Judge() {
   }, []);
 
   return (
-    <StyledJudgeContainerDiv>
+    <StyledContainerDiv>
       <StyledColorSquareToJudgeDiv inputColor={color.hex}>
         {!isJudging ? (
           <Results
             choice={choice}
-            firstOption={color.firstOption}
-            secondOption={color.secondOption}
-            firstPerc={30} // TODO
-            secondPerc={70} // TODO
-            nFirst={color.nFirst}
-            nSecond={color.nSecond}
+            color={color}
             percentControversial={numJudged} // TODO
           />
         ) : undefined}
@@ -85,7 +98,7 @@ function Judge() {
       ) : (
         <NextButton onClick={nextColor} />
       )}
-    </StyledJudgeContainerDiv>
+    </StyledContainerDiv>
   );
 }
 

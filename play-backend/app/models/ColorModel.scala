@@ -17,11 +17,13 @@ case class Color(
   nSecond: Int
 )
 object Color {
-  val example = Color("#ffffff", "blue", "green", 102, 97)
+  val example = Color("#4632a8", "blue", "green", 10, 90)
   val exampleSet = Seq(
-    Color("#ffffff", "blue", "green", 102, 97),
-    Color("#00000", "blue", "green", 32, 78)
+    Color("#4632a8", "blue", "green", 10, 90),
+    Color("#ffffab", "yellow", "orange", 32, 78),
+    Color("#101010", "red", "purple", 14, 76)
   )
+  val exampleHexColors = Seq("#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b", "#4632a8", "#ffffab", "#101010", "#4632a8", "#ed076b")
 
   implicit val format = Json.format[Color]
 }

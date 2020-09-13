@@ -5,26 +5,22 @@ import {
   StyledFlexDiv,
   StyledColorResultsDiv,
 } from '../../style/style';
+import { ModelsColor } from 'colorapi/dist/ccapi';
+import ColorResults from './ColorResults';
 
 interface ResultsProps {
-  choice: string
-  firstOption: string
-  secondOption: string
-  firstPerc: number
-  secondPerc: number
-  nFirst: number
-  nSecond: number
-  percentControversial: number
+  choice: string;
+  color: ModelsColor;
+  percentControversial: number;
 }
 function Results(props: ResultsProps) {
   return (
     <StyledColorResultsDiv>
       <StyledCenteredP>{`you said: ${props.choice}`}</StyledCenteredP>
-      <StyledFlexDiv>
-        <ColorResult color={props.firstOption} percent={props.firstPerc} count={props.nFirst}/>
-        <ColorResult color={props.secondOption} percent={props.secondPerc} count={props.nSecond}/>
-      </StyledFlexDiv>
-      <StyledCenteredP>you've been {props.percentControversial}% controversial</StyledCenteredP>
+      <ColorResults color={props.color} />
+      <StyledCenteredP>
+        you've been {props.percentControversial}% controversial
+      </StyledCenteredP>
     </StyledColorResultsDiv>
   );
 }
