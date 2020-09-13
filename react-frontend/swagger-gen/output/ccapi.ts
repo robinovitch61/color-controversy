@@ -397,7 +397,7 @@ export class ColorApi {
      */
     ranking(parameters: {
         'limit': number,
-    } & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
+    } & CommonRequestOptions): Promise < ResponseWithBody < 200, Array < ModelsColor >>> {
         const domain = parameters.$domain ? parameters.$domain : this.domain;
         let path = '/ranking/{limit}';
         if (parameters.$path) {
@@ -456,7 +456,7 @@ export class ColorApi {
     }
 
     /**
-     * Get all colors.
+     * Get all colors (hex values only).
      * @method
      * @name ColorApi#allColors
      */

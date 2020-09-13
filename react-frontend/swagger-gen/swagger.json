@@ -68,7 +68,8 @@
         "responses" : {
           "200" : {
             "description" : "success",
-            "schema" : {
+            "type" : "array",
+            "items" : {
               "$ref" : "#/definitions/models.Color"
             }
           }
@@ -79,7 +80,7 @@
       "get" : {
         "operationId" : "allColors",
         "tags" : [ "routes" ],
-        "summary" : "Get all colors.",
+        "summary" : "Get all colors (hex values only).",
         "responses" : {
           "200" : {
             "description" : "success",
