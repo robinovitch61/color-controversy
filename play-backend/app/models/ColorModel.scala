@@ -38,13 +38,13 @@ object ColorJudgement {
 object ColorChoice extends Enumeration {
   type ColorChoice = Value
 
-  val Red = Value("Red")
-  val Orange = Value("Orange")
-  val Yellow = Value("Yellow")
-  val Green = Value("Green")
-  val Blue = Value("Blue")
-  val Pink = Value("Pink")
-  val Purple = Value("Purple")
+  val Red = Value("red")
+  val Orange = Value("orange")
+  val Yellow = Value("yellow")
+  val Green = Value("green")
+  val Blue = Value("blue")
+  val Pink = Value("pink")
+  val Purple = Value("purple")
 
   implicit val reads = Reads.enumNameReads(ColorChoice)
   implicit val writes = Writes.enumNameWrites

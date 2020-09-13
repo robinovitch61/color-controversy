@@ -1,7 +1,6 @@
 package controllers
 
 import javax.inject._
-import models.ColorChoice.ColorChoice
 import play.api.mvc._
 import play.api.libs.json._
 import models.{DbModel, _}
@@ -33,6 +32,7 @@ class ColorController @Inject() (
     Ok(json)
   }
 
+  // don't need this yet, will actually implement later if needed
   def getColor(color: String) = Action { implicit request: Request[AnyContent] =>
     val json = Json.toJson(Color.example.copy(hex = color))
     Ok(json)
@@ -44,14 +44,19 @@ class ColorController @Inject() (
   }
 
   def allColors() = Action { implicit request: Request[AnyContent] =>
-    val json = Json.toJson(Color.exampleHexColors)
+    val colors = db.getAllColors()
+    val json = Json.toJson(colors)
     Ok(json)
   }
 
   // TODO: make choice enum for frontend
+  // TODO: change printlns to logging
   def submitChoice() = Action(parse.json[ColorJudgement]) { implicit request: Request[ColorJudgement] =>
     val judgement = request.body
-    println(s"judgement: $judgement")
+    val choice = ColorChoice.withName(judgement.choice)
+    val hexColor = judgement.color
+    println(s"submitChoice - color: $hexColor, choice: $choice")
+    db.persistChoice(hexColor, choice)
     Ok
   }
 }

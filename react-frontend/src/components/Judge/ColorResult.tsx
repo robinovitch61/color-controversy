@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledColorResultDiv, StyledColorBarP } from '../../style/style';
 
-const MIN_PERCENT_TO_SHOW = 5;
+// text gets mushed/hidden when colorbar is small
+const MIN_PERCENT_TO_SHOW_TEXT = 10;
 
 interface ColorResultProps {
   color: string;
@@ -12,7 +13,7 @@ interface ColorResultProps {
 function ColorResult(props: ColorResultProps) {
   const { color, percent, count } = props;
 
-  const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW;
+  const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW_TEXT;
 
   const hideIfUnderThreshold = (text: string) => {
     return percTooSmall() ? '' : text;
@@ -27,7 +28,7 @@ function ColorResult(props: ColorResultProps) {
           opacity: opacity,
         }}
       >
-        {percent}
+        {percent}%
       </p>
       <StyledColorBarP color={color}>
         <p

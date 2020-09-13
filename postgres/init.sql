@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS color (
   hex VARCHAR NOT NULL CHECK (hex <> '') PRIMARY KEY,
   first_option VARCHAR NOT NULL CHECK (first_option <> ''),
   second_option VARCHAR NOT NULL CHECK (second_option <> ''),
-  n_first INT NOT NULL DEFAULT 20 CHECK (n_first >= 0),
-  n_second INT NOT NULL DEFAULT 20 CHECK (n_second >= 0)
+  n_first INT NOT NULL DEFAULT 10 CHECK (n_first >= 0),
+  n_second INT NOT NULL DEFAULT 10 CHECK (n_second >= 0)
 );
 
 INSERT INTO color (hex, first_option, second_option) VALUES ('#009CBB', 'blue', 'green') RETURNING hex;
