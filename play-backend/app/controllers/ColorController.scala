@@ -5,6 +5,8 @@ import play.api.mvc._
 import play.api.libs.json._
 import models.{DbModel, _}
 
+import scala.util.Random
+
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -46,7 +48,7 @@ class ColorController @Inject() (
 
   def allColors() = Action { implicit request: Request[AnyContent] =>
     val colors = db.getAllColors()
-    val json = Json.toJson(colors)
+    val json = Json.toJson(Random.shuffle(colors))
     Ok(json)
   }
 
