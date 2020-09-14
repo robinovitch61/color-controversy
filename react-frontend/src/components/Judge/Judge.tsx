@@ -10,7 +10,7 @@ import {
   StyledColorSquareToJudgeDiv,
   StyledColorResultsDiv,
 } from '../../style/style';
-import { RouteComponentProps, useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
@@ -35,7 +35,7 @@ function Judge() {
   const [choice, setChoice] = useState('');
   const [numJudged, setNumJudged] = useState(0);
   const [isJudging, setIsJudging] = useState(true);
-  let location = useLocation();
+  const location = useLocation();
 
   function submitChoice(colorHex: string, choice: string): void {
     api.submitChoice({ body: { color: colorHex, choice: choice } });
@@ -91,7 +91,7 @@ function Judge() {
     } else {
       getRandomHexAndSetColor();
     }
-  }, []);
+  }, [location.state]);
 
   return (
     <StyledJudgeContainerDiv>
