@@ -10,32 +10,25 @@ const MIN_PERCENT_TO_SHOW_TEXT = 10;
 
 interface ColorResultProps {
   color: string;
-  percent: number;
+  percentFloat: number;
   count: number;
 }
 
 function ColorResult(props: ColorResultProps) {
-  const { color, percent, count } = props;
-
+  const { color, percentFloat, count } = props;
+  const percent = parseInt(percentFloat.toString());
   const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW_TEXT;
-
   const opacity = percTooSmall() ? 0 : 100;
 
   return (
-    <StyledColorResultDiv width={percent}>
-      <StyledColorTextBarP opacity={opacity}>{percent}%</StyledColorTextBarP>
+    <StyledColorResultDiv width={percentFloat}>
+      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{percent}%</StyledColorTextBarP>
       <StyledColorBarDiv color={color}>
-        <p
-          style={{
-            opacity: opacity,
-            margin: 0,
-            padding: 0,
-          }}
-        >
+        <StyledColorTextBarP opacity={opacity} marginEm={0}>
           {color}
-        </p>
+        </StyledColorTextBarP>
       </StyledColorBarDiv>
-      <StyledColorTextBarP opacity={opacity}>{count}</StyledColorTextBarP>
+      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{count}</StyledColorTextBarP>
     </StyledColorResultDiv>
   );
 }

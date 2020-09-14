@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ColorGrid from './AllColors/ColorGrid';
-import api from '../connector/connector';
+import ColorGrid from './ColorGrid';
+import api from '../../connector/connector';
 
 async function getColors() {
   const colors = await api.allColors({});

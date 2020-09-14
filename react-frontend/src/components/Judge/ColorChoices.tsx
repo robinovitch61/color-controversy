@@ -10,7 +10,6 @@ interface ColorChoicesProps {
 function ColorChoices(props: ColorChoicesProps) {
   return (
     <StyledChoicesDiv>
-      <p>is this color:</p>
       <StyledChoiceButtonsDiv>
         <ColorChoice colorOption={props.firstOption} onColorChoice={props.onColorChoice} />
         <p>or</p>

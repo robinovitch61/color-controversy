@@ -9,36 +9,32 @@ const COLOR_CONVERSIONS = {
   pink: '#FF00D9',
   purple: '#AE00FF'
 }
-
-const transitionWidthMobile = 768
-const red = '#ff007f'
-const orange = 'rgba(255, 170, 29, 0.739583) 80.46%'
-const navHeight = 100
-const navLogoWidth = navHeight - 20
-const navHeightMobile = 60
-const navLogoWidthMobile = navHeightMobile - 10
-const containerWidth = 550
+const CONTAINER_WIDTH_PX = 650
+const JUDGE_CONTAINER_WIDTH_PX = 550
+const TRANSITION_WIDTH_MOBILE = 768
+const RED_COLOR = '#ff007f'
+const ORANGE_COLOR = 'rgba(255, 170, 29, 0.739583) 80.46%'
+const NAV_HEIGHT_PX = 100
+const NAV_LOGO_WIDTH_PX = NAV_HEIGHT_PX - 20
+const NAV_HEIGHT_MOBILE_PX = 60
+const NAV_LOGO_WIDTH_MOBILE_PX = NAV_HEIGHT_MOBILE_PX - 10
 
 ////////////////////////////
 // GENERIC
 ////////////////////////////
 
 export const StyledContainerDiv = styled.div`
-  max-width: ${containerWidth}px;
+  max-width: ${CONTAINER_WIDTH_PX}px;
   margin: 0 auto;
 
-  @media screen and (max-width: ${transitionWidthMobile}px) {
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     width: 90%;
   }
 `
 
-export const StyledJudgeContainerDiv = styled.div`
-  max-width: ${containerWidth}px;
-  margin: 0 auto;
-
-  @media screen and (max-width: ${transitionWidthMobile}px) {
-    width: 65%;
-  }
+export const StyledJudgeContainerDiv = styled(StyledContainerDiv)`
+  z-index: 1;
+  max-width: ${JUDGE_CONTAINER_WIDTH_PX}px;
 `
 
 export const StyledCenteredP = styled.p`
@@ -55,41 +51,21 @@ export const StyledFlexDiv = styled.div`
 // JUDGE
 ////////////////////////////
 
+export const StyledColorSquareAndResultsDiv = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 95%;
+  margin: 0 auto;
+`;
+
 interface StyledColorSquareToJudgeDivProps {
   inputColor: string
 }
 export const StyledColorSquareToJudgeDiv = styled.div`
-  margin: 0 auto;
   width: 100%;
-  text-align: center;
-  position: relative;
+  height: 100%;
+  position: absolute;
   background-color: ${(p: StyledColorSquareToJudgeDivProps) => p.inputColor};
-
-  &:before {
-    content: '';
-    display: block;
-    padding-bottom: 46%;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    padding-bottom: 46%;
-  }
-
-  @media screen and (max-width: ${transitionWidthMobile}px) {
-    &:before {
-      content: '';
-      display: block;
-      padding-bottom: 46%;
-    }
-
-    &:after {
-      content: '';
-      display: block;
-      padding-bottom: 46%;
-    }
-  }
 `
 
 export const StyledChoicesDiv = styled.div`
@@ -102,7 +78,7 @@ export const StyledChoicesDiv = styled.div`
     padding: 0;
   }
 
-  @media screen and (max-width: ${transitionWidthMobile}px) {
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     font-size: 0.9em;
 
     p {
@@ -114,10 +90,10 @@ export const StyledChoicesDiv = styled.div`
 export const StyledChoiceButtonsDiv = styled.div`
   display: flex;
   margin: 0em auto;
-  margin-bottom: 1em;
-  width: 90%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
   align-items: center;
+  margin: 1em 0;
 `
 
 export const StyledJudgeButton = styled.button`
@@ -127,9 +103,11 @@ export const StyledJudgeButton = styled.button`
   padding: 1em 0;
   width: 45%;
   border: unset;
+  margin: 0 1em;
 
-  @media screen and (max-width: ${transitionWidthMobile}px) {
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     padding: 0.7em 0;
+    margin: 0;
 
     &:focus,
     &:active,
@@ -143,10 +121,17 @@ export const StyledJudgeButton = styled.button`
 
 export const StyledColorResultsDiv = styled.div`
   position: absolute;
-  top: 25%;
-  left: 5%;
-  right: 5%;
-  margin: 0 auto;
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 `
 
 interface StyledColorResultDivProps {
@@ -160,11 +145,12 @@ export const StyledColorResultDiv = styled.div`
 `
 
 interface StyledColorBarTextPProps {
-  opacity: number
+  opacity: number,
+  marginEm: number
 }
 export const StyledColorTextBarP = styled.p`
   opacity: ${(p: StyledColorBarTextPProps) => p.opacity};
-  margin: 0.3em;
+  margin: ${(p: StyledColorBarTextPProps) => p.marginEm}em;
   padding: 0;
 `
 
@@ -199,7 +185,7 @@ export const StyledTitleDiv = styled.div`
   width: 100%;
   text-align: center;
 
-  @media screen and (max-width: ${transitionWidthMobile}px) {
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     h1 {
       margin: 0.5rem 0;
     }
@@ -225,18 +211,18 @@ export const StyledNavButton = styled.button`
 
 export const StyledNav = styled.nav`
   width: 100%;
-  height: ${navHeight}px;
+  height: ${NAV_HEIGHT_PX}px;
   display: flex;
   justify-content: space-between;
   background: linear-gradient(
     270deg,
-    ${red},
-    ${orange},
+    ${RED_COLOR},
+    ${ORANGE_COLOR},
     rgba(255, 240, 0, 0) 98.59%
   );
 
-  @media screen and (max-width: ${transitionWidthMobile}px) {
-    height: ${navHeightMobile}px;
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    height: ${NAV_HEIGHT_MOBILE_PX}px;
   }
 
   button {
@@ -258,13 +244,13 @@ export const StyledNav = styled.nav`
       align-items: center;
 
       .nav-logo {
-        width: ${navLogoWidth}px;
+        width: ${NAV_LOGO_WIDTH_PX}px;
         max-width: 100px;
         opacity: 0.7;
         padding-left: 2vw;
 
-        @media screen and (max-width: ${transitionWidthMobile}px) {
-          width: ${navLogoWidthMobile}px;
+        @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
+          width: ${NAV_LOGO_WIDTH_MOBILE_PX}px;
           padding-left: 3vw;
         }
       }
@@ -276,7 +262,7 @@ export const StyledNav = styled.nav`
     height: 100%;
     display: none;
 
-    @media screen and (max-width: ${transitionWidthMobile}px) {
+    @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -286,7 +272,7 @@ export const StyledNav = styled.nav`
   }
 
   .nav-exit {
-    z-index: 1;
+    z-index: 10;
   }
 
   .nav-links {
@@ -294,7 +280,7 @@ export const StyledNav = styled.nav`
     margin-right: 2vw;
     font-size: 1.1rem;
 
-    @media screen and (max-width: ${transitionWidthMobile}px) {
+    @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
       display: none;
     }
 
@@ -322,7 +308,6 @@ export const StyledNav = styled.nav`
   .nav-links-mobile {
     position: absolute;
     top: 0;
-    bottom: 0;
     right: 0;
     left: 40%;
     background-color: #ffe4bb;
@@ -330,6 +315,7 @@ export const StyledNav = styled.nav`
     align-items: center;
     display: none;
     font-size: 1.1rem;
+    z-index: 5;
 
     a {
       width: 100%;
@@ -338,7 +324,7 @@ export const StyledNav = styled.nav`
       background-color: #ffd08a;
 
       &:first-child {
-        margin-top: ${navHeightMobile}px;
+        margin-top: ${NAV_HEIGHT_MOBILE_PX}px;
       }
 
       span {
@@ -347,7 +333,7 @@ export const StyledNav = styled.nav`
       }
     }
 
-    @media screen and (max-width: ${transitionWidthMobile}px) {
+    @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
       display: flex;
     }
   }
@@ -382,16 +368,33 @@ export const StyledColorGridDiv = styled.div`
 // RANKINGS
 ////////////////////////////
 
+export const StyledRankingContainerDiv = styled(StyledContainerDiv)`
+  .ranked-color:nth-child(odd) {
+    border-bottom: 1px solid lightblue;
+  }
+  .ranked-color:nth-child(even) {
+    border-bottom: 1px solid lightgray;
+  }
+
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    font-size: 0.7em;
+  }
+`;
+
 export const StyledRankedColorDiv = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
-interface StyledRankedColorBoxPProps {
+interface StyledRankedColorBoxDivProps {
   hexColor: string
 }
-export const StyledRankedColorBoxP = styled.p`
-  background-color: ${(p: StyledRankedColorBoxPProps) => p.hexColor};
-  padding: 2em;
+export const StyledRankedColorBoxDiv = styled.div`
+  background-color: ${(p: StyledRankedColorBoxDivProps) => p.hexColor};
+  padding: 2.1em 2em;
   margin: 1em;
-`;
+
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    padding: 1.1em 1em;
+  }
+`

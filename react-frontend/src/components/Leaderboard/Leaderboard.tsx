@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import RankedColor from './Leaderboard/RankedColor';
-import api from '../connector/connector';
+import RankedColor from './RankedColor';
+import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
-import { StyledContainerDiv } from '../style/style';
+import { StyledRankingContainerDiv } from '../../style/style';
 
 async function getRankings() {
   const colors = await api.ranking({ limit: 10 });
@@ -36,7 +36,7 @@ function Leaderboard(props: LeaderboardProps) {
     <RankedColor key={color.hex} rank={idx + 1} color={color} />
   ));
 
-  return <StyledContainerDiv>{rankedColors}</StyledContainerDiv>;
+  return <StyledRankingContainerDiv>{rankedColors}</StyledRankingContainerDiv>;
 }
 
 export default Leaderboard;

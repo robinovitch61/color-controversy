@@ -5,8 +5,10 @@ import Results from './Results';
 import NextButton from './NextButton';
 import ColorChoices from './ColorChoices';
 import {
-  StyledContainerDiv,
+  StyledJudgeContainerDiv,
+  StyledColorSquareAndResultsDiv,
   StyledColorSquareToJudgeDiv,
+  StyledColorResultsDiv,
 } from '../../style/style';
 
 async function getColor(): Promise<ModelsColor> {
@@ -78,16 +80,18 @@ function Judge() {
   }, []);
 
   return (
-    <StyledContainerDiv>
-      <StyledColorSquareToJudgeDiv inputColor={color.hex}>
-        {!isJudging ? (
-          <Results
-            choice={choice}
-            color={color}
-            percentControversial={numJudged} // TODO
-          />
-        ) : undefined}
-      </StyledColorSquareToJudgeDiv>
+    <StyledJudgeContainerDiv>
+      <StyledColorSquareAndResultsDiv>
+        <StyledColorSquareToJudgeDiv inputColor={color.hex}>
+          {!isJudging ? (
+            <Results
+              choice={choice}
+              color={color}
+              percentControversial={numJudged} // TODO
+            />
+          ) : <StyledColorResultsDiv>judge me</StyledColorResultsDiv>}
+        </StyledColorSquareToJudgeDiv>
+      </StyledColorSquareAndResultsDiv>
       {isJudging ? (
         <ColorChoices
           firstOption={color.firstOption}
@@ -97,7 +101,7 @@ function Judge() {
       ) : (
         <NextButton onClick={nextColor} />
       )}
-    </StyledContainerDiv>
+    </StyledJudgeContainerDiv>
   );
 }
 
