@@ -146,12 +146,16 @@ export const StyledColorResultDiv = styled.div`
 
 interface StyledColorBarTextPProps {
   opacity: number,
-  marginEm: number
+  marginEm: number,
+  after?: string
 }
 export const StyledColorTextBarP = styled.p`
   opacity: ${(p: StyledColorBarTextPProps) => p.opacity};
   margin: ${(p: StyledColorBarTextPProps) => p.marginEm}em;
   padding: 0;
+  &::after { 
+    content: '${(p: StyledColorBarTextPProps) => p.after || ''}';
+  }
 `
 
 interface StyledColorBarDivProps {

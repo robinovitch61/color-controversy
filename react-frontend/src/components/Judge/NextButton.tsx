@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledNextButtonDiv, StyledJudgeButton, StyledChoiceButtonsDiv } from '../../style/style';
+import { StyledJudgeButton, StyledChoiceButtonsDiv } from '../../style/style';
 
 interface NextButtonProps {
   onClick: () => void;

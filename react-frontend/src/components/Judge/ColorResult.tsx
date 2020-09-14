@@ -21,14 +21,14 @@ function ColorResult(props: ColorResultProps) {
   const opacity = percTooSmall() ? 0 : 100;
 
   return (
-    <StyledColorResultDiv width={percentFloat}>
-      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{percent}%</StyledColorTextBarP>
+    <StyledColorResultDiv width={percentFloat}> 
+      <StyledColorTextBarP opacity={opacity} marginEm={0.3} after={'%'}>{percent}</StyledColorTextBarP>
       <StyledColorBarDiv color={color}>
         <StyledColorTextBarP opacity={opacity} marginEm={0}>
           {color}
         </StyledColorTextBarP>
       </StyledColorBarDiv>
-      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{count}</StyledColorTextBarP>
+      <StyledColorTextBarP opacity={opacity} marginEm={0.3} after={' votes'}>{count}</StyledColorTextBarP>
     </StyledColorResultDiv>
   );
 }
