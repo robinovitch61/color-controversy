@@ -12,20 +12,19 @@ const safeTotal = (total: number) => (total <= 0 ? 1e10 : total);
 function ColorResults(props: ColorResultsProps) {
   const { firstOption, secondOption, nFirst, nSecond } = props.color;
   const total = nFirst + nSecond;
-  const firstPerc = (nFirst / safeTotal(total)) * 100;
-  const secondPerc = (nSecond / safeTotal(total)) * 100;
+  const fPerc = (nFirst / safeTotal(total)) * 100;
+  const sPerc = (nSecond / safeTotal(total)) * 100;
+  const firstResult = (
+    <ColorResult color={firstOption} percentFloat={fPerc} count={nFirst} />
+  );
+  const secondResult = (
+    <ColorResult color={secondOption} percentFloat={sPerc} count={nSecond} />
+  );
+  const firstBigger = fPerc > sPerc;
   return (
     <StyledFlexDiv>
-      <ColorResult
-        color={firstOption}
-        percentFloat={firstPerc}
-        count={nFirst}
-      />
-      <ColorResult
-        color={secondOption}
-        percentFloat={secondPerc}
-        count={nSecond}
-      />
+      {firstBigger ? firstResult : secondResult}
+      {firstBigger ? secondResult : firstResult}
     </StyledFlexDiv>
   );
 }
