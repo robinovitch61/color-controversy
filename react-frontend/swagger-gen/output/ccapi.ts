@@ -25,18 +25,18 @@ export type ModelsColorJudgement = {
     [key: string]: any;
 };
 
-export type ModelsVersion = {
-    'playVersion': string;
+export type ModelsColor = {
+    'nFirst': number;
+    'secondOption': string;
+    'firstOption': string;
+    'hex': string;
+    'nSecond': number;
 } & {
     [key: string]: any;
 };
 
-export type ModelsColor = {
-    'hex': string;
-    'firstOption': string;
-    'secondOption': string;
-    'nFirst': number;
-    'nSecond': number;
+export type ModelsVersion = {
+    'playVersion': string;
 } & {
     [key: string]: any;
 };
@@ -184,106 +184,6 @@ export class ColorApi {
         return param;
     }
 
-    versionURL(parameters: {} & CommonRequestOptions): string {
-        let queryParameters: QueryParameters = {};
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/version';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        if (parameters.$queryParameters) {
-            queryParameters = {
-                ...queryParameters,
-                ...parameters.$queryParameters
-            };
-        }
-
-        let keys = Object.keys(queryParameters);
-        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
-    }
-
-    /**
-     * Get Scala Play Version.
-     * @method
-     * @name ColorApi#version
-     */
-    version(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsVersion >> {
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/version';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        let body: any;
-        let queryParameters: QueryParameters = {};
-        let headers: RequestHeaders = {};
-        let form: any = {};
-        return new Promise((resolve, reject) => {
-            headers['accept'] = 'application/json';
-            headers['content-type'] = 'application/json';
-
-            if (parameters.$queryParameters) {
-                queryParameters = {
-                    ...queryParameters,
-                    ...parameters.$queryParameters
-                };
-            }
-
-            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
-        });
-    }
-
-    randomColorURL(parameters: {} & CommonRequestOptions): string {
-        let queryParameters: QueryParameters = {};
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/color';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        if (parameters.$queryParameters) {
-            queryParameters = {
-                ...queryParameters,
-                ...parameters.$queryParameters
-            };
-        }
-
-        let keys = Object.keys(queryParameters);
-        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
-    }
-
-    /**
-     * Get a random color.
-     * @method
-     * @name ColorApi#randomColor
-     */
-    randomColor(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/color';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        let body: any;
-        let queryParameters: QueryParameters = {};
-        let headers: RequestHeaders = {};
-        let form: any = {};
-        return new Promise((resolve, reject) => {
-            headers['accept'] = 'application/json';
-            headers['content-type'] = 'application/json';
-
-            if (parameters.$queryParameters) {
-                queryParameters = {
-                    ...queryParameters,
-                    ...parameters.$queryParameters
-                };
-            }
-
-            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
-        });
-    }
-
     getColorURL(parameters: {
         'color': string,
     } & CommonRequestOptions): string {
@@ -348,6 +248,56 @@ export class ColorApi {
                 reject(new Error('Missing required  parameter: color'));
                 return;
             }
+
+            if (parameters.$queryParameters) {
+                queryParameters = {
+                    ...queryParameters,
+                    ...parameters.$queryParameters
+                };
+            }
+
+            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
+        });
+    }
+
+    versionURL(parameters: {} & CommonRequestOptions): string {
+        let queryParameters: QueryParameters = {};
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/version';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        if (parameters.$queryParameters) {
+            queryParameters = {
+                ...queryParameters,
+                ...parameters.$queryParameters
+            };
+        }
+
+        let keys = Object.keys(queryParameters);
+        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
+    }
+
+    /**
+     * Get Scala Play Version.
+     * @method
+     * @name ColorApi#version
+     */
+    version(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsVersion >> {
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/version';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        let body: any;
+        let queryParameters: QueryParameters = {};
+        let headers: RequestHeaders = {};
+        let form: any = {};
+        return new Promise((resolve, reject) => {
+            headers['accept'] = 'application/json';
+            headers['content-type'] = 'application/json';
 
             if (parameters.$queryParameters) {
                 queryParameters = {
@@ -436,56 +386,6 @@ export class ColorApi {
         });
     }
 
-    allColorsURL(parameters: {} & CommonRequestOptions): string {
-        let queryParameters: QueryParameters = {};
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/allColors';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        if (parameters.$queryParameters) {
-            queryParameters = {
-                ...queryParameters,
-                ...parameters.$queryParameters
-            };
-        }
-
-        let keys = Object.keys(queryParameters);
-        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
-    }
-
-    /**
-     * Get all colors (hex values only).
-     * @method
-     * @name ColorApi#allColors
-     */
-    allColors(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, Array < string >>> {
-        const domain = parameters.$domain ? parameters.$domain : this.domain;
-        let path = '/allColors';
-        if (parameters.$path) {
-            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
-        }
-
-        let body: any;
-        let queryParameters: QueryParameters = {};
-        let headers: RequestHeaders = {};
-        let form: any = {};
-        return new Promise((resolve, reject) => {
-            headers['accept'] = 'application/json';
-            headers['content-type'] = 'application/json';
-
-            if (parameters.$queryParameters) {
-                queryParameters = {
-                    ...queryParameters,
-                    ...parameters.$queryParameters
-                };
-            }
-
-            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
-        });
-    }
-
     submitChoiceURL(parameters: {
         'body': ModelsColorJudgement,
     } & CommonRequestOptions): string {
@@ -552,6 +452,106 @@ export class ColorApi {
             queryParameters = {};
 
             this.request('POST', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
+        });
+    }
+
+    randomColorURL(parameters: {} & CommonRequestOptions): string {
+        let queryParameters: QueryParameters = {};
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/color';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        if (parameters.$queryParameters) {
+            queryParameters = {
+                ...queryParameters,
+                ...parameters.$queryParameters
+            };
+        }
+
+        let keys = Object.keys(queryParameters);
+        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
+    }
+
+    /**
+     * Get a random color.
+     * @method
+     * @name ColorApi#randomColor
+     */
+    randomColor(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, ModelsColor >> {
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/color';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        let body: any;
+        let queryParameters: QueryParameters = {};
+        let headers: RequestHeaders = {};
+        let form: any = {};
+        return new Promise((resolve, reject) => {
+            headers['accept'] = 'application/json';
+            headers['content-type'] = 'application/json';
+
+            if (parameters.$queryParameters) {
+                queryParameters = {
+                    ...queryParameters,
+                    ...parameters.$queryParameters
+                };
+            }
+
+            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
+        });
+    }
+
+    allColorsURL(parameters: {} & CommonRequestOptions): string {
+        let queryParameters: QueryParameters = {};
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/allColors';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        if (parameters.$queryParameters) {
+            queryParameters = {
+                ...queryParameters,
+                ...parameters.$queryParameters
+            };
+        }
+
+        let keys = Object.keys(queryParameters);
+        return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '');
+    }
+
+    /**
+     * Get all colors (hex values only).
+     * @method
+     * @name ColorApi#allColors
+     */
+    allColors(parameters: {} & CommonRequestOptions): Promise < ResponseWithBody < 200, Array < string >>> {
+        const domain = parameters.$domain ? parameters.$domain : this.domain;
+        let path = '/allColors';
+        if (parameters.$path) {
+            path = (typeof(parameters.$path) === 'function') ? parameters.$path(path) : parameters.$path;
+        }
+
+        let body: any;
+        let queryParameters: QueryParameters = {};
+        let headers: RequestHeaders = {};
+        let form: any = {};
+        return new Promise((resolve, reject) => {
+            headers['accept'] = 'application/json';
+            headers['content-type'] = 'application/json';
+
+            if (parameters.$queryParameters) {
+                queryParameters = {
+                    ...queryParameters,
+                    ...parameters.$queryParameters
+                };
+            }
+
+            this.request('GET', domain + path, body, headers, queryParameters, form, reject, resolve, parameters);
         });
     }
 

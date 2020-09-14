@@ -24,6 +24,7 @@ export default function Nav() {
     }
   };
 
+  // TODO: refactor a lot of this in to styled components
   return (
     <StyledNav>
       {/* logo */}

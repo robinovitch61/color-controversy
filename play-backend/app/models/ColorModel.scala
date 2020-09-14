@@ -17,7 +17,6 @@ case class Color(
   nSecond: Int
 )
 object Color {
-  val example = Color("#4632a8", "blue", "green", 45, 55)
   implicit val format = Json.format[Color]
 }
 

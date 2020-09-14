@@ -10,9 +10,15 @@ import {
   StyledColorSquareToJudgeDiv,
   StyledColorResultsDiv,
 } from '../../style/style';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 
-async function getColor(): Promise<ModelsColor> {
+async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
+  return result.body;
+}
+
+async function colorFromHex(hexColor: string): Promise<ModelsColor> {
+  const result = await api.getColor({ color: hexColor });
   return result.body;
 }
 
@@ -24,19 +30,34 @@ const defaultColor: ModelsColor = {
   nSecond: 0,
 };
 
-function Judge() {
+interface JudgeParams {
+  hexColor: string;
+}
+
+const removeHashFromHexColor = (hexColor: string) => {
+  if (hexColor.slice(0, 1) === '#') {
+    return hexColor.slice(1);
+  } else {
+    return hexColor;
+  }
+};
+
+const addHashToHexColor = (hexColor: string) => {
+  return '#' + hexColor;
+};
+
+function Judge({ match }: RouteComponentProps<JudgeParams>) {
   const [color, setColor] = useState(defaultColor);
   const [choice, setChoice] = useState('');
   const [numJudged, setNumJudged] = useState(0);
   const [isJudging, setIsJudging] = useState(true);
+  let history = useHistory();
 
   function submitChoice(colorHex: string, choice: string): void {
-    console.log(
-      `Submitting choice: ${colorHex}, ${choice}, (${numJudged} judged)`
-    );
     api.submitChoice({ body: { color: colorHex, choice: choice } });
   }
 
+  // includes the users choice in the results shown
   const includeChoiceInColor = (choice: string) => {
     setColor((prevColor) => {
       return {
@@ -54,29 +75,42 @@ function Judge() {
   };
 
   const onColorChoice = (chosenColor: string) => {
-    setChoice(chosenColor);
-    submitChoice(color.hex, chosenColor);
-    setNumJudged((prev) => prev + 1);
-    includeChoiceInColor(chosenColor);
+    if (!localStorage.getItem(color.hex)) {
+      setChoice(chosenColor); // this is shown in the results
+      submitChoice(color.hex, chosenColor);
+      setNumJudged((prev) => prev + 1);
+      includeChoiceInColor(chosenColor);
+    }
     setIsJudging(false);
   };
 
-  const updateColor = () => {
-    getColor().then((color) => {
-      console.log('updating color to:');
-      console.log(color);
+  const setColorFromHex = (hexColor: string) => {
+    colorFromHex(addHashToHexColor(hexColor)).then((color) => {
       setColor(color);
     });
   };
 
-  const nextColor = () => {
+  const getRandomHexAndSetColor = () => {
+    randomColor().then((color) => {
+      setColor(color);
+      // history.push(`/${removeHashFromHexColor(color.hex)}`);
+      history.push('/');
+    });
+  };
+
+  const setNextColor = () => {
     setIsJudging(true);
-    updateColor();
+    getRandomHexAndSetColor();
   };
 
   // set initial color
   useEffect(() => {
-    updateColor();
+    console.log(localStorage.getItem('myCat'));
+    if (match.params.hexColor) {
+      setColorFromHex(match.params.hexColor);
+    } else {
+      getRandomHexAndSetColor();
+    }
   }, []);
 
   return (
@@ -84,12 +118,20 @@ function Judge() {
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {!isJudging ? (
-            <Results
-              choice={choice}
-              color={color}
-              percentControversial={numJudged} // TODO
-            />
-          ) : <StyledColorResultsDiv>judge me</StyledColorResultsDiv>}
+            localStorage.getItem(color.hex) ? (
+              <StyledColorResultsDiv>
+                you've already judged me
+              </StyledColorResultsDiv>
+            ) : (
+              <Results
+                choice={choice}
+                color={color}
+                percentControversial={numJudged} // TODO
+              />
+            )
+          ) : (
+            <StyledColorResultsDiv>judge me</StyledColorResultsDiv>
+          )}
         </StyledColorSquareToJudgeDiv>
       </StyledColorSquareAndResultsDiv>
       {isJudging ? (
@@ -99,7 +141,7 @@ function Judge() {
           onColorChoice={onColorChoice}
         />
       ) : (
-        <NextButton onClick={nextColor} />
+        <NextButton onClick={setNextColor} />
       )}
     </StyledJudgeContainerDiv>
   );

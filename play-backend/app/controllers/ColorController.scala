@@ -34,9 +34,8 @@ class ColorController @Inject() (
     Ok(json)
   }
 
-  // don't need this yet, will actually implement later if needed
-  def getColor(color: String) = Action { implicit request: Request[AnyContent] =>
-    val json = Json.toJson(Color.example.copy(hex = color))
+  def getColor(hexColor: String) = Action { implicit request: Request[AnyContent] =>
+    val json = Json.toJson(db.getColor(hexColor))
     Ok(json)
   }
 

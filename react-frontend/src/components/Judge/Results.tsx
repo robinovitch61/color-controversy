@@ -9,6 +9,7 @@ interface ResultsProps {
   percentControversial: number;
 }
 function Results(props: ResultsProps) {
+  localStorage.setItem(props.color.hex, props.choice);
   return (
     <StyledColorResultsDiv>
       <StyledCenteredP>{`you said: ${props.choice}`}</StyledCenteredP>

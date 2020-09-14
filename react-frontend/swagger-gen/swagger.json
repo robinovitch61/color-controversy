@@ -1,40 +1,17 @@
 {
   "paths" : {
-    "/version" : {
-      "get" : {
-        "operationId" : "version",
-        "tags" : [ "routes" ],
-        "summary" : "Get Scala Play Version.",
-        "responses" : {
-          "200" : {
-            "description" : "success",
-            "schema" : {
-              "$ref" : "#/definitions/models.Version"
-            }
-          }
-        }
-      }
-    },
-    "/color" : {
-      "get" : {
-        "operationId" : "randomColor",
-        "tags" : [ "routes" ],
-        "summary" : "Get a random color.",
-        "responses" : {
-          "200" : {
-            "description" : "success",
-            "schema" : {
-              "$ref" : "#/definitions/models.Color"
-            }
-          }
-        }
-      }
-    },
     "/color/{color}" : {
       "get" : {
-        "operationId" : "getColor",
-        "tags" : [ "routes" ],
         "summary" : "Get a specific color.",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/models.Color"
+            },
+            "description" : "success"
+          }
+        },
+        "operationId" : "getColor",
         "parameters" : [ {
           "in" : "path",
           "name" : "color",
@@ -42,21 +19,37 @@
           "type" : "string",
           "required" : true
         } ],
+        "tags" : [ "routes" ]
+      }
+    },
+    "/version" : {
+      "get" : {
+        "summary" : "Get Scala Play Version.",
         "responses" : {
           "200" : {
-            "description" : "success",
             "schema" : {
-              "$ref" : "#/definitions/models.Color"
-            }
+              "$ref" : "#/definitions/models.Version"
+            },
+            "description" : "success"
           }
-        }
+        },
+        "operationId" : "version",
+        "tags" : [ "routes" ]
       }
     },
     "/ranking/{limit}" : {
       "get" : {
-        "operationId" : "ranking",
-        "tags" : [ "routes" ],
         "summary" : "Get the color rankings.",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/models.Color"
+            }
+          }
+        },
+        "operationId" : "ranking",
         "parameters" : [ {
           "in" : "path",
           "format" : "int32",
@@ -65,38 +58,21 @@
           "type" : "integer",
           "required" : true
         } ],
-        "responses" : {
-          "200" : {
-            "description" : "success",
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/definitions/models.Color"
-            }
-          }
-        }
-      }
-    },
-    "/allColors" : {
-      "get" : {
-        "operationId" : "allColors",
-        "tags" : [ "routes" ],
-        "summary" : "Get all colors (hex values only).",
-        "responses" : {
-          "200" : {
-            "description" : "success",
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
+        "tags" : [ "routes" ]
       }
     },
     "/submitChoice" : {
       "post" : {
-        "operationId" : "submitChoice",
-        "tags" : [ "routes" ],
         "summary" : "Submit color judgement.",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "success"
+          }
+        },
+        "operationId" : "submitChoice",
         "parameters" : [ {
           "in" : "body",
           "name" : "body",
@@ -106,15 +82,39 @@
             "$ref" : "#/definitions/models.ColorJudgement"
           }
         } ],
+        "consumes" : [ "application/json" ],
+        "tags" : [ "routes" ]
+      }
+    },
+    "/color" : {
+      "get" : {
+        "summary" : "Get a random color.",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/models.Color"
+            },
+            "description" : "success"
+          }
+        },
+        "operationId" : "randomColor",
+        "tags" : [ "routes" ]
+      }
+    },
+    "/allColors" : {
+      "get" : {
+        "summary" : "Get all colors (hex values only).",
         "responses" : {
           "200" : {
             "description" : "success",
-            "schema" : {
+            "type" : "array",
+            "items" : {
               "type" : "string"
             }
           }
         },
-        "consumes" : [ "application/json" ]
+        "operationId" : "allColors",
+        "tags" : [ "routes" ]
       }
     }
   },
@@ -131,6 +131,28 @@
       },
       "required" : [ "color", "choice" ]
     },
+    "models.Color" : {
+      "properties" : {
+        "nFirst" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "secondOption" : {
+          "type" : "string"
+        },
+        "firstOption" : {
+          "type" : "string"
+        },
+        "hex" : {
+          "type" : "string"
+        },
+        "nSecond" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      },
+      "required" : [ "hex", "firstOption", "secondOption", "nFirst", "nSecond" ]
+    },
     "models.Version" : {
       "properties" : {
         "playVersion" : {
@@ -138,28 +160,6 @@
         }
       },
       "required" : [ "playVersion" ]
-    },
-    "models.Color" : {
-      "properties" : {
-        "hex" : {
-          "type" : "string"
-        },
-        "firstOption" : {
-          "type" : "string"
-        },
-        "secondOption" : {
-          "type" : "string"
-        },
-        "nFirst" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "nSecond" : {
-          "type" : "integer",
-          "format" : "int32"
-        }
-      },
-      "required" : [ "hex", "firstOption", "secondOption", "nFirst", "nSecond" ]
     }
   },
   "swagger" : "2.0",

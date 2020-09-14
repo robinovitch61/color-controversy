@@ -11,7 +11,7 @@ function ColorGrid(props: ColorGridProps) {
     <StyledContainerDiv>
       <StyledColorGridDiv>
         {props.colors.map((color) => (
-          <Color key={color} colorHex={color} />
+          <Color key={color} hexColor={color} />
         ))}
       </StyledColorGridDiv>
     </StyledContainerDiv>
