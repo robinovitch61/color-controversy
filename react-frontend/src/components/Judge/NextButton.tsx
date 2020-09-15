@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyledJudgeButton, StyledChoiceButtonsDiv } from '../../style/style';
+import JudgeButton from './JudgeButton';
+import { StyledJudgeButtonContainerDiv } from '../../style/style';
 
 interface NextButtonProps {
   onClick: () => void;
 }
 function NextButton(props: NextButtonProps) {
   return (
-    <StyledChoiceButtonsDiv>
-      <StyledJudgeButton onClick={props.onClick}>next</StyledJudgeButton>
-    </StyledChoiceButtonsDiv>
+    <StyledJudgeButtonContainerDiv>
+        <JudgeButton handleClick={props.onClick} text={'next'}/>
+    </StyledJudgeButtonContainerDiv>
   );
 }
 

@@ -68,10 +68,11 @@ export const StyledColorSquareToJudgeDiv = styled.div`
   background-color: ${(p: StyledColorSquareToJudgeDivProps) => p.inputColor};
 `
 
-export const StyledChoicesDiv = styled.div`
+export const StyledJudgeButtonContainerDiv = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 1em 0;
 
   p {
     margin: 1em;
@@ -85,15 +86,6 @@ export const StyledChoicesDiv = styled.div`
       margin: 0.5em;
     }
   }
-`
-
-export const StyledChoiceButtonsDiv = styled.div`
-  display: flex;
-  margin: 0em auto;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 1em 0;
 `
 
 export const StyledJudgeButton = styled.button`
