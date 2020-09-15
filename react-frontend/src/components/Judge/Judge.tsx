@@ -104,6 +104,7 @@ function Judge() {
   };
 
   const setNextColor = () => {
+    setIsLoading(true);
     setIsJudging(true);
     getRandomHexAndSetColor();
   };
