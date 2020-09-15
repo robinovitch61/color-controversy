@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorChoice from './ColorChoice';
+import JudgeButton from './JudgeButton';
 import { StyledChoicesDiv, StyledChoiceButtonsDiv } from '../../style/style';
 
 interface ColorChoicesProps {
@@ -7,13 +7,20 @@ interface ColorChoicesProps {
   secondOption: string;
   onColorChoice: (chosenColor: string) => void;
 }
+
 function ColorChoices(props: ColorChoicesProps) {
   return (
     <StyledChoicesDiv>
       <StyledChoiceButtonsDiv>
-        <ColorChoice colorOption={props.firstOption} onColorChoice={props.onColorChoice} />
+        <JudgeButton
+          text={props.firstOption}
+          handleClick={() => props.onColorChoice(props.firstOption)}
+        />
         <p>or</p>
-        <ColorChoice colorOption={props.secondOption} onColorChoice={props.onColorChoice} />
+        <JudgeButton
+          text={props.secondOption}
+          handleClick={() => props.onColorChoice(props.secondOption)}
+        />
       </StyledChoiceButtonsDiv>
     </StyledChoicesDiv>
   );
