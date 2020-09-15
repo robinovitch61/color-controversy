@@ -8,13 +8,16 @@ interface ResultsProps {
   color: ModelsColor;
   percentControversial: number;
 }
+
 function JudgementResult(props: ResultsProps) {
+  const { choice, color, percentControversial } = props;
+
   return (
     <StyledColorResultsDiv>
-      <StyledCenteredP>{`you said: ${props.choice}`}</StyledCenteredP>
-      <ColorResults color={props.color} />
+      <StyledCenteredP>{`you said: ${choice}`}</StyledCenteredP>
+      <ColorResults color={color} />
       <StyledCenteredP>
-        you've been {props.percentControversial}% controversial
+        you've been {percentControversial}% controversial
       </StyledCenteredP>
     </StyledColorResultsDiv>
   );

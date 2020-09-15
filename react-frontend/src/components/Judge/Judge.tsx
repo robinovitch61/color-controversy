@@ -107,7 +107,7 @@ function Judge() {
 
   const percentControversial = () => {
     const { judgeCount, controversialCount } = store.getState();
-    return parseInt(((controversialCount / judgeCount) * 100.).toString());
+    return parseInt(((controversialCount / judgeCount) * 100).toString());
   };
 
   // set initial color
@@ -128,7 +128,7 @@ function Judge() {
             <JudgementResult
               choice={choice}
               color={color}
-              percentControversial={percentControversial()} // TODO
+              percentControversial={percentControversial()}
             />
           ) : (
             <StyledColorResultsDiv>judge me</StyledColorResultsDiv>
