@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
-import Results from './Results';
+import JudgementResult from './Results';
 import NextButton from './NextButton';
 import ColorChoices from './ColorChoices';
 import {
@@ -125,7 +125,7 @@ function Judge() {
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {!isJudging ? (
-            <Results
+            <JudgementResult
               choice={choice}
               color={color}
               percentControversial={percentControversial()} // TODO

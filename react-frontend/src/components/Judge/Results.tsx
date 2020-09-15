@@ -8,7 +8,7 @@ interface ResultsProps {
   color: ModelsColor;
   percentControversial: number;
 }
-function Results(props: ResultsProps) {
+function JudgementResult(props: ResultsProps) {
   return (
     <StyledColorResultsDiv>
       <StyledCenteredP>{`you said: ${props.choice}`}</StyledCenteredP>
@@ -20,4 +20,4 @@ function Results(props: ResultsProps) {
   );
 }
 
-export default Results;
+export default JudgementResult;
