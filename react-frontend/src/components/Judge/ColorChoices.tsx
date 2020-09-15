@@ -11,9 +11,9 @@ function ColorChoices(props: ColorChoicesProps) {
   return (
     <StyledChoicesDiv>
       <StyledChoiceButtonsDiv>
-        <ColorChoice colorOption={props.firstOption} onColorChoice={props.onColorChoice} />
+        <ColorChoice text={props.firstOption} clickHandler={() => props.onColorChoice(props.firstOption)} />
         <p>or</p>
-        <ColorChoice colorOption={props.secondOption} onColorChoice={props.onColorChoice} />
+        <ColorChoice text={props.secondOption} clickHandler={() => props.onColorChoice(props.secondOption)} />
       </StyledChoiceButtonsDiv>
     </StyledChoicesDiv>
   );

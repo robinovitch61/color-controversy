@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyledJudgeButton } from '../../style/style';
 
+const defaultClickHandler = () => {};
+
 interface ColorChoiceProps {
-  onColorChoice: (chosenColor: string) => void;
-  colorOption: string;
+  clickHandler: any;
+  text: string;
 }
 function ColorChoice(props: ColorChoiceProps) {
+  const [clickHandler, setClickHandler] = useState(defaultClickHandler);
+
+  useEffect(() => {
+    setClickHandler(() => props.clickHandler)
+  }, [])
+
   return (
-    <StyledJudgeButton onClick={() => props.onColorChoice(props.colorOption)}>{props.colorOption}</StyledJudgeButton>
+    <StyledJudgeButton onClick={props.clickHandler}>
+      {props.text}
+    </StyledJudgeButton>
   );
 }
 
