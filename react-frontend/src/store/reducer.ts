@@ -1,6 +1,7 @@
 import {
   DEFAULT_STATE,
-  UPDATE_COLOR,
+  UPDATE_JUDGE_COUNT,
+  UPDATE_CONTROVERSIAL_COUNT,
   TOGGLE_NAV,
   AppState,
   AppAction
@@ -11,10 +12,15 @@ const reducer = (
   action: AppAction
 ): AppState => {
   switch (action.type) {
-    case UPDATE_COLOR:
+    case UPDATE_JUDGE_COUNT:
       return {
         ...state,
-        color: action.payload
+        judgeCount: state.judgeCount + action.payload
+      }
+    case UPDATE_CONTROVERSIAL_COUNT:
+      return {
+        ...state,
+        controversialCount: state.controversialCount + action.payload
       }
     case TOGGLE_NAV:
       return {

@@ -14,17 +14,10 @@ function ColorResults(props: ColorResultsProps) {
   const total = nFirst + nSecond;
   const fPerc = (nFirst / safeTotal(total)) * 100;
   const sPerc = (nSecond / safeTotal(total)) * 100;
-  const firstResult = (
-    <ColorResult color={firstOption} percentFloat={fPerc} count={nFirst} />
-  );
-  const secondResult = (
-    <ColorResult color={secondOption} percentFloat={sPerc} count={nSecond} />
-  );
-  const firstBigger = fPerc > sPerc;
   return (
     <StyledFlexDiv>
-      {firstBigger ? firstResult : secondResult}
-      {firstBigger ? secondResult : firstResult}
+      <ColorResult color={firstOption} percentFloat={fPerc} count={nFirst} />
+      <ColorResult color={secondOption} percentFloat={sPerc} count={nSecond} />
     </StyledFlexDiv>
   );
 }

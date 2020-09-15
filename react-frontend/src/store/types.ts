@@ -1,25 +1,34 @@
-export type HexColor = String
-
-export const UPDATE_COLOR = 'UPDATE_COLOR'
+export const UPDATE_JUDGE_COUNT = 'UPDATE_JUDGE_COUNT'
+export const UPDATE_CONTROVERSIAL_COUNT = 'UPDATE_CONTROVERSIAL_COUNT'
 export const TOGGLE_NAV = 'TOGGLE_NAV'
 
-export interface UpdateColorAction {
-  type: typeof UPDATE_COLOR
-  payload: HexColor
+export interface UpdateJudgeCountAction {
+  type: typeof UPDATE_JUDGE_COUNT
+  payload: number
+}
+
+export interface UpdateControversialCountAction {
+  type: typeof UPDATE_CONTROVERSIAL_COUNT
+  payload: number
 }
 
 export interface ToggleNavAction {
   type: typeof TOGGLE_NAV
 }
 
-export type AppAction = UpdateColorAction | ToggleNavAction
-
 export type AppState = {
-  color: HexColor | undefined
+  judgeCount: number
+  controversialCount: number
   navOpen: Boolean
 }
 
+export type AppAction =
+  | UpdateControversialCountAction
+  | UpdateJudgeCountAction
+  | ToggleNavAction
+
 export const DEFAULT_STATE = {
-  color: undefined,
+  judgeCount: 0,
+  controversialCount: 0,
   navOpen: false
 }

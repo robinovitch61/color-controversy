@@ -1,15 +1,25 @@
 import {
-  HexColor,
-  UPDATE_COLOR,
-  UpdateColorAction,
   TOGGLE_NAV,
-  ToggleNavAction
+  UPDATE_JUDGE_COUNT,
+  UpdateJudgeCountAction,
+  UPDATE_CONTROVERSIAL_COUNT,
+  ToggleNavAction,
+  UpdateControversialCountAction
 } from './types'
 
-export const updateColor = (color: HexColor): UpdateColorAction => {
+export const updateJudgeCount = (increment: number): UpdateJudgeCountAction => {
   return {
-    type: UPDATE_COLOR,
-    payload: color
+    type: UPDATE_JUDGE_COUNT,
+    payload: increment
+  }
+}
+
+export const updateControversialCount = (
+  increment: number
+): UpdateControversialCountAction => {
+  return {
+    type: UPDATE_CONTROVERSIAL_COUNT,
+    payload: increment
   }
 }
 

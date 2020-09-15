@@ -11,6 +11,11 @@ import {
   StyledColorResultsDiv,
 } from '../../style/style';
 import { useLocation } from 'react-router-dom';
+import {
+  updateControversialCount,
+  updateJudgeCount,
+} from '../../store/actions';
+import { useDispatch, useStore } from 'react-redux';
 
 async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
@@ -33,9 +38,10 @@ const defaultColor: ModelsColor = {
 function Judge() {
   const [color, setColor] = useState(defaultColor);
   const [choice, setChoice] = useState('');
-  const [numJudged, setNumJudged] = useState(0);
   const [isJudging, setIsJudging] = useState(true);
-  const location = useLocation();
+  const location = useLocation(); // react router
+  const dispatch = useDispatch(); // redux
+  const store = useStore(); // redux
 
   function submitChoice(colorHex: string, choice: string): void {
     api.submitChoice({ body: { color: colorHex, choice: choice } });
@@ -58,10 +64,26 @@ function Judge() {
     });
   };
 
+  const updateControversialness = (color: ModelsColor, choice: string) => {
+    // update number judged
+    dispatch(updateJudgeCount(1));
+
+    // if the controversial choice was made, update controversial count
+    if (color.nFirst !== color.nSecond) {
+      const firstMajority = color.nFirst > color.nSecond;
+      if (
+        (choice === color.secondOption && firstMajority) ||
+        (choice === color.firstOption && !firstMajority)
+      ) {
+        dispatch(updateControversialCount(1));
+      }
+    }
+  };
+
   const onColorChoice = (chosenColor: string) => {
     setChoice(chosenColor); // this is shown in the results
     submitChoice(color.hex, chosenColor);
-    setNumJudged((prev) => prev + 1);
+    updateControversialness(color, chosenColor);
     includeChoiceInColor(chosenColor);
     setIsJudging(false);
   };
@@ -83,6 +105,11 @@ function Judge() {
     getRandomHexAndSetColor();
   };
 
+  const percentControversial = () => {
+    const { judgeCount, controversialCount } = store.getState();
+    return parseInt(((controversialCount / judgeCount) * 100.).toString());
+  };
+
   // set initial color
   useEffect(() => {
     const hexColor = location.state as string;
@@ -101,7 +128,7 @@ function Judge() {
             <Results
               choice={choice}
               color={color}
-              percentControversial={numJudged} // TODO
+              percentControversial={percentControversial()} // TODO
             />
           ) : (
             <StyledColorResultsDiv>judge me</StyledColorResultsDiv>
