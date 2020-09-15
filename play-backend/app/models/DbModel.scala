@@ -36,6 +36,20 @@ class DbModel @Inject() (db: Database) {
     }
   }
 
+  def getColor(hexColor: String): Color = {
+    db.withConnection { conn =>
+      val stmt = conn.createStatement
+      val rs = stmt.executeQuery(
+        s"""
+           |SELECT *
+           |FROM color
+           |WHERE hex = '${hexColor}';""".stripMargin
+      )
+      rs.next()
+      getNextColor(rs)
+    }
+  }
+
   def persistChoice(hexColor: String, choice: ColorChoice): Unit = {
     db.withConnection { conn =>
       val stmt = conn.createStatement
