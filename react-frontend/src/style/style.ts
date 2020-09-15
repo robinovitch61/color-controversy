@@ -56,7 +56,7 @@ export const StyledColorSquareAndResultsDiv = styled.div`
   width: 100%;
   padding-bottom: 95%;
   margin: 0 auto;
-`;
+`
 
 interface StyledColorSquareToJudgeDivProps {
   inputColor: string
@@ -105,6 +105,14 @@ export const StyledJudgeButton = styled.button`
   border: unset;
   margin: 0 1em;
 
+  &:focus,
+  &:active,
+  &:hover {
+    outline: 2px solid #2d2a2a;
+    background-color: #f5f5f5;
+    color: #2d2a2a;
+  }
+
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     padding: 0.7em 0;
     margin: 0;
@@ -145,8 +153,8 @@ export const StyledColorResultDiv = styled.div`
 `
 
 interface StyledColorBarTextPProps {
-  opacity: number,
-  marginEm: number,
+  opacity: number
+  marginEm: number
   after?: string
 }
 export const StyledColorTextBarP = styled.p`
@@ -389,7 +397,7 @@ export const StyledRankingContainerDiv = styled(StyledContainerDiv)`
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     font-size: 0.7em;
   }
-`;
+`
 
 export const StyledRankedColorDiv = styled.div`
   display: flex;
