@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyledJudgeButton } from '../../style/style';
 
 interface JudgeButtonProps {
-  handleClick: any;
+  handleClick: () => void;
   text: string;
 }
 
 function JudgeButton(props: JudgeButtonProps) {
+  const [handleClick, setHandleClick] = useState<() => void>();
+
+  // debounce buttons in case of accidental double clicks
+  useEffect(() => {
+    setTimeout(() => {
+      setHandleClick(() => props.handleClick);
+    }, 300);
+  }, []);
+
   return (
-    <StyledJudgeButton onClick={props.handleClick}>
+    <StyledJudgeButton onClick={handleClick ? handleClick : () => {}}>
       {props.text}
     </StyledJudgeButton>
   );

@@ -93,21 +93,24 @@ export const StyledJudgeButton = styled.button`
   background-color: #2d2a2a;
   font-size: 1.2rem;
   padding: 1em 0;
-  width: 45%;
+  width: 200px;
   border: unset;
   margin: 0 1em;
 
-  &:focus,
-  &:active,
-  &:hover {
-    outline: 2px solid #2d2a2a;
-    background-color: #f5f5f5;
-    color: #2d2a2a;
+  @media screen and (min-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    &:focus,
+    &:active,
+    &:hover {
+      outline: 2px solid #2d2a2a;
+      background-color: #f5f5f5;
+      color: #2d2a2a;
+    }
   }
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     padding: 0.7em 0;
     margin: 0;
+    width: 45%;
 
     &:focus,
     &:active,
@@ -401,10 +404,10 @@ interface StyledRankedColorBoxDivProps {
 }
 export const StyledRankedColorBoxDiv = styled.div`
   background-color: ${(p: StyledRankedColorBoxDivProps) => p.hexColor};
-  padding: 2.1em 2em;
+  padding: 2.1em 1.8em;
   margin: 1em;
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
-    padding: 1.1em 1em;
+    padding: 1.1em 0.8em;
   }
 `

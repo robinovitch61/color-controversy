@@ -36,6 +36,7 @@ const defaultColor: ModelsColor = {
 };
 
 function Judge() {
+  const [isLoading, setIsLoading] = useState(true);
   const [color, setColor] = useState(defaultColor);
   const [choice, setChoice] = useState('');
   const [isJudging, setIsJudging] = useState(true);
@@ -91,12 +92,14 @@ function Judge() {
   const setColorFromHex = (hexColor: string) => {
     colorFromHex(hexColor).then((color) => {
       setColor(color);
+      setIsLoading(false);
     });
   };
 
   const getRandomHexAndSetColor = () => {
     randomColor().then((color) => {
       setColor(color);
+      setIsLoading(false);
     });
   };
 
@@ -120,7 +123,11 @@ function Judge() {
     }
   }, [location.state]);
 
-  return (
+  return isLoading ? (
+    <StyledJudgeContainerDiv>
+      <p>LOADING...</p>
+    </StyledJudgeContainerDiv>
+  ) : (
     <StyledJudgeContainerDiv>
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
