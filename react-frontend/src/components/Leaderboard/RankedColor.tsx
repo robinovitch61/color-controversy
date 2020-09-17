@@ -7,7 +7,6 @@ import {
 } from '../../style/style';
 
 interface RankedColorProps {
-  isLoading: boolean;
   rank: number;
   color: ModelsColor;
 }
@@ -17,11 +16,11 @@ function RankedColor(props: RankedColorProps) {
     <StyledRankedColorDiv className={'ranked-color'}>
       <p>#{props.rank < 10 ? '0' + props.rank : props.rank}</p>
       <StyledRankedColorBoxDiv
-        hexColor={props.isLoading ? '#f0f0f0' : props.color.hex}
+        hexColor={props.color.hex}
       >
-        <p className='hex-text'>{props.isLoading ? '#f0f0f0' : props.color.hex}</p>
+        <p className='hex-text'>{props.color.hex}</p>
       </StyledRankedColorBoxDiv>
-      <ColorResults isLoading={props.isLoading} color={props.color} />
+      <ColorResults color={props.color} />
     </StyledRankedColorDiv>
   );
 }

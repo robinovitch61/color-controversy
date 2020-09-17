@@ -15,7 +15,7 @@ function JudgementResult(props: ResultsProps) {
   return (
     <StyledColorResultsDiv>
       <StyledCenteredP>{`you said: ${choice}`}</StyledCenteredP>
-      <ColorResults isLoading={false} color={color} />
+      <ColorResults color={color} />
       <StyledCenteredP>
         you've been {percentControversial}% controversial
       </StyledCenteredP>

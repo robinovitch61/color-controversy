@@ -47,14 +47,13 @@ function Leaderboard(props: LeaderboardProps) {
 
   const rankedColors = colors.map((color, idx) => (
         <RankedColor
-          isLoading={isLoading}
           key={color.hex}
           rank={idx + 1}
           color={color}
         />
       ));
 
-  return <StyledRankingContainerDiv>{rankedColors}</StyledRankingContainerDiv>;
+  return <StyledRankingContainerDiv>{isLoading ? <div></div> : rankedColors}</StyledRankingContainerDiv>;
 }
 
 export default Leaderboard;

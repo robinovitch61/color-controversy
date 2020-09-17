@@ -395,7 +395,7 @@ export const StyledColorGridDiv = styled.div`
   div:nth-last-child(-n
       + ${(p: StyledColorGridDiv) => {
         const numInLastRow = p.totalColors % p.nColorsPerRow
-        return numInLastRow == 0 ? p.nColorsPerRow : numInLastRow
+        return numInLastRow === 0 ? p.nColorsPerRow : numInLastRow
       }}) {
     // stuff here only applies to last row
     // didn't end up needing this
