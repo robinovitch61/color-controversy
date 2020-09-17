@@ -97,6 +97,10 @@ export const StyledJudgeButton = styled.button`
   border: unset;
   margin: 0 1em;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: ${TRANSITION_WIDTH_MOBILE}px) {
     &:focus,
     &:active,
@@ -412,14 +416,14 @@ export const StyledRankedColorBoxDiv = styled.div`
   background-color: ${(p: StyledRankedColorBoxDivProps) => p.hexColor};
   padding: 2.1em 1.8em;
   margin: 1em;
-  
+
   p.hex-text {
     opacity: 0;
   }
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     padding: 1.1em 0.8em;
-    
+
     p.hex-text {
       opacity: 0;
     }
