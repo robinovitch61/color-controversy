@@ -4,7 +4,7 @@ import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
 import { StyledRankingContainerDiv } from '../../style/style';
 
-const SIMULATED_LOADING_TIME_MS = 500;
+const SIMULATED_LOADING_TIME_MS = 0;
 
 async function getRankings() {
   const colors = await api.ranking({ limit: 10 });
