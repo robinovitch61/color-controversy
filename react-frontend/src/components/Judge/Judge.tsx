@@ -18,7 +18,7 @@ import {
 import { useDispatch, useStore } from 'react-redux';
 // import randomFace from '../../misc/faces';
 
-const SIMULATE_LOADING_MS = 300;
+const SIMULATE_LOADING_MS = 0;
 
 async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});

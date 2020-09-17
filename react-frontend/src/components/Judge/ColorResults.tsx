@@ -4,6 +4,7 @@ import ColorResult from './ColorResult';
 import { StyledFlexDiv } from '../../style/style';
 
 interface ColorResultsProps {
+  isLoading: boolean;
   color: ModelsColor;
 }
 
@@ -14,10 +15,24 @@ function ColorResults(props: ColorResultsProps) {
   const total = nFirst + nSecond;
   const fPerc = (nFirst / safeTotal(total)) * 100;
   const sPerc = (nSecond / safeTotal(total)) * 100;
-  return (
+
+  return props.isLoading ? (
     <StyledFlexDiv>
-      <ColorResult color={firstOption} percentFloat={fPerc} count={nFirst} />
-      <ColorResult color={secondOption} percentFloat={sPerc} count={nSecond} />
+      <ColorResult color={'loading'} percentFloat={50} textBelow={'...'} />
+      <ColorResult color={'loading'} percentFloat={50} textBelow={'...'} />
+    </StyledFlexDiv>
+  ) : (
+    <StyledFlexDiv>
+      <ColorResult
+        color={firstOption}
+        percentFloat={fPerc}
+        textBelow={`${nFirst} votes`}
+      />
+      <ColorResult
+        color={secondOption}
+        percentFloat={sPerc}
+        textBelow={`${nSecond} votes`}
+      />
     </StyledFlexDiv>
   );
 }

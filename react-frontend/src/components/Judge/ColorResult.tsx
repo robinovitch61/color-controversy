@@ -11,11 +11,11 @@ const MIN_PERCENT_TO_SHOW_TEXT = 10;
 interface ColorResultProps {
   color: string;
   percentFloat: number;
-  count: number;
+  textBelow: string;
 }
 
 function ColorResult(props: ColorResultProps) {
-  const { color, percentFloat, count } = props;
+  const { color, percentFloat, textBelow } = props;
   const percent = parseInt(percentFloat.toString());
   const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW_TEXT;
   const opacity = percTooSmall() ? 0 : 100;
@@ -28,7 +28,7 @@ function ColorResult(props: ColorResultProps) {
           {color}
         </StyledColorTextBarP>
       </StyledColorBarDiv>
-      <StyledColorTextBarP opacity={opacity} marginEm={0.3} after={' votes'}>{count}</StyledColorTextBarP>
+      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{textBelow}</StyledColorTextBarP>
     </StyledColorResultDiv>
   );
 }
