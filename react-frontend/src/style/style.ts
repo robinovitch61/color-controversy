@@ -397,6 +397,12 @@ export const StyledRankingContainerDiv = styled(StyledContainerDiv)`
 export const StyledRankedColorDiv = styled.div`
   display: flex;
   align-items: center;
+
+  &:hover {
+    .hex-text {
+      opacity: 1;
+    }
+  }
 `
 
 interface StyledRankedColorBoxDivProps {
@@ -406,8 +412,16 @@ export const StyledRankedColorBoxDiv = styled.div`
   background-color: ${(p: StyledRankedColorBoxDivProps) => p.hexColor};
   padding: 2.1em 1.8em;
   margin: 1em;
+  
+  p.hex-text {
+    opacity: 0;
+  }
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
     padding: 1.1em 0.8em;
+    
+    p.hex-text {
+      opacity: 0;
+    }
   }
 `
