@@ -13,11 +13,13 @@ const CONTAINER_WIDTH_PX = 650
 const JUDGE_CONTAINER_WIDTH_PX = 550
 const TRANSITION_WIDTH_MOBILE = 768
 const RED_COLOR = '#ff007f'
-const ORANGE_COLOR = 'rgba(255, 170, 29, 0.739583) 80.46%'
-const NAV_HEIGHT_PX = 100
-const NAV_LOGO_WIDTH_PX = NAV_HEIGHT_PX - 20
-const NAV_HEIGHT_MOBILE_PX = 60
-const NAV_LOGO_WIDTH_MOBILE_PX = NAV_HEIGHT_MOBILE_PX - 10
+const ORANGE_COLOR = 'rgba(255, 170, 29, 0.9) 80.46%'
+const NAV_HEIGHT_PX = 80
+const NAV_LOGO_MARGIN_PX = 20
+const NAV_LOGO_WIDTH_PX = NAV_HEIGHT_PX - NAV_LOGO_MARGIN_PX
+const NAV_HEIGHT_MOBILE_PX = 50
+const NAV_LOGO_MARGIN_MOBILE_PX = 10
+const NAV_LOGO_WIDTH_MOBILE_PX = NAV_HEIGHT_MOBILE_PX - NAV_LOGO_MARGIN_MOBILE_PX
 const FOOTER_HEIGHT_PX = 30
 const FOOTER_MARGIN_PX = 20
 
@@ -223,6 +225,9 @@ export const StyledNavButton = styled.button`
 `
 
 export const StyledNav = styled.nav`
+  position: sticky;
+  top: 0;
+  z-index: 10;
   width: 100%;
   height: ${NAV_HEIGHT_PX}px;
   display: flex;
@@ -231,7 +236,7 @@ export const StyledNav = styled.nav`
     270deg,
     ${RED_COLOR},
     ${ORANGE_COLOR},
-    rgba(255, 240, 0, 0) 98.59%
+    rgba(255, 240, 0, 0.5) 98.59%
   );
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
@@ -260,11 +265,11 @@ export const StyledNav = styled.nav`
         width: ${NAV_LOGO_WIDTH_PX}px;
         max-width: 100px;
         opacity: 0.7;
-        padding-left: 2vw;
+        padding-left: ${NAV_LOGO_MARGIN_PX / 2}px;
 
         @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
           width: ${NAV_LOGO_WIDTH_MOBILE_PX}px;
-          padding-left: 3vw;
+          padding-left: ${NAV_LOGO_MARGIN_MOBILE_PX / 2}px;
         }
       }
     }
