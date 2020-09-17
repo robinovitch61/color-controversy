@@ -11,6 +11,7 @@ function JudgeButton(props: JudgeButtonProps) {
 
   // debounce buttons in case of accidental double clicks
   useEffect(() => {
+    console.log('mounting JudgeButton')
     setTimeout(() => {
       setHandleClick(() => props.handleClick);
     }, 300);

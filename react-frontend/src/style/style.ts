@@ -18,7 +18,7 @@ const NAV_HEIGHT_PX = 100
 const NAV_LOGO_WIDTH_PX = NAV_HEIGHT_PX - 20
 const NAV_HEIGHT_MOBILE_PX = 60
 const NAV_LOGO_WIDTH_MOBILE_PX = NAV_HEIGHT_MOBILE_PX - 10
-const FOOTER_HEIGHT_PX = 20
+const FOOTER_HEIGHT_PX = 30
 const FOOTER_MARGIN_PX = 20
 
 ////////////////////////////
@@ -94,7 +94,7 @@ export const StyledJudgeButton = styled.button`
   color: white;
   background-color: #2d2a2a;
   font-size: 1.2rem;
-  padding: 1em 0;
+  height: 60px;
   width: 200px;
   border: unset;
   margin: 0 1em;
@@ -404,9 +404,11 @@ export const StyledRankedColorDiv = styled.div`
   display: flex;
   align-items: center;
 
-  &:hover {
-    .hex-text {
-      opacity: 1;
+  @media screen and (min-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    &:hover {
+      .hex-text {
+        opacity: 1;
+      }
     }
   }
 `

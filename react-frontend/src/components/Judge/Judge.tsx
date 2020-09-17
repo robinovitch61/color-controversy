@@ -17,6 +17,8 @@ import {
 } from '../../store/actions';
 import { useDispatch, useStore } from 'react-redux';
 
+const SIMULATE_LOADING_MS = 400;
+
 async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
   return result.body;
@@ -28,7 +30,7 @@ async function colorFromHex(hexColor: string): Promise<ModelsColor> {
 }
 
 const defaultColor: ModelsColor = {
-  hex: '#000000',
+  hex: '#f0f0f0',
   firstOption: '',
   secondOption: '',
   nFirst: 0,
@@ -91,15 +93,19 @@ function Judge() {
 
   const setColorFromHex = (hexColor: string) => {
     colorFromHex(hexColor).then((color) => {
-      setColor(color);
-      setIsLoading(false);
+      setTimeout(() => {
+        setColor(color);
+        setIsLoading(false);
+      }, SIMULATE_LOADING_MS);
     });
   };
 
   const getRandomHexAndSetColor = () => {
     randomColor().then((color) => {
-      setColor(color);
-      setIsLoading(false);
+      setTimeout(() => {
+        setColor(color);
+        setIsLoading(false);
+      }, SIMULATE_LOADING_MS);
     });
   };
 
@@ -126,7 +132,19 @@ function Judge() {
 
   return isLoading ? (
     <StyledJudgeContainerDiv>
-      <p>LOADING...</p>
+      <StyledColorSquareAndResultsDiv>
+        <StyledColorSquareToJudgeDiv inputColor={color.hex}>
+          <StyledColorResultsDiv></StyledColorResultsDiv>
+        </StyledColorSquareToJudgeDiv>
+      </StyledColorSquareAndResultsDiv>
+      <ColorChoices
+        // actually super important these are different
+        // as they act as keys in children, forcing
+        // button remount
+        firstOption={'~(˘▾˘~)'}
+        secondOption={'(~˘▾˘)~'}
+        onColorChoice={() => {}}
+      />
     </StyledJudgeContainerDiv>
   ) : (
     <StyledJudgeContainerDiv>
