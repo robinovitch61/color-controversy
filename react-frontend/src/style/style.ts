@@ -18,6 +18,8 @@ const NAV_HEIGHT_PX = 100
 const NAV_LOGO_WIDTH_PX = NAV_HEIGHT_PX - 20
 const NAV_HEIGHT_MOBILE_PX = 60
 const NAV_LOGO_WIDTH_MOBILE_PX = NAV_HEIGHT_MOBILE_PX - 10
+const FOOTER_HEIGHT_PX = 20
+const FOOTER_MARGIN_PX = 20
 
 ////////////////////////////
 // GENERIC
@@ -427,5 +429,33 @@ export const StyledRankedColorBoxDiv = styled.div`
     p.hex-text {
       opacity: 0;
     }
+  }
+`
+
+////////////////////////////
+// FOOTER
+////////////////////////////
+export const StyledPageContent = styled.div`
+  margin-bottom: ${FOOTER_HEIGHT_PX + FOOTER_MARGIN_PX}px;
+`
+
+export const StyledFooter = styled.footer`
+  background: linear-gradient(
+    90deg,
+    ${RED_COLOR},
+    ${ORANGE_COLOR},
+    rgba(255, 240, 0, 0) 98.59%
+  );
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: ${FOOTER_HEIGHT_PX}px;
+
+  @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `
