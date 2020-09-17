@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StyledJudgeButton } from '../../style/style';
 
+const DEBOUNCE_TIME_MS = 300;
+
 interface JudgeButtonProps {
   handleClick: () => void;
   text: string;
@@ -13,7 +15,7 @@ function JudgeButton(props: JudgeButtonProps) {
   useEffect(() => {
     setTimeout(() => {
       setHandleClick(() => props.handleClick);
-    }, 300);
+    }, DEBOUNCE_TIME_MS);
   }, []);
 
   return (

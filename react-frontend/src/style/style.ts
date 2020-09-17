@@ -94,7 +94,7 @@ export const StyledJudgeButton = styled.button`
   color: white;
   background-color: #2d2a2a;
   font-size: 1.2rem;
-  height: 60px;
+  height: 55px;
   width: 200px;
   border: unset;
   margin: 0 1em;
@@ -357,18 +357,24 @@ export const StyledNav = styled.nav`
 ////////////////////////////
 
 interface StyledColorDivProps {
+  marginPerc: number
+  nColorsPerRow: number
   color: string
 }
+// Assuming 4 color squares per row
+// and 1% margin between squares
 // width = 100 / 4 - (1 * 2) %
 export const StyledColorDiv = styled.div`
   background-color: ${(p: StyledColorDivProps) => p.color};
-  width: 23%;
-  margin: 1%;
+  margin: ${(p: StyledColorDivProps) => p.marginPerc}%;
+  width: ${(p: StyledColorDivProps) =>
+    100 / p.nColorsPerRow - p.marginPerc * 2}%;
 
   &:after {
     content: '';
     display: block;
-    padding-bottom: 100%;
+    padding-top: 100%;
+    float: left;
   }
 
   a {
@@ -378,9 +384,22 @@ export const StyledColorDiv = styled.div`
   }
 `
 
+interface StyledColorGridDiv {
+  nColorsPerRow: number
+  totalColors: number
+}
 export const StyledColorGridDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  div:nth-last-child(-n
+      + ${(p: StyledColorGridDiv) => {
+        const numInLastRow = p.totalColors % p.nColorsPerRow
+        return numInLastRow == 0 ? p.nColorsPerRow : numInLastRow
+      }}) {
+    // stuff here only applies to last row
+    // didn't end up needing this
+  }
 `
 
 ////////////////////////////
