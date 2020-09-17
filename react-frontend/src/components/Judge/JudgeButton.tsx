@@ -16,7 +16,7 @@ function JudgeButton(props: JudgeButtonProps) {
     setTimeout(() => {
       setHandleClick(() => props.handleClick);
     }, DEBOUNCE_TIME_MS);
-  }, []);
+  }, [props.handleClick]);
 
   return (
     <StyledJudgeButton onClick={handleClick ? handleClick : () => {}}>

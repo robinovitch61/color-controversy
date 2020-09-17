@@ -136,13 +136,10 @@ function Judge() {
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {/* <StyledColorResultsDiv>{randomFace()}</StyledColorResultsDiv> */}
-          <StyledColorResultsDiv></StyledColorResultsDiv>
+          <StyledColorResultsDiv>loading...</StyledColorResultsDiv>
         </StyledColorSquareToJudgeDiv>
       </StyledColorSquareAndResultsDiv>
       <ColorChoices
-        // actually super important these are different
-        // as they act as keys in children, forcing
-        // button remount
         firstOption={'~(˘▾˘~)'}
         secondOption={'(~˘▾˘)~'}
         onColorChoice={() => {}}
