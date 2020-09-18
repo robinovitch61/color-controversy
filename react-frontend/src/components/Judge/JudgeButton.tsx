@@ -13,9 +13,13 @@ function JudgeButton(props: JudgeButtonProps) {
 
   // debounce buttons in case of accidental double clicks
   useEffect(() => {
+    let isMounted = true; // helps protect against updating unmounted component due to async
     setTimeout(() => {
-      setHandleClick(() => props.handleClick);
+      if (isMounted) {
+        setHandleClick(() => props.handleClick);
+      }
     }, DEBOUNCE_TIME_MS);
+    return () => { isMounted = false };
   }, [props.handleClick]);
 
   return (
