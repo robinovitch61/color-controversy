@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ColorGrid from './ColorGrid';
 import api from '../../connector/connector';
+import { StyledTitleDiv } from '../../style/style';
 
 async function getColors() {
   const colors = await api.allColors({});
@@ -18,7 +19,14 @@ function AllColors() {
     updateColors();
   }, []);
 
-  return <ColorGrid colors={colors} />;
+  return (
+    <div>
+      <StyledTitleDiv>
+        <h2>click to judge</h2>
+      </StyledTitleDiv>
+      <ColorGrid colors={colors} />
+    </div>
+  );
 }
 
 export default AllColors;

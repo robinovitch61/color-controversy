@@ -14,14 +14,14 @@ function App() {
   return (
     <Router>
       <StyledPageContent>
-      <Nav />
-      <Header />
-      <Switch>
-        <Route path='/' exact component={Judge} />
-        <Route path='/colors' component={AllColors} />
-        <Route path='/leaderboard' component={Leaderboard} />
-        <Route path='/what' component={About} />
-      </Switch>
+        <Nav />
+        <Header />
+        <Switch>
+          <Route path='/' exact component={Judge} />
+          <Route path='/colors' component={AllColors} />
+          <Route path='/leaderboard' component={Leaderboard} />
+          <Route path='/what' component={About} />
+        </Switch>
       </StyledPageContent>
       <Footer />
     </Router>

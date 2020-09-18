@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import RankedColor from './RankedColor';
 import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
-import { StyledRankingContainerDiv } from '../../style/style';
+import { StyledRankingContainerDiv, StyledTitleDiv } from '../../style/style';
 
 const SIMULATED_LOADING_TIME_MS = 0;
 
@@ -46,14 +46,19 @@ function Leaderboard(props: LeaderboardProps) {
   }, []);
 
   const rankedColors = colors.map((color, idx) => (
-        <RankedColor
-          key={color.hex}
-          rank={idx + 1}
-          color={color}
-        />
-      ));
+    <RankedColor key={color.hex} rank={idx + 1} color={color} />
+  ));
 
-  return <StyledRankingContainerDiv>{isLoading ? <div></div> : rankedColors}</StyledRankingContainerDiv>;
+  return (
+    <div>
+      <StyledTitleDiv>
+        <h2>the most controversial</h2>
+      </StyledTitleDiv>
+      <StyledRankingContainerDiv>
+        {isLoading ? <div></div> : rankedColors}
+      </StyledRankingContainerDiv>
+    </div>
+  );
 }
 
 export default Leaderboard;

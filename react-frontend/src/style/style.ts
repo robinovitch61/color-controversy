@@ -436,7 +436,7 @@ interface StyledRankedColorBoxDivProps {
 }
 export const StyledRankedColorBoxDiv = styled.div`
   background-color: ${(p: StyledRankedColorBoxDivProps) => p.hexColor};
-  padding: 2.1em 1.8em;
+  padding: 1.5em 1.2em;
   margin: 1em;
 
   p.hex-text {
@@ -444,7 +444,7 @@ export const StyledRankedColorBoxDiv = styled.div`
   }
 
   @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
-    padding: 1.1em 0.8em;
+    padding: 0.7em 0.4em;
 
     p.hex-text {
       opacity: 0;

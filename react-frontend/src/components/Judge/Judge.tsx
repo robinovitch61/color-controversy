@@ -9,6 +9,7 @@ import {
   StyledColorSquareAndResultsDiv,
   StyledColorSquareToJudgeDiv,
   StyledColorResultsDiv,
+  StyledTitleDiv,
 } from '../../style/style';
 import { useLocation } from 'react-router-dom';
 import {
@@ -131,45 +132,42 @@ function Judge() {
     }
   }, [location.state]);
 
-  return isLoading ? (
+  const judgeContent = (
     <StyledJudgeContainerDiv>
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
-          {/* <StyledColorResultsDiv>{randomFace()}</StyledColorResultsDiv> */}
-          <StyledColorResultsDiv></StyledColorResultsDiv>
-        </StyledColorSquareToJudgeDiv>
-      </StyledColorSquareAndResultsDiv>
-      <ColorChoices
-        firstOption={'~(˘▾˘~)'}
-        secondOption={'(~˘▾˘)~'}
-        onColorChoice={() => {}}
-      />
-    </StyledJudgeContainerDiv>
-  ) : (
-    <StyledJudgeContainerDiv>
-      <StyledColorSquareAndResultsDiv>
-        <StyledColorSquareToJudgeDiv inputColor={color.hex}>
-          {!isJudging ? (
+          {isLoading ? (
+            <StyledColorResultsDiv />
+          ) : isJudging ? (
+            <StyledColorResultsDiv>judge me</StyledColorResultsDiv>
+          ) : (
             <JudgementResult
               choice={choice}
               color={color}
               percentControversial={percentControversial()}
             />
-          ) : (
-            <StyledColorResultsDiv>judge me</StyledColorResultsDiv>
           )}
         </StyledColorSquareToJudgeDiv>
       </StyledColorSquareAndResultsDiv>
-      {isJudging ? (
+      {isJudging || isLoading ? (
         <ColorChoices
-          firstOption={color.firstOption}
-          secondOption={color.secondOption}
-          onColorChoice={onColorChoice}
+          firstOption={isLoading ? '~(˘▾˘~)' : color.firstOption}
+          secondOption={isLoading ? '(~˘▾˘)~' : color.secondOption}
+          onColorChoice={isLoading ? () => {} : onColorChoice}
         />
       ) : (
         <NextButton onClick={setNextColor} />
       )}
     </StyledJudgeContainerDiv>
+  );
+
+  return (
+    <div>
+      <StyledTitleDiv>
+        <h2>collective optical disagreement</h2>
+      </StyledTitleDiv>
+      {judgeContent}
+    </div>
   );
 }
 

@@ -14,10 +14,10 @@ interface RankedColorProps {
 function RankedColor(props: RankedColorProps) {
   return (
     <StyledRankedColorDiv className={'ranked-color'}>
-      <p>#{props.rank < 10 ? '0' + props.rank : props.rank}</p>
-      <StyledRankedColorBoxDiv
-        hexColor={props.color.hex}
-      >
+      <p style={{ fontSize: '1.4em' }}>
+        #{props.rank < 10 ? '0' + props.rank : props.rank}
+      </p>
+      <StyledRankedColorBoxDiv hexColor={props.color.hex}>
         <p className='hex-text'>{props.color.hex}</p>
       </StyledRankedColorBoxDiv>
       <ColorResults color={props.color} />
