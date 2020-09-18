@@ -136,7 +136,7 @@ function Judge() {
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {/* <StyledColorResultsDiv>{randomFace()}</StyledColorResultsDiv> */}
-          <StyledColorResultsDiv>loading...</StyledColorResultsDiv>
+          <StyledColorResultsDiv></StyledColorResultsDiv>
         </StyledColorSquareToJudgeDiv>
       </StyledColorSquareAndResultsDiv>
       <ColorChoices
