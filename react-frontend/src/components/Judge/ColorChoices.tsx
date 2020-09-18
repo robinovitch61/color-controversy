@@ -13,7 +13,7 @@ function ColorChoices(props: ColorChoicesProps) {
     <StyledJudgeButtonContainerDiv>
       <JudgeButton
         text={props.firstOption}
-        handleClick={() => props.onColorChoice(props.firstOption)}
+        handleClick={() => props.onColorChoice('')}
         />
       <p>or</p>
       <JudgeButton
