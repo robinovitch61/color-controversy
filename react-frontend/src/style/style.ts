@@ -11,7 +11,7 @@ const COLOR_CONVERSIONS = {
 }
 const CONTAINER_WIDTH_PX = 650
 const JUDGE_CONTAINER_WIDTH_PX = 550
-const TRANSITION_WIDTH_MOBILE = 768
+const TRANSITION_WIDTH_MOBILE = 750
 const RED_COLOR = '#ff007f'
 const ORANGE_COLOR = 'rgba(255, 170, 29, 0.9) 80.46%'
 const NAV_HEIGHT_PX = 80
@@ -325,30 +325,24 @@ export const StyledNav = styled.nav`
 
   .nav-links-mobile {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 40%;
+    width: 100%;
+    height: 100vh;
     background-color: #ffe4bb;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     display: none;
     font-size: 1.1rem;
     z-index: 5;
 
     a {
-      width: 100%;
+      width: 90%;
       padding: 1.5rem 0;
       margin: 0.3rem 0;
       background-color: #ffd08a;
-
-      &:first-child {
-        margin-top: ${NAV_HEIGHT_MOBILE_PX}px;
-      }
-
-      span {
-        display: inline-block;
-        margin-left: 1.5rem;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {
