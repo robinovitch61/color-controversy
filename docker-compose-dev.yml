@@ -30,7 +30,7 @@ services:
     container_name: play-backend
     build:
       context: ./play-backend
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     networks:
       - color-nw
     depends_on:
