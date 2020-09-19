@@ -333,6 +333,11 @@ server {
 		include /etc/nginx/vhost.d/default_location;
 		{{ end }}
 	}
+
+        # ADDED BY LEO
+        location /api/ {
+          proxy_pass http://play-backend:9000/;
+        }
 }
 
 {{ end }}
