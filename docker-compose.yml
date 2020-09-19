@@ -2,8 +2,7 @@ version: '2'
 services:
   nginx:
     container_name: nginx
-    build: ./nginx
-#    image: nginx:1.19.1
+    image: nginx:1.19.1
     networks:
       - color-nw
     depends_on:
@@ -12,10 +11,6 @@ services:
     ports:
       - 80:80
       - 443:443
-#    volumes:
-#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-#      - ./nginx/default.conf:/etc/nginx/conf.d/www.wip.colorcontroversy.com.conf
-#      - ./nginx/letsencrypt-nginx.sh:letsencrypt-nginx.sh
     environment:
       - DOMAIN_NAME=${DOMAIN_NAME}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
