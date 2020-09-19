@@ -4,5 +4,6 @@ data
 **/.idea
 **/.python-version
 **/.ipynb_checkpoints
+**/.g8
 **/__pycache__
 **/node_modules
