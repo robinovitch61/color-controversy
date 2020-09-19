@@ -11,6 +11,7 @@ const tsSourceCode = CodeGen.getTypescriptCode({
   swagger: swagger
 })
 
-// parse stuff like models.Version in to ModelsVersion
+// generator can't automatically handle periods
+// change stuff like models.Version in to ModelsVersion
 const parsed = tsSourceCode.replace(/models\./g, 'Models')
 fs.writeFileSync('output/ccapi.ts', parsed)

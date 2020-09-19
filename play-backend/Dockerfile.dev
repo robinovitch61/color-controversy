@@ -21,25 +21,17 @@ RUN apk add --update bash curl openssl ca-certificates && \
 # Prebuild with sbt
 COPY . /tmp/build/
 
-# # sbt sometimes failed because of network. retry 3 times.
-# RUN cd /tmp/build && \
-#   (sbt compile || sbt compile || sbt compile) && \
-#   (sbt test:compile || sbt test:compile || sbt test:compile) && \
-#   rm -rf /tmp/build
-
 # caching dependencies
 COPY ["build.sbt", "/tmp/build/"]
 COPY ["project/plugins.sbt", "project/build.properties", "/tmp/build/project/"]
 RUN cd /tmp/build && \
  sbt compile && \
-#  sbt test:compile && \
  rm -rf /tmp/build
 
 # copy code
 COPY . /root/app/
 WORKDIR /root/app
 RUN sbt compile
-    # && sbt test:compile
 
 EXPOSE 9000
 CMD ["sbt", "~run"]
