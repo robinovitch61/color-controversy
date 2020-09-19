@@ -164,7 +164,7 @@ function Judge() {
   return (
     <div>
       <StyledTitleDiv>
-        <h2>collective optical disagreement</h2>
+        <h2>collective optical congruence</h2>
       </StyledTitleDiv>
       {judgeContent}
     </div>

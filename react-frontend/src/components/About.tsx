@@ -5,7 +5,7 @@ function About() {
   return (
     <div>
       <StyledTitleDiv>
-        <h2>why would you do this</h2>
+        <h2>wait but why</h2>
       </StyledTitleDiv>
       <StyledContainerDiv className='about'>
         <p>
