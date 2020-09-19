@@ -88,7 +88,7 @@ class DbModel @Inject() (db: Database) {
         s"""
           |SELECT *
           |FROM color
-          |WHERE (n_first > 10) OR (n_second > 10) -- exclude unvoted-on colors
+          |WHERE (n_first > 0) OR (n_second > 0) -- exclude unvoted-on colors
           |ORDER BY
           |   ABS(CAST(n_first AS DECIMAL) / (n_first + n_second) - 0.5) ASC,
           |   (n_first + n_second) DESC
