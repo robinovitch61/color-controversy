@@ -310,6 +310,9 @@ server {
 	{{ end }}
 
 	location / {
+    # ADDED BY LEO
+    try_files $uri /index.html;
+    
 		{{ if eq $proto "uwsgi" }}
 		include uwsgi_params;
 		uwsgi_pass {{ trim $proto }}://{{ trim $upstream_name }};
