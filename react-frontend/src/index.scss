@@ -1,3 +1,8 @@
+// no double tap to zoom
+* {
+  touch-action: manipulation;
+}
+
 html {
   position: relative;
   min-height: 100%;
