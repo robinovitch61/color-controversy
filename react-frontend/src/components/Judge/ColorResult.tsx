@@ -6,7 +6,7 @@ import {
 } from '../../style/style';
 
 // text gets mushed/hidden when colorbar is small
-const MIN_PERCENT_TO_SHOW_TEXT = 20;
+const MIN_PERCENT_TO_SHOW_TEXT = 34;
 
 interface ColorResultProps {
   color: string;
