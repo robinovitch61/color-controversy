@@ -12,7 +12,9 @@ function AllColors() {
   const [colors, setColors] = useState(['']);
 
   const updateColors = () => {
-    getColors().then((colors) => setColors(colors));
+    getColors()
+      .then((colors) => setColors(colors))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {

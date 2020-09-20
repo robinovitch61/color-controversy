@@ -94,21 +94,25 @@ function Judge() {
   };
 
   const setColorFromHex = (hexColor: string) => {
-    colorFromHex(hexColor).then((color) => {
-      setTimeout(() => {
-        setColor(color);
-        setIsLoading(false);
-      }, SIMULATE_LOADING_MS);
-    });
+    colorFromHex(hexColor)
+      .then((color) => {
+        setTimeout(() => {
+          setColor(color);
+          setIsLoading(false);
+        }, SIMULATE_LOADING_MS);
+      })
+      .catch((err) => console.log(err));
   };
 
   const getRandomHexAndSetColor = () => {
-    randomColor().then((color) => {
-      setTimeout(() => {
-        setColor(color);
-        setIsLoading(false);
-      }, SIMULATE_LOADING_MS);
-    });
+    randomColor()
+      .then((color) => {
+        setTimeout(() => {
+          setColor(color);
+          setIsLoading(false);
+        }, SIMULATE_LOADING_MS);
+      })
+      .catch((err) => console.log(err));
   };
 
   const setNextColor = () => {

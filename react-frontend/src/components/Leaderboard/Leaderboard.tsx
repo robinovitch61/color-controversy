@@ -33,12 +33,14 @@ function Leaderboard(props: LeaderboardProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   const updateColors = () => {
-    getRankings().then((colors) => {
-      setTimeout(() => {
-        setColors(colors);
-        setIsLoading(false);
-      }, SIMULATED_LOADING_TIME_MS);
-    });
+    getRankings()
+      .then((colors) => {
+        setTimeout(() => {
+          setColors(colors);
+          setIsLoading(false);
+        }, SIMULATED_LOADING_TIME_MS);
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
