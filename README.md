@@ -57,7 +57,7 @@ I then cloned this github repo on the lightsail instance and created a `.env` fi
 
 ```sh
 DEFAULT_EMAIL=<my-email>
-DOMAIN=colorcontroversy.com
+DOMAIN=colorcontroversy.com,www.colorcontroversy.com
 POSTGRES_PASSWORD=<a-password>
 ```
 
