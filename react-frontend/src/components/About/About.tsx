@@ -24,7 +24,11 @@ function About() {
           Each type has its own response curve to light at various wavelengths:
         </p>
         <div style={{ width: '100%', textAlign: 'center' }}>
-          <img style={{ width: '80%' }} src={sensitivities} />
+          <img
+            style={{ width: '80%' }}
+            alt='cone-sensitivities'
+            src={sensitivities}
+          />
         </div>
         <p>
           Due to genetic variation, we all have slightly different looking
@@ -37,7 +41,11 @@ function About() {
         </p>
         <p>Here is the distribution for "cool white" flourescent light:</p>
         <div style={{ width: '100%', textAlign: 'center' }}>
-          <img style={{ width: '90%' }} src={flourescent} />
+          <img
+            style={{ width: '90%' }}
+            alt='cool-white-flourescent-distribution'
+            src={flourescent}
+          />
         </div>
         <p>
           Our cone cells individually process the input distribution, filtering
@@ -50,6 +58,7 @@ function About() {
           <a
             style={{ color: 'red' }}
             target='_blank'
+            rel='noopener noreferrer'
             href='https://www.sapiens.org/language/color-perception/'
           >
             cultural effects going on
@@ -61,6 +70,7 @@ function About() {
           <a
             style={{ color: 'red' }}
             target='_blank'
+            rel='noopener noreferrer'
             href='https://www.youtube.com/watch?v=AS1OHMW873s'
           >
             John Austin's talk from Strange Loop.
@@ -71,21 +81,22 @@ function About() {
           see colors a bit differently and how that's neat.
         </p>
         <p>
-          But is there a color that is interpreted differently THE MOST?
-          Is there a most controversial color? Well, (if I contrive an ongoing
+          But is there a color that is interpreted differently THE MOST? Is
+          there a most controversial color? Well, (if I contrive an ongoing
           survey and collect data about it), the answer is yes, of course!
         </p>
         <p>
           Contribute your judgement to a few colors here at Color Controversy
           and you too can contribute to ultimate color truth.
         </p>
-        <br/>
+        <br />
         <h2>How did you pick the colors to show?</h2>
         <p>
           Randall Munroe from XKCD did a{' '}
           <a
             style={{ color: 'red' }}
             target='_blank'
+            rel='noopener noreferrer'
             href='https://blog.xkcd.com/2010/05/03/color-survey-results/'
           >
             pretty awesome online color survey
@@ -100,15 +111,20 @@ function About() {
         <p>DaTa sCiEnCe.</p>
         <p>It looked like this:</p>
         <div style={{ width: '100%', textAlign: 'center' }}>
-          <img style={{ width: '90%' }} src={colorSelection} />
+          <img
+            style={{ width: '90%' }}
+            alt='overlaying-xkcd-on-my-plots'
+            src={colorSelection}
+          />
         </div>
-        <br/>
+        <br />
         <h2>More plz:</h2>
         <p>
           Source code for this site can be found{' '}
           <a
             style={{ color: 'red' }}
             target='_blank'
+            rel='noopener noreferrer'
             href='https://github.com/robinovitch61/color-controversy'
           >
             here on github.
@@ -119,6 +135,7 @@ function About() {
           <a
             style={{ color: 'red' }}
             target='_blank'
+            rel='noopener noreferrer'
             href='https://leorobinovitch.com/'
           >
             here on the internet.

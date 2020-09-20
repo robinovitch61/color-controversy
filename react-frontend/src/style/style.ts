@@ -49,6 +49,7 @@ export const StyledCenteredP = styled.p`
 export const StyledFlexDiv = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
 `
 
 ////////////////////////////
@@ -171,8 +172,10 @@ export const StyledColorTextBarP = styled.p`
 
 interface StyledColorBarDivProps {
   color: string
+  opacity: number
 }
 export const StyledColorBarDiv = styled.div`
+  opacity: ${(p: StyledColorBarDivProps) => p.opacity};
   width: 100%;
   margin: 0 auto;
   padding: 0.5em 0;
