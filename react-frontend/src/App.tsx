@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Judge from './components/Judge/Judge';
 import AllColors from './components/AllColors/AllColors';
 import Leaderboard from './components/Leaderboard/Leaderboard';
-import About from './components/About';
+import About from './components/About/About';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import { StyledPageContent } from './style/style';
