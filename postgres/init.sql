@@ -7,32 +7,6 @@ CREATE TABLE IF NOT EXISTS color (
   n_second INT NOT NULL DEFAULT 0 CHECK (n_second >= 0)
 );
 
--- Red/Orange
-INSERT INTO color (hex, first_option, second_option) VALUES ('#FC2700', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#FC2C00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#F83000', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#F62D00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#F22A00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#EF2C00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#EE2F00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#EA3400', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E73000', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E42E00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E32D00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E12900', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DE2D00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D93000', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D62D00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D62C00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#CE3000', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#CD2B00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C92E00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D04C00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DD4E00', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E85000', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#F35100', 'red', 'orange') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#FE5400', 'red', 'orange') RETURNING hex;
-
 -- Pink/Red
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FC003E', 'pink', 'red') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FE0042', 'pink', 'red') RETURNING hex;
@@ -164,3 +138,15 @@ INSERT INTO color (hex, first_option, second_option) VALUES ('#3B00B2', 'blue', 
 INSERT INTO color (hex, first_option, second_option) VALUES ('#4C00AE', 'blue', 'purple') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#4900A0', 'blue', 'purple') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#3300A4', 'blue', 'purple') RETURNING hex;
+
+-- Red/Orange
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C02A00', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C33200', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#CD2900', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#D13700', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#D53200', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#DD2B00', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#EC2F00', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#F03E00', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#D94400', 'red', 'orange') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#F55100', 'red', 'orange') RETURNING hex;
