@@ -33,61 +33,6 @@ INSERT INTO color (hex, first_option, second_option) VALUES ('#E85000', 'red', '
 INSERT INTO color (hex, first_option, second_option) VALUES ('#F35100', 'red', 'orange') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FE5400', 'red', 'orange') RETURNING hex;
 
--- Blue/Purple
-INSERT INTO color (hex, first_option, second_option) VALUES ('#2C007B', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#2F007C', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#360080', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#3A008A', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#380090', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#370099', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#3B00A0', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4000A0', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4700A4', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4800AD', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4600B5', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4000B7', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4700C4', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#4E00C4', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5300C4', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5800CE', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5500D2', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5200D6', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5400DE', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5900DF', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5D00E0', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#6200ED', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5F00EF', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5900F0', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#5D00FB', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#6400FD', 'blue', 'purple') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#6900FC', 'blue', 'purple') RETURNING hex;
-
--- Purple/Pink
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D300FE', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DA00FD', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#E100FC', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DF00F4', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DB00F0', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D300E8', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#CF00DF', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D200D8', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D400D0', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D000CA', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#CC00C8', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C400C3', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C200BA', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C300B3', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C500AD', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C200A6', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#BE00A4', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#BA00A0', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B60097', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B70092', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B9008A', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B60080', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B10080', 'purple', 'pink') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#AC007E', 'purple', 'pink') RETURNING hex;
-
 -- Pink/Red
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FC003E', 'pink', 'red') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FE0042', 'pink', 'red') RETURNING hex;
@@ -104,34 +49,6 @@ INSERT INTO color (hex, first_option, second_option) VALUES ('#CF003B', 'pink', 
 INSERT INTO color (hex, first_option, second_option) VALUES ('#C6003E', 'pink', 'red') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#C40046', 'pink', 'red') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#C4004E', 'pink', 'red') RETURNING hex;
-
--- Yellow/Green
-INSERT INTO color (hex, first_option, second_option) VALUES ('#ABAF00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A5B600', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A2BA00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#ABC100', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B0C500', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B1CC00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#AECE00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A7D300', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A4DB00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#AAE300', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B2EB00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B3F400', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A9F400', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#A2F400', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#98F300', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B4FA00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#ACFA00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#BEFC00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B3B000', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#B8B600', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#BFC100', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C3CF00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#C4DC00', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#CAE800', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#D2F800', 'yellow', 'green') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#DAFD00', 'yellow', 'green') RETURNING hex;
 
 -- Orange/Yellow
 INSERT INTO color (hex, first_option, second_option) VALUES ('#FDB500', 'orange', 'yellow') RETURNING hex;
@@ -192,3 +109,59 @@ INSERT INTO color (hex, first_option, second_option) VALUES ('#00FBC6', 'green',
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00FCBB', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00FDB1', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00FDA8', 'green', 'blue') RETURNING hex;
+
+-- Yellow/Green
+INSERT INTO color (hex, first_option, second_option) VALUES ('#A8CA00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#ACCA00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B3CD00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B9D500', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B1D700', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#A9D700', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#A4DB00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#A5E100', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#ADE600', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B5E800', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B9F100', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B3F400', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#AAF400', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#A6F800', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#AFFE00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#BBFD00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C1FB00', 'yellow', 'green') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#BBF500', 'yellow', 'green') RETURNING hex;
+
+-- Purple/Pink
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B200A0', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#B9009E', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C0009A', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C800A3', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C600AF', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#BF00BB', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#C600C6', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#D100CB', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#DD00CD', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#E400DA', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#DB00E9', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#CF00F0', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#D500FC', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#E400FD', 'purple', 'pink') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#F400F7', 'purple', 'pink') RETURNING hex;
+
+-- Blue/Purple
+INSERT INTO color (hex, first_option, second_option) VALUES ('#5400FD', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#5D00FD', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#6700FA', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#6300EC', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#5A00EB', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4D00E7', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4600D9', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4C00D5', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#5600D5', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#5000C7', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4800C4', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#3900C4', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#3500B8', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#3B00B2', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4C00AE', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#4900A0', 'blue', 'purple') RETURNING hex;
+INSERT INTO color (hex, first_option, second_option) VALUES ('#3300A4', 'blue', 'purple') RETURNING hex;
