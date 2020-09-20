@@ -98,10 +98,6 @@ services:
     - nginx-letsencrypt
     - postgres
     - play-backend
-    volumes:
-      - ./react-frontend/tsconfig.json:/app/tsconfig.json
-      - ./react-frontend/src:/app/src
-      - ./react-frontend/public:/app/public
     environment:
       - CHOKIDAR_USEPOLLING=true
       - VIRTUAL_PORT=80
