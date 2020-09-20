@@ -17,6 +17,7 @@ import {
   updateJudgeCount,
 } from '../../store/actions';
 import { useDispatch, useStore } from 'react-redux';
+import isDark from '../../misc/brightness';
 // import randomFace from '../../misc/faces';
 
 const SIMULATE_LOADING_MS = 0;
@@ -137,7 +138,9 @@ function Judge() {
   }, [location.state]);
 
   const judgeContent = (
-    <StyledJudgeContainerDiv>
+    <StyledJudgeContainerDiv style={{
+      color: isDark(color.hex) ? 'white': 'black'
+    }}>
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {isLoading ? (
