@@ -155,8 +155,8 @@ function Judge() {
       </StyledColorSquareAndResultsDiv>
       {isJudging || isLoading ? (
         <ColorChoices
-          firstOption={isLoading ? '~(˘▾˘~)' : color.firstOption}
-          secondOption={isLoading ? '(~˘▾˘)~' : color.secondOption}
+          firstOption={isLoading ? '' : color.firstOption}
+          secondOption={isLoading ? '' : color.secondOption}
           onColorChoice={isLoading ? () => {} : onColorChoice}
         />
       ) : (
