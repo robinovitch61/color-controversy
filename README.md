@@ -69,6 +69,8 @@ docker-compose -f docker-compose-prod.yml up -d
 
 Note that `docker-compose` will pick up the values in the `.env` file when running commands from the same directory as the `.env` file (root of cloned repo).
 
+Additionally, to actually get a real cert from letsencrypt, make sure the non-staging `ACME_CA_URI` is uncommented in `docker-compose-prod.yml`. The rate limits are real here so only do this if you're sure it all works - retries are limited.
+
 In order to get docker-compose to reload things on reboot, I created `docker-compose-color.service`. Enabling it required a one time setup:
 
 ```sh
@@ -77,6 +79,27 @@ cd /home/ubuntu/color
 sudo cp docker-compose-color.service /etc/systemd/system
 sudo systemctl enable docker-compose-color
 sudo systemctl start docker-compose-color
+```
+
+## Postgres Backups
+
+### Scheduled backups:
+
+Create cron job for `backups/backup.sh`:
+```sh
+crontab -e
+```
+Add following to bottom of file:
+```sh
+1 * * * * <absolute-path-to-cloned-repo>/backups/backup.sh
+```
+This will create an hourly backup in the `backups/` directory. You can test it's working by temporarily changing `1 * * * *` to `* * * * *` and waiting one minute, then checking the `backups/` directory contents.
+
+### Restore from backup:
+```sh
+# must drop data before restoring it
+docker exec postgres psql -U postgres -c "drop table color"
+docker exec postgres psql -U postgres -f /home/backups/dump_<desired-date>.sql
 ```
 
 ## Troubleshooting
