@@ -161,9 +161,9 @@ docker exec play-backend sbt swagger
 Can then visit `localhost/swagger` in browser to see updated spec.
 
 ## Many Thanks To:
-
 - https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion
 - https://www.youtube.com/watch?v=z525kfneC6E
+- https://blog.xkcd.com/2010/05/03/color-survey-results/
 - https://aws.amazon.com/blogs/compute/building-a-pocket-platform-as-a-service-with-amazon-lightsail/
 - https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion/blob/master/docs/Advanced-usage.md
 - https://hub.docker.com/r/ysihaoy/scala-play/
