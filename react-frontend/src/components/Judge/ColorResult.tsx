@@ -23,7 +23,7 @@ function ColorResult(props: ColorResultProps) {
   return (
     <StyledColorResultDiv width={percentFloat}> 
       <StyledColorTextBarP opacity={opacity} marginEm={0.3} after={'%'}>{percent}</StyledColorTextBarP>
-      <StyledColorBarDiv opacity={opacity} color={color}>
+      <StyledColorBarDiv opacity={percent === 0 ? 0 : 100} color={color}>
         <StyledColorTextBarP opacity={opacity} marginEm={0}>
           {color}
         </StyledColorTextBarP>
