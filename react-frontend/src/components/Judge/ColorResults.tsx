@@ -20,12 +20,12 @@ function ColorResults(props: ColorResultsProps) {
       <ColorResult
         color={firstOption}
         percentFloat={fPerc}
-        textBelow={`${nFirst} votes`}
+        textBelow={`${nFirst} ${nFirst === 1 ? 'vote' : 'votes'}`}
       />
       <ColorResult
         color={secondOption}
         percentFloat={sPerc}
-        textBelow={`${nSecond} votes`}
+        textBelow={`${nSecond} ${nSecond === 1 ? 'vote' : 'votes'}`}
       />
     </StyledFlexDiv>
   );
