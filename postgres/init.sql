@@ -80,7 +80,6 @@ INSERT INTO color (hex, first_option, second_option) VALUES ('#00959A', 'green',
 INSERT INTO color (hex, first_option, second_option) VALUES ('#009A95', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#009E93', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00A38D', 'green', 'blue') RETURNING hex;
-INSERT INTO color (hex, first_option, second_option) VALUES ('#00A887', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00AE83', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00B47D', 'green', 'blue') RETURNING hex;
 INSERT INTO color (hex, first_option, second_option) VALUES ('#00B779', 'green', 'blue') RETURNING hex;
