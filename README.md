@@ -71,16 +71,6 @@ Note that `docker-compose` will pick up the values in the `.env` file when runni
 
 Additionally, to actually get a real cert from letsencrypt, make sure the non-staging `ACME_CA_URI` is uncommented in `docker-compose-prod.yml`. The rate limits are real here so only do this if you're sure it all works - retries are limited.
 
-In order to get docker-compose to reload things on reboot, I created `docker-compose-color.service`. Enabling it required a one time setup:
-
-```sh
-# one time service setup for reboot
-cd /home/ubuntu/color
-sudo cp docker-compose-color.service /etc/systemd/system
-sudo systemctl enable docker-compose-color
-sudo systemctl start docker-compose-color
-```
-
 ## Postgres Backups
 
 ### Scheduled backups:
