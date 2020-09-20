@@ -40,7 +40,7 @@ function Leaderboard(props: LeaderboardProps) {
           setIsLoading(false);
         }, SIMULATED_LOADING_TIME_MS);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {

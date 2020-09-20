@@ -101,7 +101,7 @@ function Judge() {
           setIsLoading(false);
         }, SIMULATE_LOADING_MS);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   const getRandomHexAndSetColor = () => {
@@ -112,7 +112,7 @@ function Judge() {
           setIsLoading(false);
         }, SIMULATE_LOADING_MS);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   const setNextColor = () => {

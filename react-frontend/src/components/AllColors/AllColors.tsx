@@ -14,7 +14,7 @@ function AllColors() {
   const updateColors = () => {
     getColors()
       .then((colors) => setColors(colors))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
