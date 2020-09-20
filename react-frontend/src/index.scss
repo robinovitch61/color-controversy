@@ -16,6 +16,10 @@ body {
   background-color: #f8f8ff;
 }
 
+h2 {
+  font-family: roboto_monobold;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -27,4 +31,12 @@ code {
     url('/fonts/robotomono-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'roboto_monobold';
+  src: url('/fonts/robotomono-bold-webfont.woff2') format('woff2'),
+    url('/fonts/robotomono-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: bold;
 }
