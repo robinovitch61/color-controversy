@@ -6,7 +6,7 @@ import {
 } from '../../style/style';
 
 // text gets mushed/hidden when colorbar is small
-const MIN_PERCENT_TO_SHOW_TEXT = 34;
+const MIN_PERCENT_TO_SHOW_TEXT = 10;
 
 interface ColorResultProps {
   color: string;
@@ -22,13 +22,13 @@ function ColorResult(props: ColorResultProps) {
 
   return (
     <StyledColorResultDiv width={percentFloat}> 
-      <StyledColorTextBarP opacity={opacity} marginEm={0.3} after={'%'}>{percent}</StyledColorTextBarP>
+      <StyledColorTextBarP opacity={percent === 0 ? 0 : 100} marginEm={0.3} after={'%'}>{percent}</StyledColorTextBarP>
       <StyledColorBarDiv opacity={percent === 0 ? 0 : 100} color={color}>
         <StyledColorTextBarP opacity={opacity} marginEm={0}>
           {color}
         </StyledColorTextBarP>
       </StyledColorBarDiv>
-      <StyledColorTextBarP opacity={opacity} marginEm={0.3}>{textBelow}</StyledColorTextBarP>
+      <StyledColorTextBarP opacity={percent === 0 ? 0 : 100} marginEm={0.3}>{textBelow}</StyledColorTextBarP>
     </StyledColorResultDiv>
   );
 }
