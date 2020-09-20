@@ -33,7 +33,9 @@ I then created a static IP address in AWS Lightsail in a specific region. I also
 
 I then added the 4 name servers provided by the Lightsail DNS zone to my Namecheap site's configuration (nameservers -> custom dns). Nameservers are the part of DNS that map domain names to IP addresses, so adding Lightsail's nameservers tell Namecheap to map my purchased domain to the static IP assigned by Lightsail. Locallying `ping`ing colorcontroversy.com returned the static IP after this configuration change propogated (took only a couple of minutes).
 
-I then created a Lightsail instance with Ubuntu 18.04 in the same region as my static IP. I attached the static IP and added HTTPS on port 443. Then I ran the following one time setup:
+I then created a Lightsail instance with Ubuntu 18.04 in the same region as my static IP. I attached the static IP and added HTTPS on port 443.
+
+Then I ssh'd in to the instance and ran the following setup:
 
 ```sh
 # install docker and docker-compose and allow sudo-less usage
