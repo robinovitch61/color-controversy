@@ -1,6 +1,7 @@
 .env
 data
 backups/*.sql
+backups/judge_count.txt
 **/.DS_Store
 **/.idea
 **/.python-version
