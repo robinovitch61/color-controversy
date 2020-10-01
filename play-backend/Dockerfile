@@ -6,8 +6,8 @@ ENV CHECKSUM edebbafa8d0541ad307600cd3f12b1a41bd688b8035aca24489d4a13638dfe05
 
 # Install sbt
 RUN apk add --update bash curl openssl ca-certificates && \
-  curl -L -o /tmp/sbt.zip \
-    https://piccolo.link/sbt-${SBT_VERSION}.zip && \
+  curl -LJ -o /tmp/sbt.zip \
+    https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.zip && \
   openssl dgst -sha256 /tmp/sbt.zip \
     | grep ${CHECKSUM} \
     || (echo 'shasum mismatch' && false) && \

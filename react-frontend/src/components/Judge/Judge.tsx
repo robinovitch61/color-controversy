@@ -124,7 +124,7 @@ function Judge() {
 
   const percentControversial = () => {
     const { judgeCount, controversialCount } = store.getState();
-    return parseInt(((controversialCount / judgeCount) * 100).toString());
+    return Math.round((controversialCount / judgeCount) * 100);
   };
 
   // set initial color

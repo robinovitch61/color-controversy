@@ -16,7 +16,7 @@ interface ColorResultProps {
 
 function ColorResult(props: ColorResultProps) {
   const { color, percentFloat, textBelow } = props;
-  const percent = parseInt(percentFloat.toString());
+  const percent = Math.round(percentFloat);
   const percTooSmall = () => percent < MIN_PERCENT_TO_SHOW_TEXT;
   const opacity = percTooSmall() ? 0 : 100;
 
