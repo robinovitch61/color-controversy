@@ -3,8 +3,10 @@ import RankedColor from './RankedColor';
 import api from '../../connector/connector';
 import { ModelsColor } from 'colorapi/dist/ccapi';
 import { StyledRankingContainerDiv, StyledTitleDiv } from '../../style/style';
+import Header from '../Header';
 
 const SIMULATED_LOADING_TIME_MS = 0;
+const header = <Header />;
 
 async function getRankings() {
   const colors = await api.ranking({ limit: 10 });
@@ -53,6 +55,7 @@ function Leaderboard(props: LeaderboardProps) {
 
   return (
     <div>
+      {header}
       <StyledTitleDiv>
         <h2>the most controversial</h2>
       </StyledTitleDiv>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
 import Nav from './components/Nav/Nav';
-import Header from './components/Header';
 import Judge from './components/Judge/Judge';
 import AllColors from './components/AllColors/AllColors';
 import Leaderboard from './components/Leaderboard/Leaderboard';
@@ -15,7 +14,6 @@ function App() {
     <Router>
       <StyledPageContent>
         <Nav />
-        <Header />
         <Switch>
           <Route path='/' exact component={Judge} />
           <Route path='/colors' component={AllColors} />

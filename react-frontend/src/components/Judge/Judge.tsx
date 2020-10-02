@@ -18,9 +18,10 @@ import {
 } from '../../store/actions';
 import { useDispatch, useStore } from 'react-redux';
 import isDark from '../../misc/brightness';
-// import randomFace from '../../misc/faces';
+import Header from '../Header';
 
 const SIMULATE_LOADING_MS = 0;
+const header = <Header />;
 
 async function randomColor(): Promise<ModelsColor> {
   const result = await api.randomColor({});
@@ -138,9 +139,11 @@ function Judge() {
   }, [location.state]);
 
   const judgeContent = (
-    <StyledJudgeContainerDiv style={{
-      color: isDark(color.hex) ? 'white': 'black'
-    }}>
+    <StyledJudgeContainerDiv
+      style={{
+        color: isDark(color.hex) ? 'white' : 'black',
+      }}
+    >
       <StyledColorSquareAndResultsDiv>
         <StyledColorSquareToJudgeDiv inputColor={color.hex}>
           {isLoading ? (
@@ -170,6 +173,7 @@ function Judge() {
 
   return (
     <div>
+      {header}
       <StyledTitleDiv>
         <h2>collective optical congruence</h2>
       </StyledTitleDiv>

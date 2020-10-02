@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import ColorGrid from './ColorGrid';
 import api from '../../connector/connector';
 import { StyledTitleDiv } from '../../style/style';
+import Header from '../Header';
+
+const header = <Header />;
 
 async function getColors() {
   const colors = await api.allColors({});
@@ -23,6 +26,7 @@ function AllColors() {
 
   return (
     <div>
+      {header}
       <StyledTitleDiv>
         <h2>click to judge</h2>
       </StyledTitleDiv>

@@ -3,10 +3,14 @@ import { StyledContainerDiv, StyledTitleDiv } from '../../style/style';
 import sensitivities from './cone_sensitivities.svg';
 import flourescent from './cool_white_flourescent.svg';
 import colorSelection from './color_selection.gif';
+import Header from '../Header';
+
+const header = <Header />;
 
 function About() {
   return (
     <div>
+      {header}
       <StyledTitleDiv>
         <h2>why?</h2>
       </StyledTitleDiv>
