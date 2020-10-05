@@ -1,5 +1,7 @@
 # color controversy
 
+[colorcontroversy.com](colorcontroversy.com)
+
 This is an app I made to determine the world's most controversial colors.
 
 Here is a bit about the technical architecture.
