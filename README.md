@@ -1,6 +1,6 @@
 # color controversy
 
-[colorcontroversy.com](colorcontroversy.com)
+[colorcontroversy.com](https://www.colorcontroversy.com)
 
 This is an app I made to determine the world's most controversial colors.
 
