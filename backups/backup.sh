@@ -10,5 +10,5 @@ NGINX_PROXY_ID="$( docker inspect --format="{{.Id}}" nginx-proxy )"
 sudo aws s3 cp /var/lib/docker/containers/$NGINX_PROXY_ID/$NGINX_PROXY_ID-json.log s3://color-controversy-backup
 PLAY_ID="$( docker inspect --format="{{.Id}}" play-backend )"
 sudo aws s3 cp /var/lib/docker/containers/$PLAY_ID/$PLAY_ID-json.log s3://color-controversy-backup
-aws s3 cp ./judge_count.txt s3://color-controversy-backup
+aws s3 cp $DIR/judge_count.txt s3://color-controversy-backup
 
