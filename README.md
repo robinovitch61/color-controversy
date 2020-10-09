@@ -53,11 +53,13 @@ git config --global user.name "Your Name"
 git config --global user.email "youremail@gmail.com"
 git config --global credential.helper store
 git config --global core.editor "vim"
+```
 
+```sh
 # install aws cli
-sudo apt  install awscli
+sudo apt install awscli
 
-# configured my account for this instance
+# configured aws account for this instance
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 aws configure
 ```
