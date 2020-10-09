@@ -53,6 +53,13 @@ git config --global user.name "Your Name"
 git config --global user.email "youremail@gmail.com"
 git config --global credential.helper store
 git config --global core.editor "vim"
+
+# install aws cli
+sudo apt  install awscli
+
+# configured my account for this instance
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
+aws configure
 ```
 
 I then cloned this github repo on the lightsail instance and created a `.env` file in the root of the cloned repo with the following values:
@@ -86,6 +93,8 @@ Add following to bottom of file:
 1 * * * * <absolute-path-to-cloned-repo>/backups/backup.sh
 ```
 This will create an hourly backup in the `backups/` directory. You can test it's working by temporarily changing `1 * * * *` to `* * * * *` and waiting one minute, then checking the `backups/` directory contents.
+
+I also copy these backups and some container logs to an S3 bucket as part of the `backup.sh` script.
 
 ### Restore from backup:
 ```sh
