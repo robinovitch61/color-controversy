@@ -140,7 +140,7 @@ function About() {
             style={{ color: 'red' }}
             target='_blank'
             rel='noopener noreferrer'
-            href='https://leorobinovitch.com/'
+            href='https://theleo.zone'
           >
             here on the internet.
           </a>
