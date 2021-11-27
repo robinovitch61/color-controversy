@@ -14,7 +14,7 @@ services:
       - /etc/nginx/vhost.d
       - /usr/share/nginx/html
       - /etc/nginx/certs
- 
+
   nginx-proxy-gen:
     container_name: nginx-proxy-gen
     image: jwilder/docker-gen:0.7.0
@@ -65,9 +65,7 @@ services:
 
   play-backend:
     container_name: play-backend
-    build:
-      context: ./play-backend
-      dockerfile: Dockerfile
+    image: 453228891956.dkr.ecr.us-west-2.amazonaws.com/colorcontroversy-backend:2021-11-27.1
     command: sbt run
     networks:
       - color-nw
@@ -83,13 +81,9 @@ services:
 
   react-frontend:
     container_name: react-frontend
-    build:
-      context: ./react-frontend
-      dockerfile: Dockerfile.prod
+    image: 453228891956.dkr.ecr.us-west-2.amazonaws.com/colorcontroversy-frontend:2021-11-27.1
     networks:
       - color-nw
-    depends_on:
-      - play-backend
     stdin_open: true
     tty: true
     depends_on:
