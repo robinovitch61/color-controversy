@@ -145,6 +145,16 @@ function About() {
             here on the internet.
           </a>
         </p>
+        <p>
+          If you enjoyed this site, you can{' '}
+          <a
+            style={{ color: 'red' }}
+            target='_blank'
+            href='https://ko-fi.com/robinovitch61'
+          >
+            donate here.
+          </a>
+        </p>
       </StyledContainerDiv>
     </div>
   );
