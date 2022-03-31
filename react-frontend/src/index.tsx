@@ -7,6 +7,14 @@ import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import reducer from './store/reducer';
 import { Provider } from 'react-redux';
+import Plausible from 'plausible-tracker';
+
+const plausible = Plausible({
+  domain: 'colorcontroversy.com',
+  apiHost: 'https://plausible.theleo.zone',
+});
+
+plausible.trackPageview();
 
 const store = createStore(reducer, devToolsEnhancer({}));
 
