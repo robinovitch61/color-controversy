@@ -81,7 +81,7 @@ services:
 
   react-frontend:
     container_name: react-frontend
-    image: 453228891956.dkr.ecr.us-west-2.amazonaws.com/colorcontroversy-frontend:2022-03-06.1
+    image: 453228891956.dkr.ecr.us-west-2.amazonaws.com/colorcontroversy-frontend:2022-03-30.1
     networks:
       - color-nw
     stdin_open: true
