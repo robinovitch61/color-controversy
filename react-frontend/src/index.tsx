@@ -14,7 +14,7 @@ const plausible = Plausible({
   apiHost: 'https://plausible.theleo.zone',
 });
 
-plausible.trackPageview();
+plausible.enableAutoPageviews();
 
 const store = createStore(reducer, devToolsEnhancer({}));
 
