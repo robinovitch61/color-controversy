@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledCenteredP, StyledColorResultsDiv } from '../../style/style';
-import { ModelsColor } from 'colorapi/dist/ccapi';
+import { Color as ModelsColor } from '../../services/staticDataService';
 import ColorResults from './ColorResults';
 
 interface ResultsProps {

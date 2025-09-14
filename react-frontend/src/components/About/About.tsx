@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyledContainerDiv, StyledTitleDiv } from '../../style/style';
-import sensitivities from './cone_sensitivities.svg';
-import flourescent from './cool_white_flourescent.svg';
 import colorSelection from './color_selection.gif';
 import Header from '../Header';
+
+const sensitivities = `${process.env.PUBLIC_URL}/cone_sensitivities.svg`;
+const flourescent = `${process.env.PUBLIC_URL}/cool_white_flourescent.svg`;
 
 const header = <Header />;
 

@@ -2,6 +2,7 @@
   "name": "react-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/colorcontroversy",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -12,28 +13,23 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.3",
-    "@types/superagent": "^4.1.10",
-    "colorapi": "file:swagger-gen",
-    "node-sass": "^4.14.1",
+    "sass": "^1.50.0",
     "plausible-tracker": "^0.3.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^5.0.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "styled-components": "^5.2.0",
-    "superagent": "^6.0.0",
-    "swagger-typescript-codegen": "^3.2.0",
     "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build-api": "cd swagger-gen && node gen.ts && ../node_modules/.bin/tsc && cd .. && npm i swagger-gen"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

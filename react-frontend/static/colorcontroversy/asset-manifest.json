@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/colorcontroversy/static/css/main.d1a9ed8d.css",
+    "main.js": "/colorcontroversy/static/js/main.3b91b4e4.js",
+    "static/media/color_selection.gif": "/colorcontroversy/static/media/color_selection.1e4d5547f02ff49723eb.gif",
+    "static/media/robotomono-regular-webfont.woff": "/colorcontroversy/static/media/robotomono-regular-webfont.552fa2321d36916667e3.woff",
+    "static/media/robotomono-bold-webfont.woff": "/colorcontroversy/static/media/robotomono-bold-webfont.9ccb5458464b65f14807.woff",
+    "static/media/robotomono-regular-webfont.woff2": "/colorcontroversy/static/media/robotomono-regular-webfont.c501f81fc98ee557ebac.woff2",
+    "static/media/robotomono-bold-webfont.woff2": "/colorcontroversy/static/media/robotomono-bold-webfont.a9017c1b109f183fad5d.woff2",
+    "index.html": "/colorcontroversy/index.html",
+    "main.d1a9ed8d.css.map": "/colorcontroversy/static/css/main.d1a9ed8d.css.map",
+    "main.3b91b4e4.js.map": "/colorcontroversy/static/js/main.3b91b4e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1a9ed8d.css",
+    "static/js/main.3b91b4e4.js"
+  ]
+}

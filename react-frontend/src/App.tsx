@@ -11,7 +11,7 @@ import { StyledPageContent } from './style/style';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <StyledPageContent>
         <Nav />
         <Switch>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RankedColor from './RankedColor';
 import api from '../../connector/connector';
-import { ModelsColor } from 'colorapi/dist/ccapi';
+import { Color as ModelsColor } from '../../services/staticDataService';
 import { StyledRankingContainerDiv, StyledTitleDiv } from '../../style/style';
 import Header from '../Header';
 

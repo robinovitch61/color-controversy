@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModelsColor } from 'colorapi/dist/ccapi';
+import { Color as ModelsColor } from '../../services/staticDataService';
 import ColorResult from './ColorResult';
 import { StyledFlexDiv } from '../../style/style';
 

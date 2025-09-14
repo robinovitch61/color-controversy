@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../connector/connector';
-import { ModelsColor } from 'colorapi/dist/ccapi';
+import { Color as ModelsColor } from '../../services/staticDataService';
 import JudgementResult from './Results';
 import NextButton from './NextButton';
 import ColorChoices from './ColorChoices';
@@ -128,15 +128,19 @@ function Judge() {
     return Math.round((controversialCount / judgeCount) * 100);
   };
 
-  // set initial color
+  // set initial color and reset state when component mounts or location changes
   useEffect(() => {
+    // Reset judging state when navigating to Judge
+    setChoice('');
+    setIsJudging(true);
+
     const hexColor = location.state as string;
     if (hexColor) {
       setColorFromHex(hexColor);
     } else {
       getRandomHexAndSetColor();
     }
-  }, [location.state]);
+  }, [location.pathname, location.state]); // Also depend on pathname to reset when navigating to Judge route
 
   const judgeContent = (
     <StyledJudgeContainerDiv

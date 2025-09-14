@@ -1,12 +1,13 @@
 import React from 'react';
-import { AppState } from '../../store/types';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleNav } from '../../store/actions';
-import logo from './logo.svg';
-import hamburger from './hamburger.svg';
-import exit from './exit.svg';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppState } from '../../store/types';
+import { toggleNav } from '../../store/actions';
 import { StyledNav, StyledNavButton } from '../../style/style';
+
+const logo = `${process.env.PUBLIC_URL}/logo.svg`;
+const hamburger = `${process.env.PUBLIC_URL}/hamburger.svg`;
+const exit = `${process.env.PUBLIC_URL}/exit.svg`;
 
 export default function Nav() {
   const navOpen = useSelector((state: AppState) => state.navOpen);
