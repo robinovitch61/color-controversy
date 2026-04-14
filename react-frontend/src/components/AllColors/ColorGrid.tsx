@@ -7,6 +7,7 @@ const MARGIN_BETWEEN_COLORS_PERC = 1.5;
 
 interface ColorGridProps {
   colors: string[];
+  navigateToJudge: (hex: string) => void;
 }
 
 function ColorGrid(props: ColorGridProps) {
@@ -22,6 +23,7 @@ function ColorGrid(props: ColorGridProps) {
             hexColor={color}
             nColorsPerRow={NUM_COLORS_PER_ROW}
             marginPerc={MARGIN_BETWEEN_COLORS_PERC}
+            navigateToJudge={props.navigateToJudge}
           />
         ))}
       </StyledColorGridDiv>

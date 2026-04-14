@@ -11,7 +11,11 @@ async function getColors() {
   return colors.body;
 }
 
-function AllColors() {
+interface AllColorsProps {
+  navigateToJudge: (hex: string) => void;
+}
+
+function AllColors({ navigateToJudge }: AllColorsProps) {
   const [colors, setColors] = useState(['']);
 
   const updateColors = () => {
@@ -30,7 +34,7 @@ function AllColors() {
       <StyledTitleDiv>
         <h2>click to judge</h2>
       </StyledTitleDiv>
-      <ColorGrid colors={colors} />
+      <ColorGrid colors={colors} navigateToJudge={navigateToJudge} />
     </div>
   );
 }

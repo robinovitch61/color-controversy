@@ -13,10 +13,6 @@ async function getRankings() {
   return colors.body;
 }
 
-interface LeaderboardProps {
-  colors: ModelsColor[];
-}
-
 const defaultColor: ModelsColor = {
   hex: '#000000',
   firstOption: '',
@@ -30,7 +26,7 @@ const defaultColors = Array(10)
     return { ...col, hex: `#00000${idx.toString()}` };
   });
 
-function Leaderboard(props: LeaderboardProps) {
+function Leaderboard() {
   const [colors, setColors] = useState(defaultColors);
   const [isLoading, setIsLoading] = useState(true);
 

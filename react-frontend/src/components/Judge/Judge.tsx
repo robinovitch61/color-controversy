@@ -11,7 +11,6 @@ import {
   StyledColorResultsDiv,
   StyledTitleDiv,
 } from '../../style/style';
-import { useLocation } from 'react-router-dom';
 import {
   updateControversialCount,
   updateJudgeCount,
@@ -41,12 +40,15 @@ const defaultColor: ModelsColor = {
   nSecond: 0,
 };
 
-function Judge() {
+interface JudgeProps {
+  initialHex?: string | null;
+}
+
+function Judge({ initialHex }: JudgeProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [color, setColor] = useState(defaultColor);
   const [choice, setChoice] = useState('');
   const [isJudging, setIsJudging] = useState(true);
-  const location = useLocation(); // react router
   const dispatch = useDispatch(); // redux
   const store = useStore(); // redux
 
@@ -128,19 +130,15 @@ function Judge() {
     return Math.round((controversialCount / judgeCount) * 100);
   };
 
-  // set initial color and reset state when component mounts or location changes
   useEffect(() => {
-    // Reset judging state when navigating to Judge
     setChoice('');
     setIsJudging(true);
-
-    const hexColor = location.state as string;
-    if (hexColor) {
-      setColorFromHex(hexColor);
+    if (initialHex) {
+      setColorFromHex(initialHex);
     } else {
       getRandomHexAndSetColor();
     }
-  }, [location.pathname, location.state]); // Also depend on pathname to reset when navigating to Judge route
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const judgeContent = (
     <StyledJudgeContainerDiv

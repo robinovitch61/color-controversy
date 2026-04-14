@@ -1,15 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/types';
 import { toggleNav } from '../../store/actions';
 import { StyledNav, StyledNavButton } from '../../style/style';
+import { Page } from '../../App';
 
 const logo = `${process.env.PUBLIC_URL}/logo.svg`;
 const hamburger = `${process.env.PUBLIC_URL}/hamburger.svg`;
 const exit = `${process.env.PUBLIC_URL}/exit.svg`;
 
-export default function Nav() {
+interface NavProps {
+  setPage: (page: Page) => void;
+  currentPage: Page;
+  navigateToJudge: () => void;
+}
+
+export default function Nav({ setPage, currentPage, navigateToJudge }: NavProps) {
   const navOpen = useSelector((state: AppState) => state.navOpen);
   const dispatch = useDispatch();
 
@@ -25,32 +31,31 @@ export default function Nav() {
     }
   };
 
-  // TODO: Make this more component-ey
   return (
     <StyledNav>
       {/* logo */}
       <div className={'nav-logo-container'}>
-        <Link to='/' onClick={() => hideNav()}>
+        <span onClick={() => navigateToJudge()} style={{ cursor: 'pointer' }}>
           <span>
             <img className={'nav-logo'} src={logo} alt={'color wheel logo'}></img>
           </span>
-        </Link>
+        </span>
       </div>
 
       {/* desktop */}
       <div className={'nav-links'}>
-        <Link to='/'>
+        <span onClick={() => navigateToJudge()}>
           <span>Judge</span>
-        </Link>
-        <Link to='/colors'>
+        </span>
+        <span onClick={() => setPage('colors')}>
           <span>All Colors</span>
-        </Link>
-        <Link to='/leaderboard'>
+        </span>
+        <span onClick={() => setPage('leaderboard')}>
           <span>Leaderboard</span>
-        </Link>
-        <Link to='/what'>
+        </span>
+        <span onClick={() => setPage('what')}>
           <span>What?</span>
-        </Link>
+        </span>
       </div>
 
       {/* mobile */}
@@ -74,18 +79,18 @@ export default function Nav() {
         className={'nav-links-mobile'}
         style={{ display: navOpen ? '' : 'none' }}
       >
-        <Link to='/' onClick={() => hideNav()}>
+        <span onClick={() => { navigateToJudge(); hideNav(); }}>
           <span>Judge</span>
-        </Link>
-        <Link to='/colors' onClick={() => hideNav()}>
+        </span>
+        <span onClick={() => { setPage('colors'); hideNav(); }}>
           <span>All Colors</span>
-        </Link>
-        <Link to='/leaderboard' onClick={() => hideNav()}>
+        </span>
+        <span onClick={() => { setPage('leaderboard'); hideNav(); }}>
           <span>Leaderboard</span>
-        </Link>
-        <Link to='/what' onClick={() => hideNav()}>
+        </span>
+        <span onClick={() => { setPage('what'); hideNav(); }}>
           <span>What?</span>
-        </Link>
+        </span>
       </div>
     </StyledNav>
   );

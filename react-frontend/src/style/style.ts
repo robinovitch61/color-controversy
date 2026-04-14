@@ -305,12 +305,14 @@ export const StyledNav = styled.nav`
       display: none;
     }
 
-    a {
+    span {
       width: 160px;
       margin: 0;
       height: 100%;
       display: inline-block;
       text-align: center;
+      cursor: pointer;
+      user-select: none;
 
       // allows vertical middle  alignment
       &:before {
@@ -338,7 +340,7 @@ export const StyledNav = styled.nav`
     font-size: 1.1rem;
     z-index: 5;
 
-    a {
+    span {
       width: 90%;
       padding: 1.5rem 0;
       margin: 0.3rem 0;
@@ -346,6 +348,8 @@ export const StyledNav = styled.nav`
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      user-select: none;
     }
 
     @media screen and (max-width: ${TRANSITION_WIDTH_MOBILE}px) {

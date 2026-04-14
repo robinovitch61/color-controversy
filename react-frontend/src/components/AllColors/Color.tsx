@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyledColorDiv } from '../../style/style';
-import { Link } from 'react-router-dom';
 
 interface ColorProps {
   hexColor: string;
   nColorsPerRow: number;
   marginPerc: number;
+  navigateToJudge: (hex: string) => void;
 }
 
 function Color(props: ColorProps) {
@@ -14,14 +14,9 @@ function Color(props: ColorProps) {
       color={props.hexColor}
       marginPerc={props.marginPerc}
       nColorsPerRow={props.nColorsPerRow}
-    >
-      <Link
-        to={{
-          pathname: `/`,
-          state: props.hexColor,
-        }}
-      />
-    </StyledColorDiv>
+      onClick={() => props.navigateToJudge(props.hexColor)}
+      style={{ cursor: 'pointer' }}
+    />
   );
 }
 
